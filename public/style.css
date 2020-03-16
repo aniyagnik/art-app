@@ -1,0 +1,26 @@
+
+body{
+    border: 1px solid black;
+    margin:0em;
+    padding: 0em;
+}
+.home{
+    width:97vw;
+    height: 99.8vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.flex-itemH{
+    border: 1px solid black;
+    margin:10vw;
+}
+
+.textInfo{
+
+}
