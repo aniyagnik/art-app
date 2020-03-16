@@ -5,15 +5,14 @@ body{
 }
 .content{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction:row;
     background-color: yellow;
-    align-items: flex-start;
 }
 
 .navbar{
-    margin:20vh -20vw;
+    margin:13vh 2vw;
     background-color: black;
     box-shadow: 5px 5px 1px crimson;
     border-radius: 10px;
