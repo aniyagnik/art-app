@@ -1,38 +1,51 @@
+html {
+    scroll-behavior: smooth;
+  }
 
 body{
     margin:0em;
     padding: 0em;
 }
+
 .content{
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
     flex-direction:row;
-    background-color: yellow;
+    background-color: black;
 }
 
+.navbar > a{
+    color:whitesmoke;
+    text-decoration: none;
+}
+a:hover{
+    color: black;
+}
 .navbar{
-    margin:13vh 2vw;
     background-color: black;
     box-shadow: 5px 5px 1px crimson;
     border-radius: 10px;
     color:whitesmoke;
     display: inline-block;
+    opacity: 0.9;
     cursor: pointer;
+    position: sticky;
+    margin: 0px 10px;
+    margin-top:-390vh;
 }
 
 .navbar div{
     padding:30px 20px;
-    border: 1px solid rgb(24, 26, 25);
     text-align: center;
     opacity: 0.7;
+    border-radius: 10px;
     font-weight: 600;
     font-family: serif;
 }
 
 
 .navbar div:hover{
-    border: 1px solid crimson;
     background-color: whitesmoke;
     color: black;
     opacity: 1;
@@ -42,7 +55,7 @@ body{
 
 .mainContent{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
 }
@@ -50,7 +63,7 @@ body{
 .home{
     width:89.6vw;
     height: 100vh;
-    background-image: url('back.jpg');
+    background-image: url('s.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -87,7 +100,7 @@ body{
 .images{
     width:89.6vw;
     height: 100vh;
-    background-image: url('img.jpg');
+    background-image: url('s.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -129,7 +142,7 @@ body{
 .reviews{
     width:89.6vw;
     height: 100vh;
-    background-image: url('rev.jpg');
+    background-image: url('s.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -143,7 +156,7 @@ body{
 .gallary{
     width:89.6vw;
     height: 100vh;
-    background-image: url('gal.jpg');
+    background-image: url('s.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -157,7 +170,7 @@ body{
 .contact{
     width:89.6vw;
     height: 100vh;
-    background-image: linear-gradient(to bottom, #000000, #280e1b, #441139, #581a62, #5d2d94, #5d2d94, #5d2d94, #5d2d94, #581a62, #441139, #280e1b, #000000);
+    background-image: linear-gradient(to right, #000000, #151211, #211d1b, #2c2a24, #35372f);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -169,6 +182,11 @@ body{
     background-color: white;
     box-shadow: 10px 10px 20px gold;
     width: inherit;
+}
+
+.value > a{
+    color:brown;
+    text-decoration: none;
 }
 .contactHead{
     width: min-content;
@@ -213,6 +231,7 @@ input[type='text']{
     padding: 1vh 10px;
     font-family: monospace;
 }
+
 .prop{
     background-color: gray;
     color: whitesmoke;
