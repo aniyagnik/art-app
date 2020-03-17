@@ -333,10 +333,7 @@ body{
     flex-direction: column;
 }
 
-
-
-
-.currEvent{
+.Events{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -344,48 +341,35 @@ body{
     border:3px dashed black;
     min-height: 69.5vh;
     max-height: 69.5vh;
-    min-width: 81%;
-    max-width: 81%;
+    min-width: 90%;
+    max-width: 90%;
 }
 
-
-.thumbnailEvents{
-    overflow-y: scroll; 
-    border:3px dashed rgb(38, 14, 255);
-    min-height: 69.5vh;
-    max-height: 69.5vh;
-    min-width: 19%;
-    max-width: 19%;
+.flex-itemevent{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    flex-direction: column;   
+    flex-direction: column;
 }
 
-.events{
-    min-width: 100%;
-    max-width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column; 
-}
-
-.thumbnailEvent{
-    background-image: url('https://picsum.photos/seed/picsum/200/300');
+.eventImg{
+    width:23vw;
+    height:23vw;
+    border-radius: 300px;
+    background-image: url('rev.jpg');
+    background-attachment: fixed;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    border-radius: 50px;
-    border:1px dashed rgb(18, 189, 89);
-    min-height: 13.375vh;
-    max-height: 13.375vh;
-    min-width: 60%;
-    max-width: 60%;
-    margin: 1vh auto;
 }
 
-
+.eventText{
+    font:2em monospace;
+    color:crimson;
+    font-weight: 900;
+    padding-top: 2vh;
+    text-align: center;
+}
 .about{
     min-width: 99vw;
     min-height: 100vh;
