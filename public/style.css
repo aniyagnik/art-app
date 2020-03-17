@@ -166,15 +166,69 @@ body{
     font-size: 2em;
 }
 
-.marginTB{
-    margin:-1vw 0vw 4vw;
-}
 
 .itemImg{
     min-height: 61vh;
     min-width: 80vw;
     border: 10px solid brown;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;   
 }
+
+#mainImg{
+    min-height: 58vh;
+    min-width: 62vw;
+    max-height: 58vh;
+    max-width: 62vw;
+    object-fit: cover;
+}
+
+
+.currImg{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;   
+    border:3px dashed black;
+    min-height: 69.5vh;
+    max-height: 69.5vh;
+    min-width: 81%;
+    max-width: 81%;
+}
+
+
+.thumbnailImgs{
+    overflow-y: scroll; 
+    border:3px dashed rgb(38, 14, 255);
+    min-height: 69.5vh;
+    max-height: 69.5vh;
+    min-width: 19%;
+    max-width: 19%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;   
+}
+
+.thumbnail{
+    background-image: url('https://picsum.photos/seed/picsum/200/300');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border:1px dashed rgb(18, 189, 89);
+    min-height: 13.375vh;
+    max-height: 13.375vh;
+    min-width: 90%;
+    max-width: 90%;
+    margin: 1vh auto;
+}
+
+.marginTB{
+    margin:-1vw 0vw 4vw;
+}
+
 
 .testimonials{
     width:99vw;
@@ -190,6 +244,81 @@ body{
     flex-direction: column;
 }
 
+
+.itemTestimonial{
+    min-height: 61vh;
+    min-width: 80vw;
+    max-width: 80vw;
+    border: 10px solid brown;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;   
+}
+
+.currTestimonial{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: row;   
+    border:3px dashed black;
+    min-height: 51vh;
+    max-height: 51vh;
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.testImg{
+    min-width: 13vw;
+    min-height: 13vw;
+    max-width: 13vw;
+    max-height: 13vw;
+    border-radius: 50px;
+}
+
+.testimonialText{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;  
+    margin-left:10vw;
+    width: 40%;
+    text-align: justify;
+    font: 1.5em sans-serif;
+}
+
+.flexText{
+    margin: 0.7vh auto;
+}
+
+.otherTs{
+    overflow-x: scroll;
+    overflow-y: hidden; 
+    border:3px dashed rgb(38, 14, 255);
+    min-height: 13vh;
+    max-height: 13vh;
+    min-width: 45%;
+    max-width: 45%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;   
+}
+
+.smallTesti{
+    background-image: url('https://picsum.photos/seed/picsum/200/300');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border:1px dashed rgb(18, 189, 89);
+    min-height: 11.375vh;
+    max-height: 11.375vh;
+    min-width: 17%;
+    max-width: 17%;
+    margin: 1vh 1vw !important;
+    border-radius: 100px;
+}
+
 .gallary{
     width:99vw;
     height: 100vh;
@@ -203,6 +332,59 @@ body{
     align-items: center;
     flex-direction: column;
 }
+
+
+
+
+.currEvent{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;   
+    border:3px dashed black;
+    min-height: 69.5vh;
+    max-height: 69.5vh;
+    min-width: 81%;
+    max-width: 81%;
+}
+
+
+.thumbnailEvents{
+    overflow-y: scroll; 
+    border:3px dashed rgb(38, 14, 255);
+    min-height: 69.5vh;
+    max-height: 69.5vh;
+    min-width: 19%;
+    max-width: 19%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;   
+}
+
+.events{
+    min-width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column; 
+}
+
+.thumbnailEvent{
+    background-image: url('https://picsum.photos/seed/picsum/200/300');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50px;
+    border:1px dashed rgb(18, 189, 89);
+    min-height: 13.375vh;
+    max-height: 13.375vh;
+    min-width: 60%;
+    max-width: 60%;
+    margin: 1vh auto;
+}
+
 
 .about{
     min-width: 99vw;
