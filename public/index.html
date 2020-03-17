@@ -15,28 +15,49 @@
         <!-- navigation bar -->
         <div class="navbar">
             <a href="#home" title='HOME'>
-                <div class="homeMenu">
+                <div class="homeMenu menu">
                     <i class='fas fa-home' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;home
                 </div> 
             </a>
             <a href="#images" title='ITEMS'>
-                <div class="itemsMenu">
+                <div class="itemsMenu  menu">
                     <i class='fas fa-image' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;items
                 </div>
             </a>
-            <a href="#reviews" title="REVIEWS">
-                <div class="reviewsMenu">
-                    <i class='far fa-comment-alt' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;reviews
+            <a href="#testimonials" title="testimonials">
+                <div class="testimonialsMenu  menu">
+                    <i class='far fa-comment-alt' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;testimonials
                     </div>
             </a>
             <a href="#gallary" title="GALLARY"> 
-                <div class="GALLARYMenu">
+                <div class="GALLARYMenu  menu">
                     <i class='far fa-images' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;gallary
                 </div>
             </a>
-            <a href="#contact" title=CONTACT>
-                <div class="contactMenu">
+            <a href="#about" title="ABOUT"> 
+                <div class="aboutMenu  menu">
+                    <i class='far fa-meh-rolling-eyes' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;about
+                </div>
+            </a>
+            <a title=CONTACT class='dropBtn'>
+                <div class="contactMenu  menu">
                     <i class="material-icons" style="font-size:26px">contact_phone</i>&nbsp;&nbsp;&nbsp;&nbsp;contact
+                </div>
+                
+                <!-- dropdown menu -->
+                <div class="dropdownContent">
+                    <div class="mail ts">
+                        <span><i class="material-icons">mail</i></span>
+                        <span>pragyaagnik@gmail.com</span>
+                    </div>
+                    <div class="phone ts">
+                        <span><i class='fab fa-whatsapp' ></i></i></span>
+                        <span>+91-9889238731</span>
+                    </div>
+                    <div class="social ts">
+                        <span><i class='fab fa-instagram'></i> </span>
+                        <span>@pranyaDesign</span>
+                    </div>
                 </div>
             </a>
         </div>
@@ -47,16 +68,16 @@
             <!-- home screen -->
             <div class="home" id='home'>
                 <!-- admin image -->
-                <div class="flex-itemH">
-                    <img class='avatar' src="https://picsum.photos/200/300?random=1" alt='image'>
+                <div class="flex-itemH logoDiv">
+                    <span>
+                        <img class='logoPic' src="https://picsum.photos/200/300?random=1" alt='image'>
+                    </span>
+                    <span class=logo>pranyaDesign</span>
                 </div>
-                <!-- about comapany -->
-                <div class="flex-itemH textInfo">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit mollitia minima pariatur quae in tenetur, 
-                        ab provident necessitatibus praesentium fugiat labore quam accusantium repudiandae iste dolores velit eius tempora facilis!
-                    </p>
+                <div class="flex-itemH marquee">
+                    <marquee width = "100%" behaviour='alternate' id='marqueeContiner'></marquee>
                 </div>
+                
             </div>
 
             <!-- items made so far -->
@@ -70,12 +91,12 @@
                 <div class="flex-itemI itemImg"></div>
             </div>
             
-            <!-- reviews -->
-            <div class="reviews" id='reviews'>
+            <!-- testimonials -->
+            <div class="testimonials" id='testimonials'>
                 <!-- text -->
                 <div class="flex-itemR marginTB">
                     <p class="infoText">...your inspiring</p>
-                    <p class="infoHead">reviews</p>
+                    <p class="infoHead">testimonials</p>
                 </div>
                 <!-- users review -->
                 <div class="flex-itemR itemImg"></div>
@@ -93,75 +114,30 @@
             </div>
 
             
-            <!-- contact Info -->
-            <div class="contact" id='contact'>
-                <!-- text -->
-                <div class="flex-itemC cHead">
-                    <p class="contactHead">contact</p>
+            <!-- about Info -->
+            <div class="about" id='about'>
+                <div class="flex-itemA aboutHead">
+                    ABOUT ME
                 </div>
-                <!-- items pictures -->
-                <div class="flex-itemC contactInfo">
-                    <div class="flex-itemContactInfo">
-                        <div class="contactMail">
-                            <span>Mail</span>
-                            <span><input type="text"></span>
-                            <br><br>
-                            <span>subject</span>
-                            <span><input type="text"></span>
-                            <br><br>
-                            <span>body</span><br>
-                            <span><textarea name="" id="" cols="69" rows="5"></textarea></span>
-                            <br><br>
-                            <button id="reset">reset</button>
-                            <button id="submit">submit</button>
-                        </div>
-                    </div>
-                    <div class="flex-itemContactInfo">
-                        <div class="cBox">
-                            <span class="prop">Mail</span>
-                            <span class="value"><a href="mailto:pragyagnik@gmail.com">pragyagnik@gmail.com</a></span>
-                        </div>
-                        <div class="cBox">
-                            <span class="prop">Phone</span>
-                            <span class="value"><a href="tel:+91-9878967812">+91-9878967812</a></span>
-                        </div>
-                        <div class="cBox">
-                            <span class="prop">instagram</span>
-                            <span class="value">@pranyaDesign</span>
-                        </div>
-                    </div>
+                <div class="flex-itemA">
+                    <img class='avatar' src="https://picsum.photos/200/300?random=1" alt='image'>
                 </div>
+                <div class="flex-itemA aboutName">
+                    Pragya Yagnik
+                </div>
+                <!-- about comapany -->
+                <div class="flex-itemA textInfo">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit mollitia minima pariatur quae in tenetur, 
+                        ab provident necessitatibus praesentium fugiat labore quam accusantium repudiandae iste dolores velit eius tempora facilis!
+                    </p>
+                </div>
+                <div style='min-height: 2vw;'></div>
             </div>
         </div>
     </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
-<script>
-var currentScroll = $(window).scrollTop();
-        if(currentScroll!=0){
-            $('.navbar').css({
-                'background-color':'black',
-                opacity:0.8,
-                transition:  'all 0.5s'
-                });
-        }    
-$(window).scroll(function(){
-    var currentScroll = $(window).scrollTop();
-        if(currentScroll!=0){
-            $('.navbar').css({
-                'background-color':'black',
-                opacity:0.8,
-                transition:  'all 0.5s'
-                });
-        }
-        else{
-            $('.navbar').css({
-                'background-color':'transparent',
-                opacity:0.9,
-                transition:  'all 0.5s'
-                });
-        }
-});
-</script>
+<script src='script.js'></script>
 
 </body>
 </html>

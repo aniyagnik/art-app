@@ -4,7 +4,8 @@ html {
 
 .content{
     background-color: black;
-}  
+}
+
 body{
     margin:0em;
     padding: 0em;
@@ -15,9 +16,6 @@ body{
     text-decoration: none;
 }
 
-a:hover{
-    color: black;
-}
 
 .navbar{
     width: 99vw;
@@ -33,7 +31,7 @@ a:hover{
 
 }
 
-.navbar div{
+.navbar .menu{
     padding:15px 40px;
     text-align: center;
     opacity: 0.7;
@@ -43,7 +41,7 @@ a:hover{
 }
 
 
-.navbar div:hover{
+.navbar .menu:hover{
     background-image: url('rev.jpg');
     color: rgb(146, 219, 29);
     opacity: 1;
@@ -53,6 +51,29 @@ a:hover{
     transition:  all 0.3s;
 }
 
+.dropdownContent{
+    display: none;
+    position: absolute;
+}
+
+.dropBtn:hover .dropdownContent{
+    font-size: 0.9em ;
+    display: block ;
+    color:black;
+}
+
+.ts{
+    background-color: honeydew ;
+    border-radius: 10px;
+    padding:20px 30px;
+    border-radius: 10px;
+}
+
+.ts:hover{
+    background-color: lightslategray ;
+    border:none ;
+    transition: all 0.3s;
+}
 .mainContent{
     display: flex;
     justify-content: flex-start;
@@ -72,30 +93,45 @@ a:hover{
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .flex-itemH{
-    margin:7vw;
+    margin:2vw;
 }
 
-.textInfo{
-    border: 3px solid crimson;
-    color:whitesmoke;
-    background-color: black;
-    opacity: 0.6;
-    font-family: monospace;
-    font-weight: black;
-    font-size: 1.9em;
-    padding: 2em;
-    position: unset;
-    text-align: center;
+.logoDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top:4vw;
+    min-width: 90vw;
 }
 
-.avatar{
-    height: 300px;
-    width: 300px;
-    box-shadow: 5px 5px 30px yellow;
-    border-radius: 50%;
+.logo{
+    margin:0vw 10vw;
+    font-size: 3em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.logoPic{
+    width: 25vh;
+    height: 25vh;
+    border-radius: 500px;
+}
+
+.marquee{
+    max-width: 70vw;
+    border: 5px solid gold;
+    background-image: linear-gradient(to right top, #6bd174, #00c7a8, #00b6e4, #009cff, #0072ff, #7d5be9, #aa3cca, #c500a5, #ea2486, #fc526d, #ff7d5e, #fba35f);
+    box-shadow: 2px 10px 20px whitesmoke;
+}
+
+.marqueeImg{
+    width: 15vw;
+    height: 15vw;
 }
 
 .images{
@@ -140,7 +176,7 @@ a:hover{
     border: 10px solid brown;
 }
 
-.reviews{
+.testimonials{
     width:99vw;
     height: 100vh;
     background-image: url('img.jpg');
@@ -168,106 +204,58 @@ a:hover{
     flex-direction: column;
 }
 
-.contact{
-    width:99vw;
-    height: 100vh;
-    background-image: linear-gradient(to right, #000000, #151211, #211d1b, #2c2a24, #35372f);
+.about{
+    min-width: 99vw;
+    min-height: 100vh;
+    background-image: url('img.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
 }
 
-.cHead{
-    justify-content: left;
-    width: 91vw;
+.flex-itemA{
+    margin:2vw;
 }
 
-.value > a{
-    color:brown;
-    text-decoration: none;
-}
-.contactHead{
-    justify-content: left;
-    color: brown;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 10px 10px 20px crimson;
-    font-size: 2.5em;
+.aboutHead{
+    font-size: 3em;
+    text-align: center;
     font-weight: 900;
-    font-family: monospace;
-    padding: 1.2vh 4vw;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: 2px 2px #ff0000;
 }
 
-.contactInfo{
-    min-height: 79vh;
-    min-width: 85vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-}
 
-.flex-itemContactInfo{
-    min-width: 40vw;
-    min-height: 30vh;
+.aboutName{
+    font-size: 2em;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: 2px 3px #ff0000;
 }
-
-.contactMail{
-    max-height: 50vh;
-    max-width: 37vw;
-    padding:2vw 2vw;
-    text-align: left;
+.textInfo{
+    border: 3px solid crimson;
     color:whitesmoke;
-    background-color: crimson;
-    font-size: 1.5em;
-}
-
-input[type='text']{
-    padding:10px;
-    width: 96%;
-}
-
-.cBox{
-    padding: 1vh 10px;
+    background-color: black;
+    opacity: 0.6;
+    max-width: 55vw;
     font-family: monospace;
+    font-weight: black;
+    font-size: 1.9em;
+    padding: 2em;
+    position: unset;
+    text-align: center;
 }
 
-.prop{
-    background-color: gray;
-    color: whitesmoke;
-    padding: 1px 10px;
-    box-shadow: 2px 2px 1px black;
-    border-radius: 5px;
-}
-
-.value{
-    background-color: rgb(235, 235, 235);
-    color: rgb(151, 32, 32);
-    padding: 1px 10px;
-    box-shadow: 2px 2px 1px black;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#reset{
-    background-color: red;
-    padding:1vh 2vw;
-    font-size: 0.8em;
-    font-weight: 300;
-    font-family: 'Times New Roman', Times, serif;
-    border-radius: 50px;
-    color: whitesmoke;
-    cursor: pointer;
-}
-
-
-#submit{
-    background-color: rgb(0, 255, 13);
-    padding:1vh 2vw;
-    font-size: 0.8em;
-    font-weight: 300;
-    font-family: 'Times New Roman', Times, serif;
-    border-radius: 50px;
-    color: whitesmoke;
-    cursor: pointer;
+.avatar{
+    height: 33vh;
+    width: 33vh;
+    box-shadow: 5px 5px 30px yellow;
+    border-radius: 50%;
 }
