@@ -36,7 +36,7 @@ a:hover{
 }
 
 .navbar div{
-    padding:30px 20px;
+    padding:20px 30px;
     text-align: center;
     opacity: 0.7;
     border-radius: 10px;
@@ -61,9 +61,9 @@ a:hover{
 }
 
 .home{
-    width:89.6vw;
+    width:91.5vw;
     height: 100vh;
-    background-image: url('s.jpg');
+    background-image: url('back.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -98,9 +98,9 @@ a:hover{
 }
 
 .images{
-    width:89.6vw;
+    width:91.5vw;
     height: 100vh;
-    background-image: url('s.jpg');
+    background-image: url('img.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -140,9 +140,9 @@ a:hover{
 }
 
 .reviews{
-    width:89.6vw;
+    width:91.5vw;
     height: 100vh;
-    background-image: url('s.jpg');
+    background-image: url('img.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -154,9 +154,9 @@ a:hover{
 }
 
 .gallary{
-    width:89.6vw;
+    width:91.5vw;
     height: 100vh;
-    background-image: url('s.jpg');
+    background-image: url('img.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -168,7 +168,7 @@ a:hover{
 }
 
 .contact{
-    width:89.6vw;
+    width:91.5vw;
     height: 100vh;
     background-image: linear-gradient(to right, #000000, #151211, #211d1b, #2c2a24, #35372f);
     display: flex;
@@ -179,9 +179,7 @@ a:hover{
 
 .cHead{
     justify-content: left;
-    background-color: white;
-    box-shadow: 10px 10px 20px gold;
-    width: inherit;
+    width: 91vw;
 }
 
 .value > a{
@@ -189,11 +187,12 @@ a:hover{
     text-decoration: none;
 }
 .contactHead{
-    width: min-content;
+    justify-content: left;
     color: brown;
-    background-color: gold;
-    box-shadow: 10px 10px 20px gold;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 10px 10px 20px crimson;
     font-size: 2.5em;
+    font-weight: 900;
     font-family: monospace;
     padding: 1.2vh 4vw;
 }
