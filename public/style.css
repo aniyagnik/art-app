@@ -119,7 +119,15 @@ body{
 .logoPic{
     width: 25vh;
     height: 25vh;
-    border-radius: 500px;
+    border: 6px solid black;
+    box-shadow: 2px 2px 2px 2px rgb(194, 186, 186);
+}
+
+
+.logoPic:hover{
+    border: 6px solid black;
+    box-shadow: 5px 5px 5px 5px rgb(197, 186, 186);
+    transition: all 0.3s;
 }
 
 .marquee{
@@ -170,7 +178,6 @@ body{
 .itemImg{
     min-height: 61vh;
     min-width: 80vw;
-    border: 10px solid brown;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -191,7 +198,6 @@ body{
     justify-content: space-around;
     align-items: center;
     flex-direction: row;   
-    border:3px dashed black;
     min-height: 69.5vh;
     max-height: 69.5vh;
     min-width: 81%;
@@ -201,7 +207,6 @@ body{
 
 .thumbnailImgs{
     overflow-y: scroll; 
-    border:3px dashed rgb(38, 14, 255);
     min-height: 69.5vh;
     max-height: 69.5vh;
     min-width: 19%;
@@ -226,7 +231,7 @@ body{
 }
 
 .marginTB{
-    margin:-1vw 0vw 4vw;
+    margin:-1vw 0vw 2vw;
 }
 
 
@@ -249,7 +254,6 @@ body{
     min-height: 61vh;
     min-width: 80vw;
     max-width: 80vw;
-    border: 10px solid brown;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -261,7 +265,6 @@ body{
     justify-content:center;
     align-items: center;
     flex-direction: row;   
-    border:3px dashed black;
     min-height: 51vh;
     max-height: 51vh;
     min-width: 100%;
@@ -294,7 +297,6 @@ body{
 .otherTs{
     overflow-x: scroll;
     overflow-y: hidden; 
-    border:3px dashed rgb(38, 14, 255);
     min-height: 13vh;
     max-height: 13vh;
     min-width: 45%;
@@ -333,14 +335,22 @@ body{
     flex-direction: column;
 }
 
+.itemGal{
+    min-height: 61vh;
+    min-width: 80vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;   
+}
+
 .Events{
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: row;   
-    border:3px dashed black;
-    min-height: 69.5vh;
-    max-height: 69.5vh;
+    min-height: 55.5vh;
+    max-height: 55.5vh;
     min-width: 90%;
     max-width: 90%;
 }
@@ -353,6 +363,9 @@ body{
 }
 
 .eventImg{
+    border: 10px solid black;
+    cursor: pointer;
+    box-shadow: 4px 4px 20px crimson;
     width:23vw;
     height:23vw;
     border-radius: 300px;
@@ -361,6 +374,44 @@ body{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.eventImg:hover{
+    opacity: 1;
+    border: 12px solid rgb(14, 33, 202);
+    box-shadow: 4px 4px 60px crimson;
+    transition: box-shadow 0.3s;
+}
+
+.bullets{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.eB{
+    margin: 2vh;
+    min-width: 1vw;
+    max-width: 1vw;
+    min-height: 1vw;
+    max-height: 1vw;
+    background-color: darkgray;
+    border: 2px solid black;
+    border-radius: 20px;
+    box-shadow: 4px 4px 20px rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.eB:active{
+    min-width: 0.9vw;
+    max-width: 0.9vw;
+    min-height: 0.9vw;
+    max-height: 0.9vw;
+    background-color: darkgray;
+    border: 2.5px solid black;
+    border-radius: 20px;
+    box-shadow: 4px 4px 40px rgb(0, 0, 0);
 }
 
 .eventText{
@@ -386,10 +437,11 @@ body{
 }
 
 .flex-itemA{
-    margin:2vw;
+    margin:1vh;
 }
 
 .aboutHead{
+    margin-top: 3vw !important;
     font-size: 3em;
     text-align: center;
     font-weight: 900;
@@ -405,6 +457,7 @@ body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-shadow: 2px 3px #ff0000;
 }
+
 .textInfo{
     border: 3px solid crimson;
     color:whitesmoke;
@@ -420,8 +473,14 @@ body{
 }
 
 .avatar{
+    border: 5px solid black;
     height: 33vh;
     width: 33vh;
-    box-shadow: 5px 5px 30px yellow;
+    box-shadow: 5px 5px 20px gold;
     border-radius: 50%;
+}
+
+.avatar:hover{
+    box-shadow: 5px 5px 60px gold;
+    transition:all 0.1s
 }
