@@ -2,54 +2,54 @@ html {
     scroll-behavior: smooth;
   }
 
+.content{
+    background-color: black;
+}  
 body{
     margin:0em;
     padding: 0em;
-}
-
-.content{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction:row;
-    background-color: black;
 }
 
 .navbar > a{
     color:whitesmoke;
     text-decoration: none;
 }
+
 a:hover{
     color: black;
 }
+
 .navbar{
-    background-color: black;
-    box-shadow: 5px 5px 1px crimson;
-    border-radius: 10px;
+    width: 99vw;
     color:whitesmoke;
     display: inline-block;
     opacity: 0.9;
     cursor: pointer;
-    position: sticky;
-    margin: 0px 10px;
-    margin-top:-390vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction:row;
+    position: fixed;
+
 }
 
 .navbar div{
-    padding:20px 30px;
+    padding:15px 40px;
     text-align: center;
     opacity: 0.7;
-    border-radius: 10px;
+    font-size: 1.5em;
     font-weight: 600;
     font-family: serif;
 }
 
 
 .navbar div:hover{
-    background-color: whitesmoke;
-    color: black;
+    background-image: url('rev.jpg');
+    color: rgb(146, 219, 29);
     opacity: 1;
-    box-shadow: 10px 10px 30px rgb(113, 119, 113);
+    border-radius: 10px;
+    box-shadow: 10px 10px 2px rgb(113, 119, 113);
+    box-shadow: inset 0 0 0 2px #53a7ea;
     transition:  all 0.3s;
 }
 
@@ -61,7 +61,7 @@ a:hover{
 }
 
 .home{
-    width:91.5vw;
+    width:99vw;
     height: 100vh;
     background-image: url('back.jpg');
     background-attachment: fixed;
@@ -87,6 +87,7 @@ a:hover{
     font-weight: black;
     font-size: 1.9em;
     padding: 2em;
+    position: unset;
     text-align: center;
 }
 
@@ -98,7 +99,7 @@ a:hover{
 }
 
 .images{
-    width:91.5vw;
+    width:99vw;
     height: 100vh;
     background-image: url('img.jpg');
     background-attachment: fixed;
@@ -140,7 +141,7 @@ a:hover{
 }
 
 .reviews{
-    width:91.5vw;
+    width:99vw;
     height: 100vh;
     background-image: url('img.jpg');
     background-attachment: fixed;
@@ -154,7 +155,7 @@ a:hover{
 }
 
 .gallary{
-    width:91.5vw;
+    width:99vw;
     height: 100vh;
     background-image: url('img.jpg');
     background-attachment: fixed;
@@ -168,7 +169,7 @@ a:hover{
 }
 
 .contact{
-    width:91.5vw;
+    width:99vw;
     height: 100vh;
     background-image: linear-gradient(to right, #000000, #151211, #211d1b, #2c2a24, #35372f);
     display: flex;

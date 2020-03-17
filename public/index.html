@@ -16,27 +16,27 @@
         <div class="navbar">
             <a href="#home" title='HOME'>
                 <div class="homeMenu">
-                    <i class='fas fa-home' style='font-size:30px'></i>
+                    <i class='fas fa-home' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;home
                 </div> 
             </a>
             <a href="#images" title='ITEMS'>
                 <div class="itemsMenu">
-                    <i class='fas fa-image' style='font-size:30px'></i>
+                    <i class='fas fa-image' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;items
                 </div>
             </a>
             <a href="#reviews" title="REVIEWS">
                 <div class="reviewsMenu">
-                    <i class='far fa-comment-alt' style='font-size:30px'></i>
+                    <i class='far fa-comment-alt' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;reviews
                     </div>
             </a>
             <a href="#gallary" title="GALLARY"> 
                 <div class="GALLARYMenu">
-                    <i class='far fa-images' style='font-size:30px'></i>
+                    <i class='far fa-images' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;gallary
                 </div>
             </a>
             <a href="#contact" title=CONTACT>
                 <div class="contactMenu">
-                    <i class="material-icons" style="font-size:30px">contact_phone</i>
+                    <i class="material-icons" style="font-size:26px">contact_phone</i>&nbsp;&nbsp;&nbsp;&nbsp;contact
                 </div>
             </a>
         </div>
@@ -134,23 +134,34 @@
             </div>
         </div>
     </div>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
 <script>
-var body = document.body,
-    html = document.documentElement;
-
-var height = Math.max( body.scrollHeight, body.offsetHeight, 
-                       html.clientHeight, html.scrollHeight, html.offsetHeight );    
-var navbarTop = $('.navbar').offset().top;       // get initial position of the element
-
-$(window).scroll(function() {                  // assign scroll event listener
-
-    var currentScroll = $(window).scrollTop(); // get current position
-        if(navbarTop<currentScroll){
-            console.log('asd ', currentScroll)
-            $('.navbar').css('margin-top',currentScroll);
+var currentScroll = $(window).scrollTop();
+        if(currentScroll!=0){
+            $('.navbar').css({
+                'background-color':'black',
+                opacity:0.8,
+                transition:  'all 0.5s'
+                });
+        }    
+$(window).scroll(function(){
+    var currentScroll = $(window).scrollTop();
+        if(currentScroll!=0){
+            $('.navbar').css({
+                'background-color':'black',
+                opacity:0.8,
+                transition:  'all 0.5s'
+                });
+        }
+        else{
+            $('.navbar').css({
+                'background-color':'transparent',
+                opacity:0.9,
+                transition:  'all 0.5s'
+                });
         }
 });
-</script> -->
+</script>
+
 </body>
 </html>
