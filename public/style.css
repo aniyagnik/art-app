@@ -191,11 +191,14 @@ body{
     min-width: 62vw;
     max-height: 58vh;
     max-width: 62vw;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     object-fit: cover;
 }
 
 
-.currImg{
+#currImg{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -275,11 +278,11 @@ body{
 }
 
 .testImg{
-    min-width: 13vw;
-    min-height: 13vw;
-    max-width: 13vw;
-    max-height: 13vw;
-    border-radius: 50px;
+    min-width: 18vw;
+    min-height: 18vw;
+    max-width: 18vw;
+    max-height: 18vw;
+    border-radius: 100px;
 }
 
 .testimonialText{
@@ -314,18 +317,11 @@ body{
 .otherTs::-webkit-scrollbar{
     width:0px !important
 }
-.smallTesti{
-    background-image: url('https://picsum.photos/seed/picsum/200/300');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border:1px dashed rgb(18, 189, 89);
-    min-height: 11.375vh;
-    max-height: 11.375vh;
-    min-width: 17%;
-    max-width: 17%;
-    margin: 1vh 1vw !important;
-    border-radius: 100px;
+
+input[type=radio]{
+    margin:2vh 2vw;
+    width: 2vh;
+    height: 2vh;
 }
 
 .gallary{
@@ -402,22 +398,18 @@ body{
     max-width: 1vw;
     min-height: 1vw;
     max-height: 1vw;
-    background-image: linear-gradient(to right top, #6b6367, #736b6f, #7b7277, #847a80, #8c8288, #8a838a, #88838b, #86848c, #7b7e84, #72777c, #6a7072, #646969);
-    border: 2px solid black;
+    background-image: radial-gradient(circle, #ffffff, #dbdbdc, #b7b8ba, #939799, #717779, #6d7577, #6a7475, #667272, #7f8d8d, #99aaa9, #b4c7c6, #cfe5e4);
+    border: 1px solid black;
+    border:inset;
     border-radius: 20px;
-    box-shadow: 4px 4px 20px rgb(0, 0, 0);
     cursor: pointer;
 }
 
 .eB:active{
-    min-width: 0.9vw;
-    max-width: 0.9vw;
-    min-height: 0.9vw;
-    max-height: 0.9vw;
-    background-image: linear-gradient(to right top, #4e454a, #554c51, #5d5258, #645960, #6c6067, #6c636b, #6c656f, #6b6873, #636871, #5e676d, #5b6668, #5b6463);
-    border: 2px solid black;
+    background-color: black;
+    border:1px solid white;
+    border-style: inset;
     border-radius: 20px;
-    box-shadow: 4px 4px 40px rgb(0, 0, 0);
 }
 
 .eventText{

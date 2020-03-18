@@ -1,0 +1,38 @@
+[
+    {
+        "image":"https://i.picsum.photos/id/1003/1378/768.jpg",
+        "name": "Anirudh Yagnik",
+        "designation": "designation1",
+        "testimonials": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla consequuntur facilis ipsam, saepe minima dolorem doloribus deleniti veniam, voluptatem molestias assumenda. Mollitia nisi enim necessitatibus labore dolore, consequuntur fugiat reiciendis?"
+    },
+    {
+        "image":"https://i.picsum.photos/id/1002/1378/768.jpg",
+        "name": "pragya yagnik",
+        "designation": "designation2",
+        "testimonials": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt aliquam sapiente mollitia illo fugiat qui, vitae rerum suscipit quaerat dolor debitis amet natus? Veniam in recusandae natus quam esse ipsum."
+    },
+    {
+        "image":"https://i.picsum.photos/id/1000/1378/768.jpg",
+        "name": "Anil Yagnik",
+        "designation": "designation3",
+        "testimonials": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia hic tempore quam architecto laborum doloremque officia sapiente dolores recusandae culpa sit, nobis commodi optio id numquam consectetur dolorum amet. Corporis!"
+    },
+    {
+        "image":"https://i.picsum.photos/id/1004/1378/768.jpg",
+        "name": "Madhu Yagnik",
+        "designation": "designation4",
+        "testimonials": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam, et tenetur accusantium rem beatae exercitationem, consequatur provident repellat, rerum voluptate cupiditate unde commodi. Placeat laboriosam ea, temporibus illo sed quibusdam."
+    },
+    {
+        "image":"https://i.picsum.photos/id/1005/1378/768.jpg",
+        "name": "Vagish Yagnik",
+        "designation": "designation5",
+        "testimonials": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quas molestias sint, voluptas illum ab omnis sed velit iste nam id eaque quod recusandae ipsum, dolorem, laudantium ipsa iure. Praesentium."
+    },
+    {
+        "image":"https://i.picsum.photos/id/1006/1378/768.jpg",
+        "name": "Subrat Yagnik",
+        "designation": "designation6",
+        "testimonials": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam pariatur velit, voluptate nihil aspernatur soluta optio accusantium tempore quasi id rerum itaque magnam maiores repellat nobis nesciunt? Corporis, libero provident?"
+    }
+]

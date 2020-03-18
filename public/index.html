@@ -92,17 +92,17 @@
                 <!-- items pictures -->
                 <div class="flex-itemI itemImg">
                     <!-- current Image -->
-                    <div class="currImg">
-                        <div><img src="https://i.picsum.photos/id/10/2500/1667.jpg" id='mainImg' alt="main Image here"></div>
+                    <div id="currImg">
+                        <div id='mainImg' alt="main Image here"></div>
                     </div>
                     <!-- image thumbnails -->
                     <div class="thumbnailImgs">
-                        <div class="thumbnail"></div>
-                        <div class="thumbnail"></div>
-                        <div class="thumbnail"></div>
-                        <div class="thumbnail"></div>
-                        <div class="thumbnail"></div>
-                        <div class="thumbnail"></div>
+                        <div class="thumbnail" style='background-image:url("https://i.picsum.photos/id/0/2500/1667.jpg")' id='thumb1'></div>
+                        <div class="thumbnail" style='background-image:url("https://i.picsum.photos/id/1/2500/1667.jpg")' id='thumb2'></div>
+                        <div class="thumbnail" style='background-image:url("https://i.picsum.photos/id/2/2500/1667.jpg")' id='thumb3'></div>
+                        <div class="thumbnail" style='background-image:url("https://i.picsum.photos/id/3/2500/1667.jpg")' id='thumb4'></div>
+                        <div class="thumbnail" style='background-image:url("https://i.picsum.photos/id/4/2500/1667.jpg")' id='thumb5'></div>
+                        <div class="thumbnail" style='background-image:url("https://i.picsum.photos/id/5/2500/1667.jpg")' id='thumb6'></div>
                     </div>    
                 </div>
             </div>
@@ -118,30 +118,28 @@
                 <div class="flex-itemR itemTestimonial">
                     <!-- current Image -->
                     <div class="currTestimonial">
-                        <img class='testImg' src="https://picsum.photos/seed/picsum/200/300" alt="" srcset="">
+                        <img class='testImg' id='testiPic' src="https://i.picsum.photos/id/1003/1378/768.jpg" alt="" srcset="">
                         <div class="testimonialText">
-                            <p class='flexText'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla consequuntur facilis ipsam, saepe minima dolorem doloribus deleniti veniam, voluptatem molestias assumenda. Mollitia 
+                            <p class='flexText' id='testiText'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla consequuntur facilis ipsam, saepe minima dolorem doloribus deleniti veniam, voluptatem molestias assumenda. Mollitia 
                                 nisi enim necessitatibus labore dolore, consequuntur fugiat reiciendis?
                             </p>
-                            <p class='flexText' style='font: 1.2em monospace;color: red;'>
+                            <p class='flexText' id='testiName' style='font: 1.2em monospace;color: red;'>
                                 anirudh yagnik
                             </p>
-                            <p class='flexText' style='font: 1em monospace;color: blue;'>
-                                designation
+                            <p class='flexText' id='testiDesignation' style='font: 1em monospace;color: blue;'>
+                                designation1
                             </p>
                         </div>
                     </div>
-                    <!-- image thumbnails -->
-                    <div class="otherTs">
-                        <div class="smallTesti"></div>
-                        <div class="smallTesti"></div>
-                        <div class="smallTesti"></div>
-                        <div class="smallTesti"></div>
-                        <div class="smallTesti"></div>
-                        <div class="smallTesti"></div>
-                        <div class="smallTesti"></div>
-                        
-                    </div>    
+                    <!-- bullets -->
+                    <div class="bullets" id='testiBullets'>
+                        <div class="eB" id='0'></div>
+                        <div class="eB" id='1'></div>
+                        <div class="eB" id='2'></div>
+                        <div class="eB" id='3'></div>
+                        <div class="eB" id='4'></div>
+                        <div class="eB" id='5'></div>
+                    </div>   
                 </div>
             </div>
             
@@ -159,11 +157,11 @@
                     <div class="flex-itemI itemGal">
                         <!-- gallary for events -->
                         <div class="Events">
-                            <div class="flex-itemEvent">
+                            <div class="flex-itemEvent" id='event1'>
                                 <div class="eventImg"></div>
                                 <div class="eventText">event1</div>
                             </div>
-                            <div class="flex-itemEvent">
+                            <div class="flex-itemEvent" id='event2'>
                                 <div class="eventImg"></div>
                                 <div class="eventText" >event1</div>
                             </div>                            
