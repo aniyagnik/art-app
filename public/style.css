@@ -208,15 +208,16 @@ body{
 
 
 .thumbnailImgs{
-    overflow-y: scroll; 
+    overflow:auto;
+    overflow: -moz-scrollbars-none;
     min-height: 69.5vh;
     max-height: 69.5vh;
     min-width: 19%;
-    max-width: 19%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;   
+    max-width: 19%;   
+}
+
+.thumbnailImgs::-webkit-scrollbar{
+    width:0px !important
 }
 
 .thumbnail{
@@ -229,7 +230,7 @@ body{
     max-height: 13.375vh;
     min-width: 90%;
     max-width: 90%;
-    margin: 1vh auto;
+    margin: 1.5vh auto;
 }
 
 .marginTB{
@@ -297,18 +298,22 @@ body{
 }
 
 .otherTs{
-    overflow-x: scroll;
-    overflow-y: hidden; 
+    display: flex;
+    justify-content: safe;
+    align-items: center;
+    flex-direction: row;   
+    overflow:auto;
+    overflow: -moz-scrollbars-none;
     min-height: 14vh;
     max-height: 14vh;
     min-width: 45%;
     max-width: 45%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;   
 }
 
+
+.otherTs::-webkit-scrollbar{
+    width:0px !important
+}
 .smallTesti{
     background-image: url('https://picsum.photos/seed/picsum/200/300');
     background-position: center;
