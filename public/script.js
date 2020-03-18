@@ -10,6 +10,15 @@ fetch('https://picsum.photos/v2/list?page=2&limit=10')
     })  
   });
 
+  
+$.getJSON( "items.json", function( data ) {
+  $('#mainImg').css('background-image',`url(${data[0].image})`)
+  data.forEach((obj,index)=>{
+    let thumbnail=$(`<div class="thumbnail" style='background-image:url(${obj.image})' id='thumb${index}'></div>`)
+    thumbnail.appendTo('.thumbnailImgs')
+  })
+});
+
 let navTop=$('.navbar').offset().top
 if(navTop!=0){
     $('.navbar').css({
