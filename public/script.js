@@ -49,25 +49,23 @@ $(window).scroll(function(){
 
 $('.thumbnailImgs').click((e)=>{
   let eventId=e.target.id
-  var thumbnailBg=$('#'+eventId).css('background-image')
-  thumbnailBg=thumbnailBg.split('')
-  let l1=thumbnailBg.length
-  thumbnailBg.splice(l1-1,l1-1)
-  thumbnailBg.splice(0,4)
-  thumbnailBg=thumbnailBg.join('')
-  console.log(thumbnailBg)
-  $('#mainImg').css('background-image',`url(${thumbnailBg})`);
+  eventId=eventId.split('')
+  eventId.splice(0,5)
+  eventId=eventId.join('')
+  $.getJSON( "items.json", function( data ) {
+    let obj=data[eventId]
+    $('#summaryText').html(obj.summary)
+    $('#itemStatus').html(`<b>Status</b> : ${obj.status}`)   
+  });
 })
 
 $('#testiBullets').click((e)=>{
   let eventId=e.target.id
   
   $.getJSON( "testimonials.json", function( data ) {
-    $.each( data, function( key, val ){
-      $('#testiPic').attr('src',data[eventId].image)
-      $('#testiText').text(data[eventId].testimonials)
-      $('#testiName').text(data[eventId].name)
-      $('#testiDesignation').text(data[eventId].designation)
-    });
+    $('#testiPic').attr('src',data[eventId].image)
+    $('#testiText').text(data[eventId].testimonials)
+    $('#testiName').text(data[eventId].name)
+    $('#testiDesignation').text(data[eventId].designation)
   });
 })
