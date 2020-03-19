@@ -23,6 +23,8 @@ let i=0;
 setInterval(()=>{
   changeTestimonials(i);
   i++;
+  if(i==6)
+    i=0
 },10000)
 
 function changeTestimonials(i){
@@ -33,6 +35,7 @@ function changeTestimonials(i){
     $('#testiDesignation').text(data[i].designation)
   });
 }
+
 let navTop=$('.navbar').offset().top
 if(navTop!=0){
     $('.navbar').css({
@@ -76,7 +79,7 @@ $('.thumbnailImgs').click((e)=>{
 
 $('#testiBullets').click((e)=>{
   let eventId=e.target.id
-  
+  i=eventId
   $.getJSON( "testimonials.json", function( data ) {
     $('#testiPic').attr('src',data[eventId].image)
     $('#testiText').text(data[eventId].testimonials)
