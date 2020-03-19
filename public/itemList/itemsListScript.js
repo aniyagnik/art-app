@@ -1,7 +1,7 @@
 let items =[
     [],[],[],[],[]
 ]
-$.getJSON( "items.json", function( data ) {
+$.getJSON( "../../database/items.json", function( data ) {
     
     data.forEach((obj,index)=>{
       let thumbnail=$(`
@@ -41,7 +41,7 @@ $('#varities').click(e=>{
     items[eventId].forEach(obj=>{
         let thumbnail=$(`
         <div class="flex-itemL">
-            <div class="itemCard" style="background-image: url(${obj.image});">
+            <div class="itemCard" style="background-image: url(../pictures/${obj.image});">
                 <div class="itemDiscription">
                     ${obj.type} &nbsp;&nbsp;&nbsp;&nbsp;
                     <b style="color:black;font-style:oblique;">price </b>: ${obj.price}

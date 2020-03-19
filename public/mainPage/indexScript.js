@@ -11,7 +11,7 @@ fetch('https://picsum.photos/v2/list?page=2&limit=10')
   });
 
   
-$.getJSON( "items.json", function( data ) {
+$.getJSON( "../../database/items.json", function( data ) {
   $('#mainImg').css('background-image',`url(${data[0].image})`)
   data.forEach((obj,index)=>{
     let thumbnail=$(`<div class="thumbnail" style='background-image:url(${obj.image})' id='thumb${index}'></div>`)
@@ -25,10 +25,10 @@ setInterval(()=>{
   i++;
   if(i==6)
     i=0
-},10000)
+},5000)
 
 function changeTestimonials(i){
-  $.getJSON( "testimonials.json", function( data ) {
+  $.getJSON( "../../database/testimonials.json", function( data ) {
     $('#testiPic').attr('src',data[i].image)
     $('#testiText').text(data[i].testimonials)
     $('#testiName').text(data[i].name)
@@ -69,7 +69,7 @@ $('.thumbnailImgs').click((e)=>{
   eventId=eventId.split('')
   eventId.splice(0,5)
   eventId=eventId.join('')
-  $.getJSON( "items.json", function( data ) {
+  $.getJSON( "../../database/items.json", function( data ) {
     let obj=data[eventId]
     $('#summaryText').html(obj.summary)
     $('#itemStatus').html(`<b>Status</b> : ${obj.status}`)
@@ -80,7 +80,7 @@ $('.thumbnailImgs').click((e)=>{
 $('#testiBullets').click((e)=>{
   let eventId=e.target.id
   i=eventId
-  $.getJSON( "testimonials.json", function( data ) {
+  $.getJSON( "../../database/testimonials.json", function( data ) {
     $('#testiPic').attr('src',data[eventId].image)
     $('#testiText').text(data[eventId].testimonials)
     $('#testiName').text(data[eventId].name)

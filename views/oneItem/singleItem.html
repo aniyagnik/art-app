@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="itemListStyle.css">
+    <link rel="stylesheet" href="singleItemStyle.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -60,24 +60,32 @@
         </a>
     </div>
 
-    <!-- title -->
-    <div>
-        <div class=logo>pranya Design </div>
-        <div class="topic">ITEMS MADE TILL NOW</div>
-    </div>
-
-    <!-- varities -->
-    <div id="varities">
-        <div class="flex-itemV active" id='0'>all</div>
-        <div class="flex-itemV" id='1'>type 1</div>
-        <div class="flex-itemV" id='2'>type 2</div>
-        <div class="flex-itemV" id='3'>type 3</div>
-        <div class="flex-itemV" id='4'>type 4</div>
-    </div>
-
     <!-- item list -->
-    <div id="itemsList"></div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
-    <script src="itemListScript.js"></script>
+    <div id="itemInfo">
+        <div class="flex-itemI" id='picture'>
+            <div id="imgThumbnail">
+                <div class="thumbnail" id='pic0' style='background-image:url("../pictures/gal.jpg")'></div>
+                <div class="thumbnail" id='pic1' style='background-image:url("../pictures/rev.jpg")'></div>
+            </div>
+            <div class="imgBox">
+                <div id="mainPicture"></div>
+            </div>
+        </div>
+        <div class="flex-itemI" id='content'>
+            <div id="itemName">item name</div>
+            <div id="itemContent">
+                M.R.P - $234 <br><br>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolore sit aut iusto eveniet, nulla fugiat delectus nesciunt ducimus amet ad expedita sapiente tenetur omnis incidunt quis illum asperiores? At! <br><br>
+                type - type2 <br><br>
+                status - sold out <br>
+            </div>
+        </div>
+        <div class="flex-itemI" id="booking">
+            <div id="addToCart" >Add To Cart</div>
+            <div id="buyNow" >Buy Now</div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>        
+    <script src="singleItemScript.js"></script>
 </body>
 </html>

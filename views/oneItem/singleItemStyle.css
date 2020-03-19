@@ -44,7 +44,7 @@ body{
 
 
 .navbar .menu:hover{
-    background-image: url('rev.jpg');
+    background-image: url('./pictures/rev.jpg');
     color: rgb(146, 219, 29);
     opacity: 1;
     border-radius: 10px;
@@ -154,7 +154,7 @@ body{
 }
 
 #mainPicture{
-    background-image: url('s.jpg');
+    background-image: url('../pictures/s.jpg');
     max-width: 26vw;
     min-width: 26vw;
     min-height: 30vh;

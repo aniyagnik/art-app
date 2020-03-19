@@ -45,7 +45,7 @@ body{
 
 
 .navbar .menu:hover{
-    background-image: url('rev.jpg');
+    background-image: url('./pictures/rev.jpg');
     color: rgb(146, 219, 29);
     opacity: 1;
     border-radius: 10px;
@@ -88,7 +88,7 @@ body{
 .home{
     width:98.9vw;
     height: 100vh;
-    background-image: url('back.jpg');
+    background-image: url('./pictures/back.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -158,7 +158,7 @@ body{
 .images{
     width:98.9vw;
     height: 100vh;
-    background-image: url('img.jpg');
+    background-image: url('./pictures/img.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -295,7 +295,7 @@ body{
 .testimonials{
     width:98.9vw;
     height: 100vh;
-    background-image: url('img.jpg');
+    background-image: url('./pictures/img.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -383,7 +383,7 @@ input[type=radio]{
 .gallary{
     width:98.9vw;
     height: 100vh;
-    background-image: url('img.jpg');
+    background-image: url('./pictures/img.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -428,7 +428,7 @@ input[type=radio]{
     width:23vw;
     height:23vw;
     border-radius: 300px;
-    background-image: url('rev.jpg');
+    background-image: url('./pictures/rev.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -478,7 +478,7 @@ input[type=radio]{
 .about{
     min-width: 98.9vw;
     min-height: 100vh;
-    background-image: url('img.jpg');
+    background-image: url('./pictures/img.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
