@@ -19,6 +19,20 @@ $.getJSON( "items.json", function( data ) {
   })
 });
 
+let i=0;
+setInterval(()=>{
+  changeTestimonials(i);
+  i++;
+},10000)
+
+function changeTestimonials(i){
+  $.getJSON( "testimonials.json", function( data ) {
+    $('#testiPic').attr('src',data[i].image)
+    $('#testiText').text(data[i].testimonials)
+    $('#testiName').text(data[i].name)
+    $('#testiDesignation').text(data[i].designation)
+  });
+}
 let navTop=$('.navbar').offset().top
 if(navTop!=0){
     $('.navbar').css({
@@ -55,7 +69,8 @@ $('.thumbnailImgs').click((e)=>{
   $.getJSON( "items.json", function( data ) {
     let obj=data[eventId]
     $('#summaryText').html(obj.summary)
-    $('#itemStatus').html(`<b>Status</b> : ${obj.status}`)   
+    $('#itemStatus').html(`<b>Status</b> : ${obj.status}`)
+    $('#mainImg').css('background-image',`url(${obj.image})`)   
   });
 })
 

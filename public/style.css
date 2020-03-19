@@ -1,5 +1,8 @@
 html {
     scroll-behavior: smooth;
+    height: 99vh;
+    width: 98.9vw;
+    margin: 0vw;
   }
 
 .content{
@@ -18,7 +21,7 @@ body{
 
 
 .navbar{
-    width: 99vw;
+    width: 98.9vw;
     color:whitesmoke;
     display: inline-block;
     opacity: 0.9;
@@ -82,7 +85,7 @@ body{
 }
 
 .home{
-    width:99vw;
+    width:98.9vw;
     height: 100vh;
     background-image: url('back.jpg');
     background-attachment: fixed;
@@ -112,12 +115,20 @@ body{
 
 .logo{
     margin:0vw 10vw;
-    font-size: 3em;
+    color: chartreuse;
+    text-decoration-line: line-through;
+    filter: hue-rotate(0deg);
+    text-shadow:10px 5px crimson;
+    font-size: 6em;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 900;
     font-style: italic;
 }
 
+.logo:hover{
+    filter: hue-rotate(900deg);
+    transition: all 3.5s;
+}
 .logoPic{
     width: 25vh;
     height: 25vh;
@@ -145,7 +156,7 @@ body{
 }
 
 .images{
-    width:99vw;
+    width:98.9vw;
     height: 100vh;
     background-image: url('img.jpg');
     background-attachment: fixed;
@@ -214,6 +225,7 @@ body{
     font-weight: 900;
     color: whitesmoke;
     background-color: lightseagreen;
+    cursor: pointer;
 }
 
 #viewItems:hover{
@@ -229,6 +241,7 @@ body{
     font-weight: 400;
     background-color: crimson;
     position: relative;
+    cursor: pointer;
 }
 
 #viewCurrItem:hover{
@@ -254,6 +267,7 @@ body{
     max-height: 69.5vh;
     min-width: 19%;
     max-width: 19%;   
+    -ms-overflow-style: none;
 }
 
 .thumbnailImgs::-webkit-scrollbar{
@@ -279,7 +293,7 @@ body{
 
 
 .testimonials{
-    width:99vw;
+    width:98.9vw;
     height: 100vh;
     background-image: url('img.jpg');
     background-attachment: fixed;
@@ -319,7 +333,10 @@ body{
     min-height: 18vw;
     max-width: 18vw;
     max-height: 18vw;
-    border-radius: 100px;
+    border-radius: 400px;
+    border: 9px solid darkred;
+    box-shadow: 0px 0px 40px 10px darkorchid;
+    cursor: pointer;
 }
 
 .testimonialText{
@@ -329,8 +346,10 @@ body{
     flex-direction: column;  
     margin-left:10vw;
     width: 40%;
-    text-align: justify;
-    font: 1.5em sans-serif;
+    font-family: monospace;
+    font-style: italic;
+    text-align:center;
+    font-size: 1.5em;
 }
 
 .flexText{
@@ -362,7 +381,7 @@ input[type=radio]{
 }
 
 .gallary{
-    width:99vw;
+    width:98.9vw;
     height: 100vh;
     background-image: url('img.jpg');
     background-attachment: fixed;
@@ -457,7 +476,7 @@ input[type=radio]{
     text-align: center;
 }
 .about{
-    min-width: 99vw;
+    min-width: 98.9vw;
     min-height: 100vh;
     background-image: url('img.jpg');
     background-attachment: fixed;
