@@ -63,7 +63,13 @@
     <!-- item list -->
     <div id="itemInfo">
         <div class="flex-itemI" id='picture'>
-
+            <div id="imgThumbnail">
+                <div class="thumbnail" id='pic0' style='background-image:url("gal.jpg")'></div>
+                <div class="thumbnail" id='pic1' style='background-image:url("rev.jpg")'></div>
+            </div>
+            <div class="imgBox">
+                <div id="mainPicture"></div>
+            </div>
         </div>
         <div class="flex-itemI" id='content'>
             <div id="itemName">item name</div>
@@ -74,8 +80,12 @@
                 status - sold out <br>
             </div>
         </div>
+        <div class="flex-itemI" id="booking">
+            <div id="addToCart" >Add To Cart</div>
+            <div id="buyNow" >Buy Now</div>
+        </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>        
     <script src="itemScript.js"></script>
 </body>
 </html>
