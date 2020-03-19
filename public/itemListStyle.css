@@ -115,7 +115,7 @@ body{
 
 .flex-itemV{
     padding:1vh 4vw;
-    border: 2px solid white;
+    border: 3px solid white;
     font-weight: 700;
     font-family: monospace;
     font-style: italic;
@@ -125,11 +125,13 @@ body{
 }
 
 .flex-itemV:hover{
-    border-bottom:2px solid darkblue;
+    border-bottom:3px solid crimson;
     transition: all 0.4s;
 }
 
-
+.active{
+    border-bottom:3px solid darkblue;
+}
 #itemsList{
     margin: 5vh;
     display: flex;

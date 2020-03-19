@@ -1,0 +1,24 @@
+{
+  "name": "art-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aniyagnik/art-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aniyagnik/art-app/issues"
+  },
+  "homepage": "https://github.com/aniyagnik/art-app#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http": "0.0.0",
+    "path": "^0.12.7"
+  }
+}
