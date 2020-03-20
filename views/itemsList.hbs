@@ -68,18 +68,18 @@
 
     <!-- varities -->
     <div id="varities">
-        <div class="flex-itemV active" id='0'>all</div>
-        <div class="flex-itemV" id='1'>type 1</div>
-        <div class="flex-itemV" id='2'>type 2</div>
-        <div class="flex-itemV" id='3'>type 3</div>
-        <div class="flex-itemV" id='4'>type 4</div>
+        <div class="flex-itemV active" id='all'>all</div>
+        <div class="flex-itemV" id='type1'>type 1</div>
+        <div class="flex-itemV" id='type2'>type 2</div>
+        <div class="flex-itemV" id='type3'>type 3</div>
+        <div class="flex-itemV" id='type4'>type 4</div>
     </div>
 
     <!-- item list -->
     <div id="itemsList">
         {{#if itemList}}
             {{#each itemList}}
-                <div class="flex-itemL {{this.type}}">
+                <div class="flex-itemL {{this.type}} all">
                     <div class="itemCard" style="background-image: url({{this.image}});">
                         <div class="itemDiscription">
                             {{this.type}} &nbsp;&nbsp;&nbsp;&nbsp;

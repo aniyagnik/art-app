@@ -8,26 +8,20 @@ $('#varities').click(e=>{
     let l=$(`.active`)
     console.log(l.length," "+l.attr('id'))
     if(l.length>0){
-        console.log('in if')
         $(`#${l.attr('id')}`).removeClass('active')
     }
     $(`#${eventId}`).addClass('active');
     //empty list
-    $('#itemsList').html('')
-    
-    //filling the list
-    items[eventId].forEach(obj=>{
-        let thumbnail=$(`
-        <div class="flex-itemL">
-            <div class="itemCard" style="background-image: url(${obj.image});">
-                <div class="itemDiscription">
-                    ${obj.type} &nbsp;&nbsp;&nbsp;&nbsp;
-                    <b style="color:black;font-style:oblique;">price </b>: ${obj.price}
-                    <br>
-                    ${obj.status}
-                </div>
-            </div>    
-         </div>`)
-      thumbnail.appendTo('#itemsList')
-    })
+    let itemsList = $('#itemsList').children()
+    console.log('sa ',itemsList)
+    console.log('event is ',eventId )
+    for(let i = 0; i < itemsList.length ; i++){
+        let string= itemsList[i].className
+        if(!string.includes(eventId)){
+            itemsList[i].style.display = "none"; 
+        }
+        else{
+            itemsList[i].style.display = "block"; 
+        }    
+    }
 })

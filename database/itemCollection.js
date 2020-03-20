@@ -21,10 +21,6 @@ const get_allItemList=(req_type)=>{
     .then(collection=>collection.find())
     .catch(err=>console.log('error in finding all documents'))
     .then(cursor=>cursor.toArray())
-    .then(doc=>{
-        console.log('all documents are ',doc)
-        return doc
-    })
     .catch(err=>console.log('error in fetching '))
 
 }
