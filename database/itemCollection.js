@@ -51,14 +51,25 @@ const get_itemShowList=()=>
     .catch(err=>console.log('error in collection itemList'))
     .then(collection=>collection.find())
     .catch(err=>console.log('error in finding show list documents'))
-    .then(cursor=>{
-        console.log(cursor.toArray())
-        return cursor              
-    })
+    .then(cursor=>cursor.toArray())
     .catch(err=>console.log('error in fetching '))
 
+
+const get_itemInfo=(id)=>
+    get_db()
+    .then(db=>db.collection('itemList'))
+    .catch(err=>console.log('error in collection itemList'))
+    .then(collection=>collection.findOne({itemId:id}))
+    .catch(err=>console.log('error in finding req document'))
+    .then(doc=>{
+        console.log('document recieved is ',doc)
+        return doc
+    })
+    .catch(err=>console.log('error in fetching '))
+    
 module.exports={
     get_allItemList,
     get_specificItemList,
-    get_itemShowList
+    get_itemShowList,
+    get_itemInfo
 }

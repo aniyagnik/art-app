@@ -4,7 +4,7 @@ const hbs=require('hbs')
 const http = require('http') 
 const path = require('path') 
 
-const {get_allItemList,get_specificItemList,get_itemShowList}=require('./database/itemCollection')
+const {get_allItemList,get_specificItemList,get_itemShowList,get_itemInfo}=require('./database/itemCollection')
 
 var server = http.createServer(app);
 
@@ -30,8 +30,20 @@ app.get('/',(req,res)=>{
 })
 
 
+app.get('/item',(req,res)=>{
+    console.log('accessing one item ')
+    const {id}=req.query
+    console.log('id of element ',id)
+    //get all items
+    get_itemInfo(id)
+    .then(item=>{
+        res.render('singleItem',{item})
+    })
+})
+
+
 app.get('/itemsList',(req,res)=>{
-    console.log('accessing item list ',req.query)
+    console.log('accessing item list ')
     const {type}=req.query
     console.log('type is ',type)
     if(type=='all'){

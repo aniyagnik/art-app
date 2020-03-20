@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="singleItemStyle.css">
+    <title>single Item | ART-APP</title>
+    <link rel="stylesheet" href="../singleItemStyle.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -64,20 +64,20 @@
     <div id="itemInfo">
         <div class="flex-itemI" id='picture'>
             <div id="imgThumbnail">
-                <div class="thumbnail" id='pic0' style='background-image:url("../pictures/gal.jpg")'></div>
-                <div class="thumbnail" id='pic1' style='background-image:url("../pictures/rev.jpg")'></div>
+                <div class="thumbnail" id='pic0' style='background-image:url("{{item.image}}")'></div>
+                <div class="thumbnail" id='pic1' style='background-image:url("{{item.image}}")'></div>
             </div>
             <div class="imgBox">
-                <div id="mainPicture"></div>
+                <div id="mainPicture" style="background-image: url('{{item.image}}');"></div>
             </div>
         </div>
         <div class="flex-itemI" id='content'>
-            <div id="itemName">item name</div>
+            <div id="itemName">{{item.name}}</div>
             <div id="itemContent">
-                M.R.P - $234 <br><br>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolore sit aut iusto eveniet, nulla fugiat delectus nesciunt ducimus amet ad expedita sapiente tenetur omnis incidunt quis illum asperiores? At! <br><br>
-                type - type2 <br><br>
-                status - sold out <br>
+                M.R.P - {{item.price}} <br><br>
+                {{item.summary}}
+                type - {{item.type}}<br><br>
+                status - {{item.status}} <br>
             </div>
         </div>
         <div class="flex-itemI" id="booking">
@@ -86,6 +86,6 @@
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>        
-    <script src="singleItemScript.js"></script>
+    <script src="../singleItemScript.js"></script>
 </body>
 </html>
