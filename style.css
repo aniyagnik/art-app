@@ -1,0 +1,200 @@
+html{
+    min-width: 100vw;
+}
+
+body{
+    margin: 0px;
+}
+
+#navbar{
+    background-color: black;
+    min-width: 100%;
+    padding:1vh 0px;
+    align-items: center;
+    position: sticky;
+}
+
+.flex-nav{
+    display: inline-block;
+    color: blanchedalmond;
+    font-size: 2em;
+    padding: 1vh 4vw;
+    font-family: monospace;
+    border: 1px dotted lightcyan;
+    cursor: pointer;
+}
+
+#home{
+    margin-left: 2vw;
+}
+
+#logout{
+    margin-right: 2vw;
+    float: right;
+    padding:1vh 1vw;
+    border-radius: 50px;
+}
+
+.flex-nav:hover{
+    background-color: lightseagreen;
+    border:1px solid red;
+
+}
+
+
+#content{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    border: 1px dashed darkred;    
+}
+
+
+.flex-content{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid blue;
+}
+
+
+#userSummary{
+    min-width: 20vw;
+    max-width: 20vw;
+    min-height: 80vh;
+    max-height: 80vh;
+}
+
+#userName{
+    margin:5vh auto 1vh;
+    font-size: 2em;
+    background-color: gold;
+    box-shadow: 0px 0px 2px 2px darkmagenta;
+    padding: 0.2vh 1vw;
+    font-weight: 900;
+    font-family: arial-black;
+    font-style: italic;
+}
+
+#userImage{
+    margin:4vh auto;
+    background-image: url('https://i.picsum.photos/id/1015/600/400.jpg');
+    width: 18vw;
+    height: 18vw;
+    box-shadow: 0px 0px 10px 5px rgb(2, 142, 230);
+    border-radius: 50%;
+}
+
+.cartBtn{
+    cursor: pointer;
+    padding:0.5vh 2vw;
+    background-color: lightgray;
+    font-family: monospace;
+    font-weight: 900;
+    font-size: 1.2em;
+    box-shadow: 2px 2px 2px 2px darkgray;
+}
+
+#showCart{
+    margin-top: 10vh;
+}
+
+#deleteCart{
+    margin-top: 3vh;
+}
+
+.cartBtn:active{
+    box-shadow: 1px 1px 1px 1px darkgray;
+    transform: translateX(1px) translateY(1px);
+}
+
+
+body {font-family: Arial, Helvetica, sans-serif;}
+
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+  
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+#cartList{
+    margin:2vh;
+    padding: 2vh 2vw;
+    border:6px solid black;
+    box-shadow: 0px 0px 3px 3px crimson;
+}
+
+th{
+    font-size: 1.3em;
+    text-transform: uppercase;
+    text-shadow: 2px 2px gray;
+    padding:3vh;
+}
+
+td{
+    padding:3vh;
+}
+
+#userHistory{
+    min-width: 79.5vw;
+    max-width: 79.5vw;
+    min-height: 80vh;
+    max-height: 80vh;
+}

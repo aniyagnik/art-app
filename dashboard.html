@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | ART APP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- navabar -->
+    <div id="navbar">
+        <div class='flex-nav' id="home">Back to home</div>
+        <div class='flex-nav' id="logout">☺</div>
+    </div>
+
+    <!-- content -->
+    <div id="content">
+        <div  class="flex-content" id="userSummary">
+            <div id="userName">USER 1</div>
+            <div id="userImage"></div>
+            <div style='border-bottom: 1px solid crimson;height: 0.01vh;width: 18vw;
+            box-shadow: 0px 0px 1px 1px black;'></div>
+            <div onclick="document.getElementById('id01').style.display='block'" class='cartBtn' id="showCart">Your Cart</div>
+            <div class='cartBtn' id="deleteCart">Delete Whole Cart</div>
+        </div>
+
+        <div id="id01" class="modal">    
+            <div class="modal-content animate" method="post">
+                <div class="imgcontainer">
+                    <!-- <img src="./public/pictures/sas.jpg" alt="Avatar" class="avatar"> -->
+                    <div id="cartList">
+                        <div
+                          style='padding:1vh 2vw;font-weight: 600;text-align: center;font-size:2.5em;background-color: gold;'
+                        >CART LIST</div>
+                        <table id='tableCart' width='100%'>
+                            <tr>
+                                <th>item-name</th>
+                                <th>status</th>
+                                <th>price</th>
+                                <th>action</th>
+                            </tr>
+                            <tr>
+                                <td>item-name</td>
+                                <td>available</td>
+                                <td>$34</td>
+                                <td>
+                                    <div 
+                                      class='cartBtn' id='0' 
+                                      style='margin:0px 2vw;font-weight: 600;font-size: 1em;max-width:20%;margin-left:33%' 
+                                      id="deleteCart"
+                                    >
+                                    delete
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>item-name</td>
+                                <td>available</td>
+                                <td>$34</td>
+                                <td>
+                                    <div 
+                                      class='cartBtn' id='1' 
+                                      style='margin:0px 2vw;font-weight: 600;font-size: 1em;max-width:20%;margin-left:33%' 
+                                      id="deleteCart"
+                                    >
+                                    delete
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>item-name</td>
+                                <td>available</td>
+                                <td>$34</td>
+                                <td>
+                                    <div 
+                                      class='cartBtn' id='2' 
+                                      style='margin:0px 2vw;font-weight: 600;font-size: 1em;max-width:20%;margin-left:33%' 
+                                      id="deleteCart"
+                                    >
+                                    delete
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-content" id="userHistory"></div>
+    </div>
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+<script src="./script.js"></script>
+</body>
+</html>
