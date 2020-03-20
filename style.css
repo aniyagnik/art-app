@@ -47,7 +47,6 @@ body{
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
-    border: 1px dashed darkred;    
 }
 
 
@@ -56,7 +55,6 @@ body{
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    border: 1px solid blue;
 }
 
 
@@ -197,4 +195,52 @@ td{
     max-width: 79.5vw;
     min-height: 80vh;
     max-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex-direction: column;
+}
+
+.itemBuy{
+    min-width: 90%;
+    margin:1vh;
+    border-bottom:5px solid darkblue;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex-direction:row;
+    font-size: 1.2em;
+    font-family: monospace;
+    text-align: center;
+    font-weight: 500;
+}
+
+.flex-buy{
+    padding:2vh 0vh;
+}
+
+.buyName{
+    border-top-left-radius: 40px;
+    border-left: 5px solid darkblue;
+    background-color: gold;
+    min-width: 15%;
+    max-width: 15%;
+}
+
+.buyDate{
+    background-color: lightgreen;
+    min-width: 20%;
+    max-width: 20%;
+}
+.buyAddress{
+    min-width: 50%;
+    max-width: 50%;
+    background-color: magenta;
+}
+.buyPrice{
+    border-top-right-radius: 40px;
+    border-right: 5px solid darkblue;
+    min-width: 15%;
+    max-width: 15%;
+    background-color: lime;
 }
