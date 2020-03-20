@@ -1,27 +1,38 @@
-let items =[
-    [],[],[],[],[]
-]
+let itemsList = $('#itemsList')
+
 $('#varities').click(e=>{
     let eventId=e.target.id
-    if(eventId==='varities')
+    if(eventId==='varities')        //check for invalid id
         return
+
+    //set active class right
     let l=$(`.active`)
-    console.log(l.length," "+l.attr('id'))
     if(l.length>0){
         $(`#${l.attr('id')}`).removeClass('active')
     }
     $(`#${eventId}`).addClass('active');
-    //empty list
-    let itemsList = $('#itemsList').children()
-    console.log('sa ',itemsList)
-    console.log('event is ',eventId )
-    for(let i = 0; i < itemsList.length ; i++){
-        let string= itemsList[i].className
+    
+    //modify list
+    let itemsListChildren = itemsList.children()
+    for(let i = 0; i < itemsListChildren.length ; i++){
+        let string= itemsListChildren[i].className
         if(!string.includes(eventId)){
-            itemsList[i].style.display = "none"; 
+            itemsListChildren[i].style.display = "none"; 
         }
         else{
-            itemsList[i].style.display = "block"; 
+            itemsListChildren[i].style.display = "block"; 
         }    
     }
 })
+
+function checkAvailability(status,index){
+    console.log('s ',index)
+    if(status==='available'){
+        let id=document.getElementById(index).value
+        console.log(id)
+        window.location='/item?id='+id
+    }
+    else{
+        alert('item is out of stock!!!😓😓')
+    }
+}

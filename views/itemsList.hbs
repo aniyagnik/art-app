@@ -79,13 +79,14 @@
     <div id="itemsList">
         {{#if itemList}}
             {{#each itemList}}
-                <div class="flex-itemL {{this.type}} all">
+                <div class="flex-itemL {{this.type}} all" onclick='checkAvailability("{{this.status}}",{{@index}})'>
                     <div class="itemCard" style="background-image: url({{this.image}});">
                         <div class="itemDiscription">
                             {{this.type}} &nbsp;&nbsp;&nbsp;&nbsp;
                             <b style="color:black;font-style:oblique;">price </b>: {{this.price}}
                             <br>
                             {{this.status}}
+                            <input type="hidden" value='{{itemId}}' id='{{@index}}'> 
                         </div>
                     </div>    
                 </div>
