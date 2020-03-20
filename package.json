@@ -18,7 +18,9 @@
   "homepage": "https://github.com/aniyagnik/art-app#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "hbs": "^4.1.0",
     "http": "0.0.0",
+    "mongodb": "^3.5.5",
     "path": "^0.12.7"
   }
 }
