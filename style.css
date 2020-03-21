@@ -85,42 +85,60 @@ body{
     border-radius: 50%;
 }
 
-.cartBtn{
+
+#editProfile{
     cursor: pointer;
-    padding:0.5vh 2vw;
-    background-color: lightgray;
-    font-family: monospace;
-    font-weight: 900;
-    font-size: 1.2em;
-    box-shadow: 2px 2px 2px 2px darkgray;
+    width: 18vw;
+    opacity: 0.5;
+    background-color: black;
+    border-radius: 50%;
+    color: cornsilk;
+    display: table-cell; 
+    vertical-align: middle;
+    height: 18vw;
+    text-align: center;
 }
 
-#showCart{
-    margin-top: 10vh;
+#editProfile:hover{
+    opacity: 0.7;
+    font-weight: 400;
+    font-size: 1.1em;
+    transition: all 0.2s;
 }
 
-#deleteCart{
-    margin-top: 3vh;
-}
-
-.cartBtn:active{
-    box-shadow: 1px 1px 1px 1px darkgray;
-    transform: translateX(1px) translateY(1px);
+#editProfile:active{
+    opacity: 0.0;
+    transition: all 0.2s;
 }
 
 
-body {font-family: Arial, Helvetica, sans-serif;}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
 
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
 
 /* Center the image and position the close button */
 .imgcontainer {
     text-align: center;
     margin: 24px 0 12px 0;
     position: relative;
-  }
-  
+}
+
 img.avatar {
-    width: 40%;
+    width: 30%;
+    height: 30%;
     border-radius: 50%;
 }
 
@@ -148,12 +166,20 @@ span.psw {
     padding-top: 60px;
 }
 
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
 }
 
 /* Add Zoom Animation */
@@ -172,6 +198,74 @@ span.psw {
     to {transform: scale(1)}
 }
 
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}
+
+
+.cartBtn{
+    cursor: pointer;
+    padding:0.5vh 2vw;
+    min-width: min-content;
+    background-color: lightgray;
+    font-family: monospace;
+    font-weight: 900;
+    font-size: 1.2em;
+    box-shadow: 2px 2px 2px 2px darkgray;
+}
+
+#showCart{
+    margin-top: 10vh;
+}
+
+
+.deleteItem{
+    margin-top: 3vh;
+}
+
+#deleteCart{
+    margin-top: 3vh;
+}
+
+.deleteItem:hover{
+    background-color: crimson;
+    color: wheat;
+}
+
+.cartBtn:active{
+    box-shadow: 1px 1px 1px 1px darkgray;
+    transform: translateX(1px) translateY(1px);
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+
 #cartList{
     margin:2vh;
     padding: 2vh 2vw;
@@ -184,6 +278,22 @@ th{
     text-transform: uppercase;
     text-shadow: 2px 2px gray;
     padding:3vh;
+}
+
+
+.head{
+    font-size: 1.2em;
+    text-transform: none;
+    text-shadow: none;
+    padding:2vh;
+}
+
+.value{
+    padding: 2vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 td{
@@ -204,7 +314,6 @@ td{
 .itemBuy{
     min-width: 90%;
     margin:1vh;
-    border-bottom:5px solid darkblue;
     display: flex;
     justify-content: center;
     align-self: center;
@@ -216,31 +325,30 @@ td{
 }
 
 .flex-buy{
-    padding:2vh 0vh;
+    font-weight: 800;
+    padding:3vh 0vh;
 }
 
 .buyName{
-    border-top-left-radius: 40px;
-    border-left: 5px solid darkblue;
-    background-color: gold;
+    border-left: 15px solid gold;
+    background-color:lime;
     min-width: 15%;
     max-width: 15%;
 }
 
 .buyDate{
-    background-color: lightgreen;
+    background-color: magenta;
     min-width: 20%;
     max-width: 20%;
 }
 .buyAddress{
     min-width: 50%;
     max-width: 50%;
-    background-color: magenta;
+    background-color: lightgreen;
 }
 .buyPrice{
     border-top-right-radius: 40px;
-    border-right: 5px solid darkblue;
     min-width: 15%;
     max-width: 15%;
-    background-color: lime;
+    background-color: darkorange;
 }

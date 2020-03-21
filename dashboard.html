@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | ART APP</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,13 +18,56 @@
     <div id="content">
         <div  class="flex-content" id="userSummary">
             <div id="userName">USER 1</div>
-            <div id="userImage"></div>
+            <div id="userImage">
+                <div id='editProfile' onclick="document.getElementById('id02').style.display='block'">
+                    <i class="material-icons pencil" style="color:white">edit</i>
+                    edit profile
+                </div>
+            </div>
             <div style='border-bottom: 1px solid crimson;height: 0.01vh;width: 18vw;
             box-shadow: 0px 0px 1px 1px black;'></div>
             <div onclick="document.getElementById('id01').style.display='block'" class='cartBtn' id="showCart">Your Cart</div>
             <div class='cartBtn' id="deleteCart">Delete Whole Cart</div>
         </div>
 
+
+        
+        <div id="id02" class="modal">
+        
+            <div class="modal-content animate" method="post">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <img src="/public/pictures/rev.jpg" alt="Avatar" class="avatar">
+            </div>
+        
+            <div class="container">
+                <table width='100%' style='text-align: left;'>
+                    <tr>
+                        <th class='head'>username</th>
+                        <td class='value' id='cellUsername'>
+                            <span id="userValue">anirudh yagnik</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" id='inputUsername' style='display:none'>
+                            <button id="saveUsername" style='display:none'>save</button>
+                            <i class="material-icons" style="color:black;cursor: pointer;" id='editName'>edit</i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class='head'>address</th>
+                        <td class='value' id='cellAddress'>
+                            <span id="addressValue">H - 1 / 2 C KRISHNA NAGAR, DELHI</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" id='inputAddress' style='display:none'>
+                            <button id="saveAddress" style='display:none'>save</button>
+                            <i class="material-icons" style="color:black;cursor: pointer;" id='editAddress'>edit</i>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+            </div>
+        </div>
+        </div>
         <div id="id01" class="modal">    
             <div class="modal-content animate" method="post">
                 <div class="imgcontainer">
@@ -45,9 +89,8 @@
                                 <td>$34</td>
                                 <td>
                                     <div 
-                                      class='cartBtn' id='0' 
-                                      style='margin:0px 2vw;font-weight: 600;font-size: 1em;max-width:20%;margin-left:33%' 
-                                      id="deleteCart"
+                                      class='cartBtn deleteItem' id='0' 
+                                      style='margin:0px 2vw;font-weight: 600;font-size: 1em;max-width:20%;' 
                                     >
                                     delete
                                     </div>
@@ -59,9 +102,8 @@
                                 <td>$34</td>
                                 <td>
                                     <div 
-                                      class='cartBtn' id='1' 
-                                      style='margin:0px 2vw;font-weight: 600;font-size: 1em;max-width:20%;margin-left:33%' 
-                                      id="deleteCart"
+                                      class='cartBtn deleteItem' id='1' 
+                                      style='margin:0px 2vw;font-weight: 600;font-size: 1em;max-width:20%' 
                                     >
                                     delete
                                     </div>
@@ -73,9 +115,8 @@
                                 <td>$34</td>
                                 <td>
                                     <div 
-                                      class='cartBtn' id='2' 
-                                      style='margin:0px 2vw;font-weight: 600;font-size: 1em;max-width:20%;margin-left:33%' 
-                                      id="deleteCart"
+                                      class='cartBtn deleteItem' id='2' 
+                                      style='margin:0px 2vw;font-weight: 600;font-size: 1em;max-width:20%' 
                                     >
                                     delete
                                     </div>
@@ -87,7 +128,7 @@
             </div>
         </div>
         <div class="flex-content" id="userHistory">
-            <div>YOUR BUYING HISTORY</div>
+            <div style="font-size: 2em;font-weight: 800;color: darkred;text-shadow: 3px 3px darkblue;padding:2vh;">YOUR BUYING HISTORY </div>
             <div class="itemBuy">
                 <div class="buyName flex-buy" style="background-color: black;color: white;"><b>ITEM NAME</b></div>
                 <div class="buyDate flex-buy" style="background-color: white;"><b>DATE</b></div>
@@ -123,17 +164,7 @@
             </div>
         </div>
     </div>
-<script>
-// Get the modal
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>      
 <script src="./script.js"></script>
 </body>
 </html>
