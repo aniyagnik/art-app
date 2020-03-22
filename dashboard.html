@@ -11,32 +11,54 @@
     <!-- navabar -->
     <div id="navbar">
         <div class='flex-nav' id="home">Back to home</div>
+        <div id="userName" class='flex-nav'>hi! USER 1</div>
         <div class='flex-nav' id="logout">☺</div>
     </div>
 
     <!-- content -->
     <div id="content">
         <div  class="flex-content" id="userSummary">
-            <div id="userName">USER 1</div>
-            <div id="userImage">
-                <div id='editProfile' onclick="document.getElementById('id02').style.display='block'">
-                    <i class="material-icons pencil" style="color:white">edit</i>
-                    edit profile
+            <div class="flex-summary" id='summary-content'>
+                <div id="userImage">
+                    <div id='editProfile' onclick="document.getElementById('id02').style.display='block'">
+                        <i class="material-icons pencil" style="color:white">edit</i>
+                        edit profile
+                    </div>
                 </div>
+                <div style='border-bottom: 1px solid crimson;height: 0.01vh;width: 18vw;
+                box-shadow: 0px 0px 1px 1px black;'></div>
+                    <div class='userInfo'>
+                        <div class="flex-info">
+                            <div class="prop">name</div>
+                            <div class="pval">anirudh</div>
+                        </div>
+                        <div class="flex-info">
+                            <div class="prop">passward</div>
+                            <div class="pval">********</div>
+                        </div>
+                        <div class="flex-info">
+                            <div class="prop">address</div>
+                            <div class="pval">H - 1 / 2 C KRISHNA NAGAR, DELHI</div>
+                        </div>
+                        <div class="flex-info">
+                            <div class="prop">mobile</div>
+                            <div class="pval">91+980982132</div>
+                        </div>
+                    </div>
+                    <div style='display:flex;flex-direction:column;align-items: center;justify-content: center;'>    
+                        <div onclick="document.getElementById('id01').style.display='block'" class='cartBtn' id="showCart">Your Cart</div>
+                        <div class='cartBtn' id="deleteCart">Delete Whole Cart</div>
+                    </div>
+                </div>
+                <div class='flex-summary' style='min-height: 50vw;min-width: 10vw;'></div>
             </div>
-            <div style='border-bottom: 1px solid crimson;height: 0.01vh;width: 18vw;
-            box-shadow: 0px 0px 1px 1px black;'></div>
-            <div onclick="document.getElementById('id01').style.display='block'" class='cartBtn' id="showCart">Your Cart</div>
-            <div class='cartBtn' id="deleteCart">Delete Whole Cart</div>
-        </div>
-
 
         
         <div id="id02" class="modal">
         
             <div class="modal-content animate" method="post">
             <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <img src="/public/pictures/rev.jpg" alt="Avatar" class="avatar">
             </div>
         
@@ -45,19 +67,37 @@
                     <tr>
                         <th class='head'>username</th>
                         <td class='value' id='cellUsername'>
-                            <span id="userValue">anirudh yagnik</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span id="userValue">anirudh yagnik</span>
                             <input type="text" id='inputUsername' style='display:none'>
                             <button id="saveUsername" style='display:none'>save</button>
                             <i class="material-icons" style="color:black;cursor: pointer;" id='editName'>edit</i>
                         </td>
                     </tr>
                     <tr>
+                        <th class='head'>Passward</th>
+                        <td class='value' id='cellPassward'>
+                            <span id="passwardValue">*********</span>
+                            <input type="text" id='inputPassward' style='display:none'>
+                            <button id="savePassward" style='display:none'>save</button>
+                            <i class="material-icons" style="color:black;cursor: pointer;" id='editPassward'>edit</i>
+                        </td>
+                    </tr>
+                    <tr>
                         <th class='head'>address</th>
                         <td class='value' id='cellAddress'>
-                            <span id="addressValue">H - 1 / 2 C KRISHNA NAGAR, DELHI</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span id="addressValue">H - 1 / 2 C KRISHNA NAGAR, DELHI</span>
                             <input type="text" id='inputAddress' style='display:none'>
                             <button id="saveAddress" style='display:none'>save</button>
                             <i class="material-icons" style="color:black;cursor: pointer;" id='editAddress'>edit</i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class='head'>Mobile Number</th>
+                        <td class='value' id='cellphone'>
+                            <span id="phoneValue">+91-8934237812</span>
+                            <input type="text" id='inputPhone' style='display:none'>
+                            <button id="savePhone" style='display:none'>save</button>
+                            <i class="material-icons" style="color:black;cursor: pointer;" id='editPhone'>edit</i>
                         </td>
                     </tr>
                 </table>
@@ -90,7 +130,7 @@
                                 <td>
                                     <div 
                                       class='cartBtn deleteItem' id='0' 
-                                      style='margin:0px 2vw;font-weight: 600;font-size: 1em;max-width:20%;' 
+                                      style='margin:0px 2vw;font-weight: 600;font-size: 1em;' 
                                     >
                                     delete
                                     </div>
@@ -103,7 +143,7 @@
                                 <td>
                                     <div 
                                       class='cartBtn deleteItem' id='1' 
-                                      style='margin:0px 2vw;font-weight: 600;font-size: 1em;max-width:20%' 
+                                      style='margin:0px 2vw;font-weight: 600;font-size: 1em'
                                     >
                                     delete
                                     </div>
@@ -116,7 +156,7 @@
                                 <td>
                                     <div 
                                       class='cartBtn deleteItem' id='2' 
-                                      style='margin:0px 2vw;font-weight: 600;font-size: 1em;max-width:20%' 
+                                      style='margin:0px 2vw;font-weight: 600;font-size: 1em;'
                                     >
                                     delete
                                     </div>
@@ -129,11 +169,11 @@
         </div>
         <div class="flex-content" id="userHistory">
             <div style="font-size: 2em;font-weight: 800;color: darkred;text-shadow: 3px 3px darkblue;padding:2vh;">YOUR BUYING HISTORY </div>
-            <div class="itemBuy">
-                <div class="buyName flex-buy" style="background-color: black;color: white;"><b>ITEM NAME</b></div>
+            <div class="itemBuy" style="position:sticky;top:0;border-top-right-radius: 0;">
+                <div class="buyName flex-buy" style=" background-color: black;color: white;"><b>ITEM NAME</b></div>
                 <div class="buyDate flex-buy" style="background-color: white;"><b>DATE</b></div>
                 <div class="buyAddress flex-buy" style="background-color: black;color: white;"><b>ADDRESS</b></div>
-                <div class="buyPrice flex-buy" style="background-color: white;"><b>PRICE</b></div>
+                <div class="buyPrice flex-buy" style="border-top-right-radius: 0px;background-color: white;"><b>PRICE</b></div>
             </div>
             <div class="itemBuy">
                 <div class="buyName flex-buy">item-name</div>
@@ -146,17 +186,123 @@
                 <div class="buyDate flex-buy">12/12/2019</div>
                 <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
                 <div class="buyPrice flex-buy">$23</div>
-            </div><div class="itemBuy">
+            </div>
+            <div class="itemBuy">
                 <div class="buyName flex-buy">item-name</div>
                 <div class="buyDate flex-buy">12/12/2019</div>
                 <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
                 <div class="buyPrice flex-buy">$23</div>
-            </div><div class="itemBuy">
+            </div>
+            <div class="itemBuy">
                 <div class="buyName flex-buy">item-name</div>
                 <div class="buyDate flex-buy">12/12/2019</div>
                 <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
                 <div class="buyPrice flex-buy">$23</div>
-            </div><div class="itemBuy">
+            </div>
+            <div class="itemBuy">
+                <div class="buyName flex-buy">item-name</div>
+                <div class="buyDate flex-buy">12/12/2019</div>
+                <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
+                <div class="buyPrice flex-buy">$23</div>
+            </div>
+            
+            <div class="itemBuy">
+                <div class="buyName flex-buy">item-name</div>
+                <div class="buyDate flex-buy">12/12/2019</div>
+                <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
+                <div class="buyPrice flex-buy">$23</div>
+            </div>
+            <div class="itemBuy">
+                <div class="buyName flex-buy">item-name</div>
+                <div class="buyDate flex-buy">12/12/2019</div>
+                <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
+                <div class="buyPrice flex-buy">$23</div>
+            </div>
+            <div class="itemBuy">
+                <div class="buyName flex-buy">item-name</div>
+                <div class="buyDate flex-buy">12/12/2019</div>
+                <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
+                <div class="buyPrice flex-buy">$23</div>
+            </div>
+            <div class="itemBuy">
+                <div class="buyName flex-buy">item-name</div>
+                <div class="buyDate flex-buy">12/12/2019</div>
+                <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
+                <div class="buyPrice flex-buy">$23</div>
+            </div>
+            <div class="itemBuy">
+                <div class="buyName flex-buy">item-name</div>
+                <div class="buyDate flex-buy">12/12/2019</div>
+                <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
+                <div class="buyPrice flex-buy">$23</div>
+            </div>
+            <div class="itemBuy">
+                <div class="buyName flex-buy">item-name</div>
+                <div class="buyDate flex-buy">12/12/2019</div>
+                <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
+                <div class="buyPrice flex-buy">$23</div>
+            </div>
+            <div class="itemBuy">
+                <div class="buyName flex-buy">item-name</div>
+                <div class="buyDate flex-buy">12/12/2019</div>
+                <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
+                <div class="buyPrice flex-buy">$23</div>
+            </div>
+            <div class="itemBuy">
+                <div class="buyName flex-buy">item-name</div>
+                <div class="buyDate flex-buy">12/12/2019</div>
+                <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
+                <div class="buyPrice flex-buy">$23</div>
+            </div>
+            <div class="itemBuy">
+                <div class="buyName flex-buy">item-name</div>
+                <div class="buyDate flex-buy">12/12/2019</div>
+                <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
+                <div class="buyPrice flex-buy">$23</div>
+            </div>
+            <div class="itemBuy">
+                <div class="buyName flex-buy">item-name</div>
+                <div class="buyDate flex-buy">12/12/2019</div>
+                <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
+                <div class="buyPrice flex-buy">$23</div>
+            </div>
+            <div class="itemBuy">
+                <div class="buyName flex-buy">item-name</div>
+                <div class="buyDate flex-buy">12/12/2019</div>
+                <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
+                <div class="buyPrice flex-buy">$23</div>
+            </div>
+            <div class="itemBuy">
+                <div class="buyName flex-buy">item-name</div>
+                <div class="buyDate flex-buy">12/12/2019</div>
+                <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
+                <div class="buyPrice flex-buy">$23</div>
+            </div>
+            <div class="itemBuy">
+                <div class="buyName flex-buy">item-name</div>
+                <div class="buyDate flex-buy">12/12/2019</div>
+                <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
+                <div class="buyPrice flex-buy">$23</div>
+            </div>
+            <div class="itemBuy">
+                <div class="buyName flex-buy">item-name</div>
+                <div class="buyDate flex-buy">12/12/2019</div>
+                <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
+                <div class="buyPrice flex-buy">$23</div>
+            </div>
+            <div class="itemBuy">
+                <div class="buyName flex-buy">item-name</div>
+                <div class="buyDate flex-buy">12/12/2019</div>
+                <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
+                <div class="buyPrice flex-buy">$23</div>
+            </div>
+            <div class="itemBuy">
+                <div class="buyName flex-buy">item-name</div>
+                <div class="buyDate flex-buy">12/12/2019</div>
+                <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>
+                <div class="buyPrice flex-buy">$23</div>
+            </div>
+            <div class="itemBuy">
                 <div class="buyName flex-buy">item-name</div>
                 <div class="buyDate flex-buy">12/12/2019</div>
                 <div class="buyAddress flex-buy">h-1/2 c, krishna nagar</div>

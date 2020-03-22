@@ -1,6 +1,3 @@
-html{
-    min-width: 100vw;
-}
 
 body{
     margin: 0px;
@@ -8,8 +5,12 @@ body{
 
 #navbar{
     background-color: black;
-    min-width: 100%;
+    min-width: 97%;
     padding:1vh 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
     align-items: center;
     position: sticky;
 }
@@ -22,6 +23,16 @@ body{
     font-family: monospace;
     border: 1px dotted lightcyan;
     cursor: pointer;
+}
+
+
+#userName{
+    align-self: center;
+    color: darkred;
+    background-color: gold;
+    box-shadow: 0px 0px 2px 2px rgb(255, 255, 255);
+    font-weight: 900;
+    font-style: italic;
 }
 
 #home{
@@ -41,11 +52,9 @@ body{
 
 }
 
-
 #content{
     display: flex;
     justify-content: flex-start;
-    align-items: center;
     flex-direction: row;
 }
 
@@ -59,28 +68,21 @@ body{
 
 
 #userSummary{
+    top:0em;
+    position: sticky;
     min-width: 20vw;
     max-width: 20vw;
-    min-height: 80vh;
-    max-height: 80vh;
 }
 
-#userName{
-    margin:5vh auto 1vh;
-    font-size: 2em;
-    background-color: gold;
-    box-shadow: 0px 0px 2px 2px darkmagenta;
-    padding: 0.2vh 1vw;
-    font-weight: 900;
-    font-family: arial-black;
-    font-style: italic;
+#summary-content{
+    position: sticky;
+    top:0em;
 }
-
 #userImage{
     margin:4vh auto;
     background-image: url('https://i.picsum.photos/id/1015/600/400.jpg');
-    width: 18vw;
-    height: 18vw;
+    width: 14vw;
+    height: 14vw;
     box-shadow: 0px 0px 10px 5px rgb(2, 142, 230);
     border-radius: 50%;
 }
@@ -88,14 +90,14 @@ body{
 
 #editProfile{
     cursor: pointer;
-    width: 18vw;
+    width: 14vw;
+    height: 14vw;
     opacity: 0.5;
     background-color: black;
     border-radius: 50%;
     color: cornsilk;
     display: table-cell; 
     vertical-align: middle;
-    height: 18vw;
     text-align: center;
 }
 
@@ -111,7 +113,41 @@ body{
     transition: all 0.2s;
 }
 
+.userInfo{
+    margin-top:2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    min-width: 100%
+}
 
+.flex-info{
+    margin:1vh 0vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid darkorchid;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.flex-info:active{
+    transform: translateX(2px) translateY(2px);
+}
+
+.prop{
+    font-weight: 900;
+    padding: 2vh;
+    width:3.5vw;
+    border-right: 1px dashed darkred;
+}
+
+.pval{
+    padding: 2vh;
+    width: 10vw;
+}
 /* Full-width input fields */
 input[type=text], input[type=password] {
     width: 80%;
@@ -213,7 +249,7 @@ span.psw {
 .cartBtn{
     cursor: pointer;
     padding:0.5vh 2vw;
-    min-width: min-content;
+    width: max-content;
     background-color: lightgray;
     font-family: monospace;
     font-weight: 900;
@@ -222,7 +258,7 @@ span.psw {
 }
 
 #showCart{
-    margin-top: 10vh;
+    margin-top: 5vh;
 }
 
 
@@ -231,7 +267,7 @@ span.psw {
 }
 
 #deleteCart{
-    margin-top: 3vh;
+    margin: 3vh 0px;
 }
 
 .deleteItem:hover{
@@ -261,7 +297,7 @@ button {
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    margin: 5% auto 5% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 50%; /* Could be more or less, depending on screen size */
 }
@@ -301,19 +337,16 @@ td{
 }
 
 #userHistory{
-    min-width: 79.5vw;
-    max-width: 79.5vw;
-    min-height: 80vh;
-    max-height: 80vh;
+    min-width: 78.5vw;
+    max-width: 78.5vw;
     display: flex;
-    justify-content: center;
-    align-self: center;
+    justify-content: flex-start;
     flex-direction: column;
 }
 
 .itemBuy{
     min-width: 90%;
-    margin:1vh;
+    margin:0.5vh;
     display: flex;
     justify-content: center;
     align-self: center;
