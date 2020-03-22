@@ -26,9 +26,12 @@ app.use(function (req,res,next){
 })
 
 app.get('/',(req,res)=>{
-    res.sendFile(path.join(__dirname,'public/mainPage/index.html'))
+    res.sendFile(path.join(__dirname,'public/htmlPages/index.html'))
 })
 
+app.get('/login',(req,res)=>{
+    res.sendFile(path.join(__dirname,'public/htmlPages/login.html'))
+})
 
 app.get('/item',(req,res)=>{
     console.log('accessing one item ')

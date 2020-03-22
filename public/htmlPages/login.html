@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LOGIN | ART-APP</title>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {font-family: Arial, Helvetica, sans-serif;}
+                        
+            .navbar > a{
+                color:maroon;
+                text-decoration: none;
+            }
+
+
+            .navbar{
+                width: 98.9vw;
+                color: maroon;
+                display: inline-block;
+                opacity: 0.9;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                flex-direction:row;
+                border-bottom: 1px solid black;
+
+            }
+
+            .navbar .menu{
+                padding:15px 40px;
+                text-align: center;
+                opacity: 0.7;
+                font-size: 1.5em;
+                font-weight: 600;
+                font-family: serif;
+            }
+
+
+            .navbar .menu:hover{
+                background-image: url('./pictures/rev.jpg');
+                background-size: cover;
+                color: rgb(146, 219, 29);
+                opacity: 1;
+                border-radius: 10px;
+                box-shadow: 10px 10px 2px rgb(113, 119, 113);
+                box-shadow: inset 0 0 0 2px #53a7ea;
+                transition:  all 0.3s;
+            }
+
+            .dropdownContent{
+                display: none;
+                position: absolute;
+            }
+
+            .dropBtn:hover .dropdownContent{
+                font-size: 0.9em ;
+                display: block ;
+                color:black;
+            }
+
+            .ts{
+                background-color: honeydew ;
+                border-radius: 10px;
+                padding:20px 30px;
+                border-radius: 10px;
+            }
+
+            .ts:hover{
+                background-color: lightslategray ;
+                border:none ;
+                transition: all 0.3s;
+            }
+
+            /* Full-width input fields */
+            input[type=text], input[type=password] {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+            }
+
+            /* Set a style for all buttons */
+            button {
+                background-color: #4CAF50;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+            }
+
+            button:hover {
+                opacity: 0.8;
+            }
+
+            /* Extra styles for the cancel button */
+            .cancelbtn {
+                width: auto;
+                padding: 10px 18px;
+                background-color: #f44336;
+            }
+
+            /* Center the image and position the close button */
+            .imgcontainer {
+                text-align: center;
+                margin: 24px 0 12px 0;
+                position: relative;
+            }
+
+            img.avatar {
+                width: 20%;
+                height: 20%;
+                border-radius: 50%;
+            }
+
+            .container {
+                padding: 16px;
+            }
+
+            span.psw {
+                float: right;
+                padding-top: 16px;
+            }
+
+            /* The Modal (background) */
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+                padding-top: 60px;
+            }
+
+            /* Modal Content/Box */
+            .modal-content {
+                background-color: #fefefe;
+                margin: 2% auto 2% auto; /* 5% from the top, 15% from the bottom and centered */
+                border: 1px solid #888;
+                width: 70%; /* Could be more or less, depending on screen size */
+            }
+
+            /* The Close Button (x) */
+            .close {
+                position: absolute;
+                right: 25px;
+                top: 0;
+                color: #000;
+                font-size: 35px;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: red;
+                cursor: pointer;
+            }
+
+            /* Add Zoom Animation */
+            .animate {
+                -webkit-animation: animatezoom 0.6s;
+                animation: animatezoom 0.6s
+            }
+
+            @-webkit-keyframes animatezoom {
+                from {-webkit-transform: scale(0)} 
+                to {-webkit-transform: scale(1)}
+            }
+            
+            @keyframes animatezoom {
+                from {transform: scale(0)} 
+                to {transform: scale(1)}
+            }
+
+            /* Change styles for span and cancel button on extra small screens */
+            @media screen and (max-width: 300px) {
+                span.psw {
+                    display: block;
+                    float: none;
+                }
+                .cancelbtn {
+                    width: 100%;
+                }
+            }
+
+            body{
+                margin:0px;
+            }
+
+            .appName{
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                flex-direction: row;
+                background-color: indigo;
+            }
+            
+            .flex-app{
+                margin:2vh auto;
+                padding: 2vh 3vw;
+                background-color: gold;
+            }
+
+            .heading{
+                font-size: 10em;
+                font-weight: 900;
+                font-style: italic;
+                font-family: monospace;
+                font-variant: small-caps;
+                width: 100vw;
+                text-align: center;
+            }
+
+            .flex{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+                height: 60vh;
+            }
+            </style>
+    </head>
+<body>
+<!-- navigation bar -->
+<div class="navbar">
+    <a href="#home" title='HOME'>
+        <div class="homeMenu menu">
+            <i class='fas fa-home' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;home
+        </div> 
+    </a>
+    <a href="#images" title='ITEMS'>
+        <div class="itemsMenu  menu">
+            <i class='fas fa-image' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;items
+        </div>
+    </a>
+    <a href="#testimonials" title="testimonials">
+        <div class="testimonialsMenu  menu">
+            <i class='far fa-comment-alt' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;testimonials
+            </div>
+    </a>
+    <a href="#gallary" title="GALLARY"> 
+        <div class="GALLARYMenu  menu">
+            <i class='far fa-images' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;gallary
+        </div>
+    </a>
+    <a href="#about" title="ABOUT"> 
+        <div class="aboutMenu  menu">
+            <i class='fab fa-empire' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;about
+        </div>
+    </a>
+    <a title=CONTACT class='dropBtn'>
+        <div class="contactMenu  menu">
+            <i class="material-icons" style="font-size:26px">contact_phone</i>&nbsp;&nbsp;&nbsp;&nbsp;contact
+        </div>
+        
+        <!-- dropdown menu -->
+        <div class="dropdownContent">
+            <div class="mail ts">
+                <span><i class="material-icons" style='font-size:30px'>mail</i></span>
+                <span>pragyaagnik@gmail.com</span>
+            </div>
+            <div class="phone ts">
+                <span><i class='fab fa-whatsapp' style='font-size:30px'></i></i></span>
+                <span>+91-9889238731</span>
+            </div>
+            <div class="social ts">
+                <span><i class='fab fa-instagram' style='font-size:30px'></i> </span>
+                <span>pranyaDesign</span>
+            </div>
+        </div>
+    </a>
+
+    
+    <a title='LOGIN/SIGN-UP' href="/login">
+        <div class="contactMenu  menu">
+            <i class='fas fa-user' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;login
+        </div>
+    </a>
+</div>
+
+<div class="heading">login</div>
+<div class="flex">
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+</div>
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="https://i.picsum.photos/id/1016/564/563.jpg" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>

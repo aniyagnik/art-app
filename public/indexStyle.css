@@ -46,6 +46,7 @@ body{
 
 .navbar .menu:hover{
     background-image: url('./pictures/rev.jpg');
+    background-size: cover;
     color: rgb(146, 219, 29);
     opacity: 1;
     border-radius: 10px;
