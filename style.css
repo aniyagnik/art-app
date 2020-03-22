@@ -72,6 +72,8 @@ body{
     position: sticky;
     min-width: 20vw;
     max-width: 20vw;
+    background-image: linear-gradient(to right bottom, #5ffbf1, #46eefa, #41dfff, #52cffe, #69bff8, #85bef6, #9bbdf2, #acbced, #c5cbf1, #dadcf5, #eeedfa, #ffffff);
+    border-right: 5px solid crimson;
 }
 
 #summary-content{
