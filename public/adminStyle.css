@@ -1,0 +1,221 @@
+body{
+    margin:0px
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+
+#navbar{
+    width: 98vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    box-shadow: 1px 1px 90px 5px black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.flex-nav{
+    background-color: blue;
+    padding: 1vh 3vw;
+    font-size: 2em;
+    color: lightgreen;
+    font-weight: 700;
+    font-family: sans-serif;
+}
+
+#warning{
+    background-color: red;
+    font-size: 3em;
+    text-align: center;
+    color:lemonchiffon;
+    font-weight: 700;
+    font-family: sans-serif;
+    text-shadow: 2px 2px darkred;
+    border:10px solid black;
+}
+
+
+#options{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    padding: 5px auto;
+}
+
+.flex-opt{
+    margin: 3vw;
+    padding: 2vh 2vw;
+    width: max-content;
+    font-size: 1.4em;
+    text-align: center;
+    font-weight: 700;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+#content{
+margin-top: 2vh;
+    width: 98vw;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.flex-content{
+    min-width: 100%;
+    height: 85vh;
+    border:1px solid black
+}
+
+#viewItems{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+    
+.flex-view{
+    border:1px solid crimson;
+    width: fit-content;
+    height: fit-content;
+}
+
+#addItemBtn{
+    padding: 5px;
+    width: fit-content;
+    font-size: 1.5em;
+    color: rgb(255, 255, 255);
+    background-color: rgb(5, 230, 16);
+}
+
+#allItemList{
+    font-size: 1.5em;
+    min-width: 98vw;
+    height: 60vh;
+    overflow-y: scroll;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.item{
+    min-width: 90%;
+    margin:0.5vh;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex-direction:row;
+    font-size: 1.2em;
+    font-family: monospace;
+    text-align: center;
+    font-weight: 500;
+}
+
+
+.flex-item{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-weight: 800;
+    padding:1vh 0vh;
+}
+
+
+
+.item-name{
+    border-left: 15px solid gold;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    min-width: 15%;
+    max-width: 15%;
+}
+
+.item-date{
+    min-width: 20%;
+    max-width: 20%;
+}
+
+.item-address{
+    min-width: 20%;
+    max-width: 20%;
+}
+
+.item-price{
+    min-width: 15%;
+    max-width: 15%;
+}
+
+.item-edit{
+    min-width: 15%;
+    max-width: 15%;
+}
+
+#editBtn{
+    font-size: 0.7em;
+    font-family: monospace;
+    font-weight: 800;
+    padding:1vh 3vh;
+    background-color: gold;
+    color:lightseagreen;
+}
+
+.item-delete{
+    min-width: 15%;
+    max-width: 15%;
+    border-right: 15px solid gold;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#delBtn{
+    font-size: 0.7em;
+    font-family: monospace;
+    font-weight: 800;
+    padding:1vh 2vh;
+    background-color: darkred;
+    color:lightseagreen;
+
+}
+
+hr{ 
+    margin: 0em;
+    border : 0;
+    height: 1px; 
+    width: 80vw;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); 
+  }

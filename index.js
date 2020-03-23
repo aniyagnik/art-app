@@ -33,6 +33,11 @@ app.get('/login',(req,res)=>{
     res.sendFile(path.join(__dirname,'public/htmlPages/login.html'))
 })
 
+
+app.get('/admin',(req,res)=>{
+    res.sendFile(path.join(__dirname,'public/htmlPages/adminPage.html'))
+})
+
 app.get('/item',(req,res)=>{
     console.log('accessing one item ')
     const {id}=req.query
