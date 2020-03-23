@@ -2,9 +2,9 @@ const express = require('express')
 const app = express()
 const hbs=require('hbs')
 const http = require('http') 
-const path = require('path') 
+const path = require('path')
 
-const {get_allItemList,get_specificItemList,get_itemShowList,get_itemInfo}=require('./database/itemCollection')
+const {insert_itemInList,get_allItemList,get_specificItemList,get_itemShowList,get_itemInfo}=require('./database/itemCollection')
 
 var server = http.createServer(app);
 
@@ -36,6 +36,15 @@ app.get('/login',(req,res)=>{
 
 app.get('/admin',(req,res)=>{
     res.sendFile(path.join(__dirname,'public/htmlPages/adminPage.html'))
+})
+
+app.post('/admin/addItem',(req,res)=>{
+    let item={...req.body,price:'$'+req.body.price,eventId:'12' }
+    insert_itemInList(item)
+    .then(s=>{
+        console.log('sc ',s)
+    })
+    res.redirect('/admin')
 })
 
 app.get('/item',(req,res)=>{

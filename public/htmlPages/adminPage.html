@@ -7,9 +7,45 @@
     <link rel="stylesheet" href="../adminStyle.css">
 </head>
 <body>
+
+        
+    <div id="add" class="modal" style='padding-top: 5px;'>
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content" action="/admin/addItem" method="POST">
+        <div class="container">
+            <h1>Add Item</h1>
+            <p>Please fill in this form to add an item.</p>
+            <hr id='hr1'>
+            <label for="name"><b>item-name</b></label>
+            <input type="text" placeholder="enter item name..." name="name" required>
+            
+            <label for="summary"><b>discription</b></label>
+            <textarea placeholder="Enter discription..." name="summary" required></textarea>
+                
+            <label for="type"><b>type</b></label>
+            <input type="text" placeholder="enter item type..." name="type" required>
+            
+            <label for="price"><b>price</b></label>
+            <input type="number" placeholder="enter price..." name="price" required>
+            
+            <label for="name"><b>select images</b></label>
+            <input type="file" id="myFile" name="image" multiple><br><br>
+
+            <label><b>status</b>
+            <input type="radio" checked="checked" value='available' name="status" style="margin-bottom:15px">available
+            <input type="radio" name="status"  value='soldout' style="margin-bottom:15px">sold out
+            </label>
+    
+            <div class="clearfix">
+            <button type="button" onclick="document.getElementById('add').style.display='none'" class="cancelbtn">Cancel</button>
+            <button type="submit" class="signupbtn" style="width: 50%;">Sign Up</button>
+            </div>
+        </div>
+        </form>
+    </div>
+  
     <!-- The Modal -->
     <div id="myModal" class="modal">
-
         <!-- Modal content -->
         <div class="modal-content">
             <p id="warning">
@@ -22,7 +58,6 @@
         </div>
     </div>
     
-    
     <div id="navbar">
         <div class="flex-nav">admin page  | ART-APP</div>
         <div class="flex-nav" id="signOut">signout</div>
@@ -31,20 +66,19 @@
     <div id="content">
         <div class="flex-content" id="viewItems">
             <div class="addItem flex-view">
-                <div id="addItemBtn">add Items</div>
+                <div id="addItemBtn" onclick="document.getElementById('add').style.display='block'" style="width:auto;">add items</div>
             </div>
             <div id="allItemList" class='flex-view'>
                 <div style="font-size: 2em;font-weight: 800;color: darkred;text-shadow: 3px 3px darkblue;padding:2vh;">ALL ITEMS ON WEBSITE</div>
                 <div class="item">
-                    <div class="item-name flex-item" style='background-color: lightskyblue;'>item-name</div>
+                    <div class="item-name flex-item" style='background-color: lightskyblue;'>item</div>
                     <div class="item-date flex-item" style='background-color: lightgreen;'>added on</div>
                     <div class="item-price flex-item" style='background-color: lightskyblue;'>price</div>
                     <div class="item-edit flex-item" style='background-color: lightgreen;'>edit</div>
                     <div class="item-delete flex-item" style='background-color: lightskyblue;'>delete</div>
                 </div>
-                <hr style='height: 3px;'>
                 
-                <div class="item">
+                <div class="item" style='margin-top:3vh'>
                     <div class="item-name flex-item">item1</div>
                     <div class="item-date flex-item">12/12/2019</div>
                     <div class="item-price flex-item">$234</div>
@@ -57,108 +91,6 @@
                 </div>
                 <hr>
                 <div class="item">
-                    <div class="item-name flex-item">item1</div>
-                    <div class="item-date flex-item">12/12/2019</div>
-                    <div class="item-price flex-item">$234</div>
-                    <div class="item-edit flex-item" style='padding: 0px;'>
-                        <button id='editBtn'>edit</button>
-                    </div>
-                    <div class="item-delete flex-item" style='padding: 0px;'>
-                        <button id='delBtn'>delete</button>
-                    </div>
-                </div>
-                <hr>
-                <div class="item">
-                    <div class="item-name flex-item">item1</div>
-                    <div class="item-date flex-item">12/12/2019</div>
-                    <div class="item-price flex-item">$234</div>
-                    <div class="item-edit flex-item" style='padding: 0px;'>
-                        <button id='editBtn'>edit</button>
-                    </div>
-                    <div class="item-delete flex-item" style='padding: 0px;'>
-                        <button id='delBtn'>delete</button>
-                    </div>
-                </div>
-                <hr>
-                <div class="item">
-                    <div class="item-name flex-item">item1</div>
-                    <div class="item-date flex-item">12/12/2019</div>
-                    <div class="item-price flex-item">$234</div>
-                    <div class="item-edit flex-item" style='padding: 0px;'>
-                        <button id='editBtn'>edit</button>
-                    </div>
-                    <div class="item-delete flex-item" style='padding: 0px;'>
-                        <button id='delBtn'>delete</button>
-                    </div>
-                </div>
-                <hr>
-                <div class="item">
-                    <div class="item-name flex-item">item1</div>
-                    <div class="item-date flex-item">12/12/2019</div>
-                    <div class="item-price flex-item">$234</div>
-                    <div class="item-edit flex-item" style='padding: 0px;'>
-                        <button id='editBtn'>edit</button>
-                    </div>
-                    <div class="item-delete flex-item" style='padding: 0px;'>
-                        <button id='delBtn'>delete</button>
-                    </div>
-                </div>
-                <hr><div class="item">
-                    <div class="item-name flex-item">item1</div>
-                    <div class="item-date flex-item">12/12/2019</div>
-                    <div class="item-price flex-item">$234</div>
-                    <div class="item-edit flex-item" style='padding: 0px;'>
-                        <button id='editBtn'>edit</button>
-                    </div>
-                    <div class="item-delete flex-item" style='padding: 0px;'>
-                        <button id='delBtn'>delete</button>
-                    </div>
-                </div>
-                <hr><div class="item">
-                    <div class="item-name flex-item">item1</div>
-                    <div class="item-date flex-item">12/12/2019</div>
-                    <div class="item-price flex-item">$234</div>
-                    <div class="item-edit flex-item" style='padding: 0px;'>
-                        <button id='editBtn'>edit</button>
-                    </div>
-                    <div class="item-delete flex-item" style='padding: 0px;'>
-                        <button id='delBtn'>delete</button>
-                    </div>
-                </div>
-                <hr><div class="item">
-                    <div class="item-name flex-item">item1</div>
-                    <div class="item-date flex-item">12/12/2019</div>
-                    <div class="item-price flex-item">$234</div>
-                    <div class="item-edit flex-item" style='padding: 0px;'>
-                        <button id='editBtn'>edit</button>
-                    </div>
-                    <div class="item-delete flex-item" style='padding: 0px;'>
-                        <button id='delBtn'>delete</button>
-                    </div>
-                </div>
-                <hr><div class="item">
-                    <div class="item-name flex-item">item1</div>
-                    <div class="item-date flex-item">12/12/2019</div>
-                    <div class="item-price flex-item">$234</div>
-                    <div class="item-edit flex-item" style='padding: 0px;'>
-                        <button id='editBtn'>edit</button>
-                    </div>
-                    <div class="item-delete flex-item" style='padding: 0px;'>
-                        <button id='delBtn'>delete</button>
-                    </div>
-                </div>
-                <hr><div class="item">
-                    <div class="item-name flex-item">item1</div>
-                    <div class="item-date flex-item">12/12/2019</div>
-                    <div class="item-price flex-item">$234</div>
-                    <div class="item-edit flex-item" style='padding: 0px;'>
-                        <button id='editBtn'>edit</button>
-                    </div>
-                    <div class="item-delete flex-item" style='padding: 0px;'>
-                        <button id='delBtn'>delete</button>
-                    </div>
-                </div>
-                <hr><div class="item">
                     <div class="item-name flex-item">item1</div>
                     <div class="item-date flex-item">12/12/2019</div>
                     <div class="item-price flex-item">$234</div>
@@ -172,7 +104,6 @@
                 <hr>
             </div>
         </div>        
-        <div class="flex-content" id="viewSales"></div>
     </div>
 <script src="../adminScript.js"></script>    
 </body>

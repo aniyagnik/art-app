@@ -11,8 +11,15 @@ const get_db=()=>{
             resolve(db);
         });
     }
+//inset item in list
+const insert_itemInList=(obj)=>
+    get_db()
+    .then(db=>db.collection('itemList'))
+    .catch(err=>console.log('error in accessing in collection list ',err))
+    .then(collection=>collection.insertOne(obj))
+    .then(ha=>{console.log('doc added :',ha.ops[0]);return true})
+    .catch(err=>console.log('error in saving in collection itemList ',err))
 
-    
 //accessing collection to get all item list
 const get_allItemList=(req_type)=>{
     return get_db()
@@ -68,6 +75,7 @@ const get_itemInfo=(id)=>
     .catch(err=>console.log('error in fetching '))
     
 module.exports={
+    insert_itemInList,
     get_allItemList,
     get_specificItemList,
     get_itemShowList,
