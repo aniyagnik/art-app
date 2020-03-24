@@ -49,6 +49,8 @@
         </form>
     </div>
   
+
+  
     {{!-- add types --}}
    <div id="editTypes" class="modal" style='padding-top: 5px;'>
         <span onclick="document.getElementById('editTypes').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -88,6 +90,47 @@
             </div>       
         </div>
     </div>
+
+
+   {{!-- update item --}}
+    <div id="update" class="modal" style='padding-top: 5px;'>
+        <span onclick="document.getElementById('update').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content" action="/admin/updateItem" method="POST">
+        <div class="container">
+            <h1 id='updateTitle'>update Item</h1>
+            <p>Please update the required fields.</p>
+            <hr id='hr1'>
+            <label for="name"><b>item-name</b></label>
+            <input type="text" value='' placeholder="enter item name..." name="Uname" required>
+            
+            <label for="summary"><b>discription</b></label>
+            <textarea value='' placeholder="Enter discription..." name="Usummary" required></textarea>
+                <input type="hidden" name='Uid' value=''>
+            <label for="type"><b>type</b></label><br>
+            <select id="typesOpt" value='' name="Utype" required>
+                {{#each itemType}}
+                    <option value="{{this.type}}">{{this.type}}</option>
+                {{/each}}
+            </select>
+            
+            <label for="price"><b>price(in INR)</b></label>
+            <input type="number" value='' placeholder="enter price..." name="Uprice" required>
+            
+            <label for="name"><b>select images</b></label>
+            <input type="file" id="myFile" name="Uimage" multiple><br><br>
+
+            <label><b>status</b>
+            <input type="radio" onclick="check()" value='available' name="Uavailable" style="margin-bottom:15px">available
+            <input type="radio" name="Usoldout"  onclick="uncheck()" value='soldout' style="margin-bottom:15px">sold out
+            </label>
+    
+            <div class="clearfix">
+            <button type="button" onclick="document.getElementById('update').style.display='none'" class="cancelbtn">Cancel</button>
+            <button type="submit" class="signupbtn" style="width: 50%;">update item</button>
+            </div>
+        </div>
+        </form>
+    </div>
     
     <div id="navbar">
         <div class="flex-nav">admin page  | ART-APP</div>
@@ -113,13 +156,17 @@
                 {{#if itemList}}
                     {{#each itemList}}
                     <div id='{{this._id}}' style="width: 90%;">
-                        <div class="item" >
+                        <div class="item">
                             <div class="item-name flex-item">{{this.name}}</div>
                             <div class="item-type flex-item">{{this.type}}</div>
+                            <div style="display: none;">{{this.summary}}</div>
                             <div class="item-date flex-item">{{this.date}}</div>
                             <div class="item-price flex-item">&#8377;{{this.price}}</div>
+                            <div style="display: none;">{{this.price}}</div>
+                            <div style="display: none;">{{this.image}}</div>
+                            <div style="display: none;">{{this.status}}</div>
                             <div class="item-edit flex-item" style='padding: 0px;'>
-                                <button class='editBtn'>edit</button>
+                                <button onclick="editItem('{{this._id}}')" class='editBtn'>edit</button>
                             </div>
                             <div class="item-delete flex-item" style='padding: 0px;'>
                                 <button  onclick="deleteItem('{{this._id}}')" class='delBtn'>delete</button>

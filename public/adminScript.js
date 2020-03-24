@@ -31,6 +31,26 @@ function saveDate(){
   return true
 }
 
+
+function editItem(id){
+  let edit = document.getElementById(id)
+  let divList=edit.children[0].children
+  document.getElementsByName('Uname')[0].value=divList[0].innerHTML
+  document.getElementsByName('Utype')[0].value=divList[1].innerHTML
+  document.getElementsByName('Usummary')[0].value=divList[2].innerHTML
+  document.getElementsByName('Uid')[0].value=id
+  document.getElementsByName('Uprice')[0].value=divList[5].innerHTML
+  if(divList[7].innerHTML==='available'){
+    document.getElementsByName('Uavailable')[0].checked=true
+    document.getElementsByName('Usoldout')[0].checked=false
+  }
+  else{
+    document.getElementsByName('Usoldout')[0].checked=true
+    document.getElementsByName('Uavailable')[0].checked=false
+  }
+  document.getElementById('update').style.display='block'
+}
+
 function deleteItem(id){
   let itemId={id:id}
   let d = document.getElementById("allItemList");
@@ -95,4 +115,12 @@ function addNewType(){
        }
     }
   }
+}
+
+function check(){
+  document.getElementsByName("Usoldout")[0].checked=false
+}
+
+function uncheck(){
+  document.getElementsByName("Uavailable")[0].checked=false
 }

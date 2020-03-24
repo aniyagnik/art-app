@@ -33,6 +33,31 @@ const get_allItemList=()=>{
 
 }
 
+
+//update document from collection 
+const update_itemInList=(obj)=>
+    get_db()
+    .then(db=>db.collection('itemListCollection'))
+    .catch(err=>console.log('error in collection itemList'))
+    .then(collection=>collection.update(
+        {_id:mongodb.ObjectID(`${obj.Uid}`)},
+        {   $set:{    
+                name:obj.Uname,
+                summary:obj.Usummary,
+                type:obj.Utype,
+                price:obj.Uprice,
+                image:obj.Uimage,
+                status:obj.Ustatus
+            }
+        },
+        {upsert:true}
+    ))
+    .catch(err=>console.log('error in finding types documents'))
+    .then(cursor=>{
+        return cursor.toArray()              
+    })
+    .catch(err=>console.log('error in fetching '))    
+    
 //delete item in list
 const delete_itemInList=(id)=>
     get_db()
@@ -69,19 +94,6 @@ const get_itemInfo=(id)=>
     })
     .catch(err=>console.log('error in fetching '))
     
-
-
-//get item show list
-const get_itemShowList=()=>
-    get_db()
-    .then(db=>db.collection('showItemCollection'))
-    .catch(err=>console.log('error in collection itemList'))
-    .then(collection=>collection.find())
-    .catch(err=>console.log('error in finding show list documents'))
-    .then(cursor=>cursor.toArray())
-    .catch(err=>console.log('error in fetching '))
-
-
 //insert item type
 const insert_itemType=(type)=>
     get_db()
@@ -105,6 +117,7 @@ const get_allItemType=()=>
     })
     .catch(err=>console.log('error in fetching '))
 
+
 //delete item Type
 const delete_itemType=(type)=>
     get_db()
@@ -117,9 +130,9 @@ const delete_itemType=(type)=>
 module.exports={
     insert_itemInList,
     get_allItemList,
+    update_itemInList,
     delete_itemInList,
     get_specificItemList,
-    get_itemShowList,
     get_itemInfo,
     insert_itemType,
     get_allItemType,

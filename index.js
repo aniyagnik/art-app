@@ -4,7 +4,7 @@ const hbs=require('hbs')
 const http = require('http') 
 const path = require('path')
 
-const {insert_itemInList, get_allItemList, delete_itemInList, get_specificItemList, get_itemShowList, get_itemInfo, insert_itemType, get_allItemType, delete_itemType}=require('./database/itemCollection')
+const {insert_itemInList, get_allItemList, update_itemInList, delete_itemInList, get_specificItemList, get_itemInfo, insert_itemType, get_allItemType, delete_itemType}=require('./database/itemCollection')
 
 var server = http.createServer(app);
 
@@ -57,6 +57,17 @@ app.post('/admin/addItem',(req,res)=>{
     // }
     // let item={...req.body,eventId:result }
     insert_itemInList(req.body)
+    .then(s=>{
+        console.log('sc ',s)
+        res.redirect('/admin')
+    })
+    
+})
+
+
+app.post('/admin/updateItem',(req,res)=>{
+    console.log(req.body)
+    update_itemInList(req.body)
     .then(s=>{
         console.log('sc ',s)
         res.redirect('/admin')
