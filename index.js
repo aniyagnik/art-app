@@ -77,7 +77,7 @@ app.post('/admin/addType',(req,res)=>{
     console.log('add item',req.body)
     insert_itemType(req.body.type)
     .then(s=>{
-        res.send('/admin')
+        res.send('item type added')
     })
     
 })

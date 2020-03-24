@@ -46,6 +46,7 @@ function deleteItem(id){
 
 function addNewType(){
   const newType=document.getElementById('newType')
+  var deleteTypes = document.getElementById("deleteTypes");
   let x = document.getElementById("typesOpt");
   if(newType.value.length>3){
     //add type
@@ -53,7 +54,22 @@ function addNewType(){
     let l = x.options.length;
     let c = document.createElement("option");
     c.text = newType.value;
-    x.options.add(c, l);  
+    x.options.add(c, l);
+
+    let newSpan = document.createElement('span');
+    newSpan.id = newType.value;
+    deleteTypes.appendChild(newSpan);
+
+    var element = document.createElement("input");
+    element.setAttribute('type','checkbox')
+    element.setAttribute("value", newType.value);
+
+    var node = document.createTextNode(newType.value);
+
+    let span = document.getElementById(newType.value);
+    span.appendChild(element);
+    span.appendChild(node);
+
     axios.post('/admin/addType',{ type:newType.value })
     .then(response=>{
       console.log(`type added : `, response.data);
@@ -64,12 +80,11 @@ function addNewType(){
   else{
     //delete types
     console.log('deleting')
-    var tableFields = document.getElementById("deleteTypes");
-    var children = tableFields.children;
+    var children = deleteTypes.children;
     for (var i = 0; i < children.length; i++) {
       var tableChild = children[i];
       tableChild=tableChild.children[0]
-      if (tableChild.checked) {
+      if (tableChild.checked){
         document.getElementById(tableChild.value).remove()
         x.options.remove(i);  
         axios.post('/admin/deleteType',{ type:tableChild.value })
