@@ -4,7 +4,7 @@ const hbs=require('hbs')
 const http = require('http') 
 const path = require('path')
 
-const {insert_itemInList,get_allItemList,get_specificItemList,delete_itemInList,get_itemShowList,get_itemInfo}=require('./database/itemCollection')
+const {insert_itemInList, get_allItemList, delete_itemInList, get_specificItemList, get_itemShowList, get_itemInfo, insert_itemType, get_allItemType, delete_itemType}=require('./database/itemCollection')
 
 var server = http.createServer(app);
 
@@ -35,9 +35,16 @@ app.get('/login',(req,res)=>{
 
 
 app.get('/admin',(req,res)=>{
+    let itemList;
     get_allItemList()
-    .then(itemList=>{
-        res.render('adminPage',{itemList})
+    .then(docs=>{
+        itemList=docs
+        return get_allItemType()
+    })
+    .then(itemType=>{
+        console.log('itemList ',itemList)
+        console.log('itemType ',itemType)
+        res.render('adminPage',{itemList,itemType})
     })
 })
 
@@ -57,12 +64,31 @@ app.post('/admin/addItem',(req,res)=>{
     
 })
 
-
 app.post('/admin/deleteItem',(req,res)=>{
     console.log('delete item',req.body)
     delete_itemInList(req.body.id)
     .then(s=>{
         res.send('item is deleted')
+    })
+})
+
+
+app.post('/admin/addType',(req,res)=>{
+    console.log('add item',req.body)
+    insert_itemType(req.body.type)
+    .then(s=>{
+        res.send('/admin')
+    })
+    
+})
+
+
+app.post('/admin/deleteType',(req,res)=>{
+    console.log('delete type',req.body)
+    const {type}=req.body
+    delete_itemType()
+    .then(s=>{
+        res.send(type+' type is deleted')
     })
 })
 

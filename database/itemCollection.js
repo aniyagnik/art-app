@@ -15,16 +15,16 @@ const get_db=()=>{
 //insert item in list
 const insert_itemInList=(obj)=>
     get_db()
-    .then(db=>db.collection('itemList'))
+    .then(db=>db.collection('itemListCollection'))
     .catch(err=>console.log('error in accessing in collection list ',err))
     .then(collection=>collection.insertOne(obj))
     .then(ha=>{console.log('doc added :',ha.ops[0]);return true})
     .catch(err=>console.log('error in saving in collection itemList ',err))
 
 //accessing collection to get all item list
-const get_allItemList=(req_type)=>{
+const get_allItemList=()=>{
     return get_db()
-    .then(db=>db.collection('itemList'))
+    .then(db=>db.collection('itemListCollection'))
     .catch(err=>console.log('error in collection itemList'))
     .then(collection=>collection.find())
     .catch(err=>console.log('error in finding all documents'))
@@ -36,7 +36,7 @@ const get_allItemList=(req_type)=>{
 //delete item in list
 const delete_itemInList=(id)=>
     get_db()
-    .then(db=>db.collection('itemList'))
+    .then(db=>db.collection('itemListCollection'))
     .catch(err=>console.log('error in accessing in collection list ',err))
     .then(collection=>collection.deleteOne({ "_id" : mongodb.ObjectId(`${id}`) }))
     .then(ha=>{console.log('doc deleted :',ha.result);return true})
@@ -45,7 +45,7 @@ const delete_itemInList=(id)=>
 //accessing collection to get specific item list
 const get_specificItemList=(req_type)=>
     get_db()
-    .then(db=>db.collection('itemList'))
+    .then(db=>db.collection('itemListCollection'))
     .catch(err=>console.log('error in collection itemList'))
     .then(collection=>collection.aggregate(
         [ { $match : { type : req_type } } ]
@@ -57,23 +57,9 @@ const get_specificItemList=(req_type)=>
     })
     .catch(err=>console.log('error in fetching '))
 
-
-
-
-//get item show list
-const get_itemShowList=()=>
-    get_db()
-    .then(db=>db.collection('showItems'))
-    .catch(err=>console.log('error in collection itemList'))
-    .then(collection=>collection.find())
-    .catch(err=>console.log('error in finding show list documents'))
-    .then(cursor=>cursor.toArray())
-    .catch(err=>console.log('error in fetching '))
-
-
 const get_itemInfo=(id)=>
     get_db()
-    .then(db=>db.collection('itemList'))
+    .then(db=>db.collection('itemListCollection'))
     .catch(err=>console.log('error in collection itemList'))
     .then(collection=>collection.findOne({itemId:id}))
     .catch(err=>console.log('error in finding req document'))
@@ -83,11 +69,59 @@ const get_itemInfo=(id)=>
     })
     .catch(err=>console.log('error in fetching '))
     
+
+
+//get item show list
+const get_itemShowList=()=>
+    get_db()
+    .then(db=>db.collection('showItemCollection'))
+    .catch(err=>console.log('error in collection itemList'))
+    .then(collection=>collection.find())
+    .catch(err=>console.log('error in finding show list documents'))
+    .then(cursor=>cursor.toArray())
+    .catch(err=>console.log('error in fetching '))
+
+
+//insert item type
+const insert_itemType=(type)=>
+    get_db()
+    .then(db=>db.collection('itemTypeCollection'))
+    .catch(err=>console.log('error in accessing in item types ',err))
+    .then(collection=>collection.insertOne({type:type}))
+    .then(ha=>{console.log('type added :',ha.ops[0]);return true})
+    .catch(err=>console.log('error in saving in collection itemType ',err))
+
+
+   
+//accessing collection to get specific item list
+const get_allItemType=()=>
+    get_db()
+    .then(db=>db.collection('itemTypeCollection'))
+    .catch(err=>console.log('error in collection itemList'))
+    .then(collection=>collection.find())
+    .catch(err=>console.log('error in finding types documents'))
+    .then(cursor=>{
+        return cursor.toArray()              
+    })
+    .catch(err=>console.log('error in fetching '))
+
+//delete item Type
+const delete_itemType=(type)=>
+    get_db()
+    .then(db=>db.collection('itemTypeCollection'))
+    .catch(err=>console.log('error in accessing in collection list ',err))
+    .then(collection=>collection.deleteOne({type:type }))
+    .then(ha=>{console.log('doc deleted :',ha.result);return true})
+    .catch(err=>console.log('error in deleting in collection itemList ',err))
+
 module.exports={
     insert_itemInList,
     get_allItemList,
     delete_itemInList,
     get_specificItemList,
     get_itemShowList,
-    get_itemInfo
+    get_itemInfo,
+    insert_itemType,
+    get_allItemType,
+    delete_itemType
 }

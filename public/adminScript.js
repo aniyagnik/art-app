@@ -5,7 +5,8 @@ window.addEventListener('load', function () {
 
 // Get the modal
 var modal = document.getElementById("myModal");
-var addModal = document.getElementById("add");
+var addItemModal = document.getElementById("add");
+var editTypeModal = document.getElementById("editTypes");
 
 window.onclick = function(event) {
   if (event.target == document.getElementsByClassName('flex-opt')[1]) {
@@ -14,8 +15,11 @@ window.onclick = function(event) {
   else if (event.target == document.getElementsByClassName('flex-opt')[0]) {
     window.location='/'
   }
-  else if (event.target == addModal) {
-    addModal.style.display = "none";
+  else if (event.target == addItemModal) {
+    addItemModal.style.display = "none";
+  }
+  else if (event.target == editTypeModal) {
+    editTypeModal.style.display = "none";
   }
 }
 
@@ -37,4 +41,43 @@ function deleteItem(id){
     console.log(`item removed`, response.data);
   })
   .catch(error => console.error(error));
+}
+
+
+function addNewType(){
+  const newType=document.getElementById('newType')
+  let x = document.getElementById("typesOpt");
+  if(newType.value.length>3){
+    //add type
+    console.log('adding')
+    let l = x.options.length;
+    let c = document.createElement("option");
+    c.text = newType.value;
+    x.options.add(c, l);  
+    axios.post('/admin/addType',{ type:newType.value })
+    .then(response=>{
+      console.log(`type added : `, response.data);
+    })
+    .catch(error => console.error(error));
+    newType.value=''
+  }
+  else{
+    //delete types
+    console.log('deleting')
+    var tableFields = document.getElementById("deleteTypes");
+    var children = tableFields.children;
+    for (var i = 0; i < children.length; i++) {
+      var tableChild = children[i];
+      tableChild=tableChild.children[0]
+      if (tableChild.checked) {
+        document.getElementById(tableChild.value).remove()
+        x.options.remove(i);  
+        axios.post('/admin/deleteType',{ type:tableChild.value })
+        .then(response=>{
+          console.log(`type deleted : `, response.data);
+        })
+        .catch(error => console.error(error));
+       }
+    }
+  }
 }

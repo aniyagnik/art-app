@@ -8,7 +8,7 @@
 </head>
 <body>
 
-        
+        {{!-- add items --}}
     <div id="add" class="modal" style='padding-top: 5px;'>
         <span onclick="document.getElementById('add').style.display='none'" class="close" title="Close Modal">&times;</span>
         <form class="modal-content" action="/admin/addItem" method="POST" onsubmit="return saveDate();">
@@ -23,8 +23,12 @@
             <label for="summary"><b>discription</b></label>
             <textarea placeholder="Enter discription..." name="summary" required></textarea>
                 
-            <label for="type"><b>type</b></label>
-            <input type="text" placeholder="enter item type..." name="type" required>
+            <label for="type"><b>type</b></label><br>
+            <select id="typesOpt" name="type" required>
+                {{#each itemType}}
+                    <option value="{{this.type}}">{{this.type}}</option>
+                {{/each}}
+            </select>
             
             <label for="price"><b>price(in INR)</b></label>
             <input type="number" placeholder="enter price..." name="price" required>
@@ -39,10 +43,36 @@
     
             <div class="clearfix">
             <button type="button" onclick="document.getElementById('add').style.display='none'" class="cancelbtn">Cancel</button>
-            <button type="submit" class="signupbtn" style="width: 50%;">Sign Up</button>
+            <button type="submit" class="signupbtn" style="width: 50%;">add item</button>
             </div>
         </div>
         </form>
+    </div>
+  
+    {{!-- add types --}}
+   <div id="editTypes" class="modal" style='padding-top: 5px;'>
+        <span onclick="document.getElementById('editTypes').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <div class="modal-content" style='width:50%;'>
+            <div class="container">
+                <h1>edit types</h1>
+                <hr id='hr1'>
+                <label for="type"><b>enter new type</b></label>
+                <input type="text" id='newType' placeholder="enter new type..." name="type">
+                            
+                <label><b>delete type</b>
+                <div id="deleteTypes"> 
+                    {{#each itemType}}   
+                        <span id='{{this.type}}'><input type="checkbox" value='{{this.type}}' style="margin-bottom:15px">{{this.type}}</span>
+                    {{/each}}
+                </div>
+                </label>
+            
+                <div class="clearfix">
+                <button type="button" onclick="document.getElementById('editTypes').style.display='none'" class="cancelbtn">Cancel</button>
+                <button type="submit" onclick='addNewType()' class="signupbtn" style="width: 50%;">save new type</button>
+                </div>
+            </div>
+        </div>
     </div>
   
     <!-- The Modal -->
@@ -66,8 +96,9 @@
 
     <div id="content">
         <div class="flex-content" id="viewItems">
-            <div class="addItem flex-view">
+            <div class="addOptions flex-view">
                 <div id="addItemBtn" onclick="document.getElementById('add').style.display='block'" style="width:auto;">add items</div>
+                <div id="addItemBtn" onclick="document.getElementById('editTypes').style.display='block'" style="width:auto;">add item's types</div>
             </div>
             <div id="allItemList" class='flex-view'>
                 <div style="font-size: 2em;font-weight: 800;color: darkred;text-shadow: 3px 3px darkblue;padding:2vh;">ALL ITEMS ON WEBSITE</div>
