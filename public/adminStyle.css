@@ -291,7 +291,7 @@ input[type=text]:focus, input[type=password]:focus {
     max-width: 15%;
 }
 
-#editBtn{
+.editBtn{
     font-size: 0.7em;
     font-family: monospace;
     font-weight: 800;
@@ -307,7 +307,7 @@ input[type=text]:focus, input[type=password]:focus {
     border-bottom-right-radius: 20px;
 }
 
-#delBtn{
+.delBtn{
     font-size: 0.7em;
     font-family: monospace;
     font-weight: 800;

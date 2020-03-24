@@ -22,10 +22,19 @@ window.onclick = function(event) {
 function saveDate(){
   let today =  new Date();
   var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
-  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  var dateTime = date+' '+time;
-  document.getElementById('date').value=dateTime
+  document.getElementById('date').value=date
   console.log(document.getElementById('date').value)
-  return false
+  return true
 }
 
+function deleteItem(id){
+  let itemId={id:id}
+  let d = document.getElementById("allItemList");
+  let d_nested = document.getElementById(`${id}`);
+  d.removeChild(d_nested);
+  axios.post('/admin/deleteItem', itemId)
+  .then(response=>{
+    console.log(`item removed`, response.data);
+  })
+  .catch(error => console.error(error));
+}

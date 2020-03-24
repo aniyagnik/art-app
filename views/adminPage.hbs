@@ -81,24 +81,27 @@
                 </div>
                 {{#if itemList}}
                     {{#each itemList}}
+                    <div id='{{this._id}}' style="width: 90%;">
                         <div class="item" >
                             <div class="item-name flex-item">{{this.name}}</div>
                             <div class="item-type flex-item">{{this.type}}</div>
                             <div class="item-date flex-item">{{this.date}}</div>
                             <div class="item-price flex-item">&#8377;{{this.price}}</div>
                             <div class="item-edit flex-item" style='padding: 0px;'>
-                                <button id='editBtn'>edit</button>
+                                <button class='editBtn'>edit</button>
                             </div>
                             <div class="item-delete flex-item" style='padding: 0px;'>
-                                <button id='delBtn'>delete</button>
+                                <button  onclick="deleteItem('{{this._id}}')" class='delBtn'>delete</button>
                             </div>
                         </div>
                         <hr>
+                    </div>
                     {{/each}}
                 {{/if}}        
             </div>
         </div>        
     </div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="../adminScript.js"></script>    
 </body>
 </html>

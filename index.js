@@ -4,7 +4,7 @@ const hbs=require('hbs')
 const http = require('http') 
 const path = require('path')
 
-const {insert_itemInList,get_allItemList,get_specificItemList,get_itemShowList,get_itemInfo}=require('./database/itemCollection')
+const {insert_itemInList,get_allItemList,get_specificItemList,delete_itemInList,get_itemShowList,get_itemInfo}=require('./database/itemCollection')
 
 var server = http.createServer(app);
 
@@ -42,12 +42,28 @@ app.get('/admin',(req,res)=>{
 })
 
 app.post('/admin/addItem',(req,res)=>{
-    let item={...req.body,eventId:'12' }
-    insert_itemInList(item)
+    // let char = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    // let length = 32
+    // var result = '';
+    // for (var i = length; i > 0; --i){
+    //     result += chars[Math.round(Math.random() * (chars.length - 1))];
+    // }
+    // let item={...req.body,eventId:result }
+    insert_itemInList(req.body)
     .then(s=>{
         console.log('sc ',s)
+        res.redirect('/admin')
     })
-    res.redirect('/admin')
+    
+})
+
+
+app.post('/admin/deleteItem',(req,res)=>{
+    console.log('delete item',req.body)
+    delete_itemInList(req.body.id)
+    .then(s=>{
+        res.send('item is deleted')
+    })
 })
 
 app.get('/item',(req,res)=>{
