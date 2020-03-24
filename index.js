@@ -35,11 +35,14 @@ app.get('/login',(req,res)=>{
 
 
 app.get('/admin',(req,res)=>{
-    res.sendFile(path.join(__dirname,'public/htmlPages/adminPage.html'))
+    get_allItemList()
+    .then(itemList=>{
+        res.render('adminPage',{itemList})
+    })
 })
 
 app.post('/admin/addItem',(req,res)=>{
-    let item={...req.body,price:'$'+req.body.price,eventId:'12' }
+    let item={...req.body,eventId:'12' }
     insert_itemInList(item)
     .then(s=>{
         console.log('sc ',s)
@@ -65,7 +68,7 @@ app.get('/itemsList',(req,res)=>{
     console.log('type is ',type)
     if(type=='all'){
         //get all items
-        get_allItemList(type)
+        get_allItemList()
         .then(itemList=>{
             res.render('itemsList',{itemList})
         })

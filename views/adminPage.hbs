@@ -10,14 +10,15 @@
 
         
     <div id="add" class="modal" style='padding-top: 5px;'>
-        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-        <form class="modal-content" action="/admin/addItem" method="POST">
+        <span onclick="document.getElementById('add').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content" action="/admin/addItem" method="POST" onsubmit="return saveDate();">
         <div class="container">
             <h1>Add Item</h1>
             <p>Please fill in this form to add an item.</p>
             <hr id='hr1'>
             <label for="name"><b>item-name</b></label>
             <input type="text" placeholder="enter item name..." name="name" required>
+            <input type="hidden" name="date" id='date'>
             
             <label for="summary"><b>discription</b></label>
             <textarea placeholder="Enter discription..." name="summary" required></textarea>
@@ -25,7 +26,7 @@
             <label for="type"><b>type</b></label>
             <input type="text" placeholder="enter item type..." name="type" required>
             
-            <label for="price"><b>price</b></label>
+            <label for="price"><b>price(in INR)</b></label>
             <input type="number" placeholder="enter price..." name="price" required>
             
             <label for="name"><b>select images</b></label>
@@ -70,38 +71,31 @@
             </div>
             <div id="allItemList" class='flex-view'>
                 <div style="font-size: 2em;font-weight: 800;color: darkred;text-shadow: 3px 3px darkblue;padding:2vh;">ALL ITEMS ON WEBSITE</div>
-                <div class="item">
-                    <div class="item-name flex-item" style='background-color: lightskyblue;'>item</div>
-                    <div class="item-date flex-item" style='background-color: lightgreen;'>added on</div>
-                    <div class="item-price flex-item" style='background-color: lightskyblue;'>price</div>
-                    <div class="item-edit flex-item" style='background-color: lightgreen;'>edit</div>
-                    <div class="item-delete flex-item" style='background-color: lightskyblue;'>delete</div>
+                <div class="item" style='margin-bottom:3vh'>
+                    <div class="item-name flex-item" style='background-color: lightskyblue;border-left: 15px solid gold;'>item</div>
+                    <div class="item-type flex-item" style='background-color: lightgreen;'>type</div>
+                    <div class="item-date flex-item" style='background-color: lightskyblue;'>added on</div>
+                    <div class="item-price flex-item" style='background-color:lightgreen;'>price</div>
+                    <div class="item-edit flex-item" style='background-color:  lightskyblue;'>edit</div>
+                    <div class="item-delete flex-item" style='background-color: lightgreen;border-right: 15px solid gold;'>delete</div>
                 </div>
-                
-                <div class="item" style='margin-top:3vh'>
-                    <div class="item-name flex-item">item1</div>
-                    <div class="item-date flex-item">12/12/2019</div>
-                    <div class="item-price flex-item">$234</div>
-                    <div class="item-edit flex-item" style='padding: 0px;'>
-                        <button id='editBtn'>edit</button>
-                    </div>
-                    <div class="item-delete flex-item" style='padding: 0px;'>
-                        <button id='delBtn'>delete</button>
-                    </div>
-                </div>
-                <hr>
-                <div class="item">
-                    <div class="item-name flex-item">item1</div>
-                    <div class="item-date flex-item">12/12/2019</div>
-                    <div class="item-price flex-item">$234</div>
-                    <div class="item-edit flex-item" style='padding: 0px;'>
-                        <button id='editBtn'>edit</button>
-                    </div>
-                    <div class="item-delete flex-item" style='padding: 0px;'>
-                        <button id='delBtn'>delete</button>
-                    </div>
-                </div>
-                <hr>
+                {{#if itemList}}
+                    {{#each itemList}}
+                        <div class="item" >
+                            <div class="item-name flex-item">{{this.name}}</div>
+                            <div class="item-type flex-item">{{this.type}}</div>
+                            <div class="item-date flex-item">{{this.date}}</div>
+                            <div class="item-price flex-item">&#8377;{{this.price}}</div>
+                            <div class="item-edit flex-item" style='padding: 0px;'>
+                                <button id='editBtn'>edit</button>
+                            </div>
+                            <div class="item-delete flex-item" style='padding: 0px;'>
+                                <button id='delBtn'>delete</button>
+                            </div>
+                        </div>
+                        <hr>
+                    {{/each}}
+                {{/if}}        
             </div>
         </div>        
     </div>
