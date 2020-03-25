@@ -86,7 +86,9 @@ const get_itemInfo=(id)=>
     get_db()
     .then(db=>db.collection('itemListCollection'))
     .catch(err=>console.log('error in collection itemList'))
-    .then(collection=>collection.findOne({itemId:id}))
+    .then(collection=>collection.findOne({
+        _id:mongodb.ObjectID(`${id}`)
+    }))
     .catch(err=>console.log('error in finding req document'))
     .then(doc=>{
         console.log('document recieved is ',doc)
@@ -119,14 +121,33 @@ const get_allItemType=()=>
 
 
 //delete item Type
-const delete_itemType=(type)=>
-    get_db()
-    .then(db=>db.collection('itemTypeCollection'))
-    .catch(err=>console.log('error in accessing in collection list ',err))
-    .then(collection=>collection.deleteOne({type:type }))
-    .then(ha=>{console.log('doc deleted :',ha.result);return true})
-    .catch(err=>console.log('error in deleting in collection itemList ',err))
+async function delete_itemType (type){
+    let v = await  get_db()
+            .then(db=>db.collection('itemListCollection'))
+            .catch(err=>console.log('error in collection itemList'))
+            .then(collection=>collection.findOne({ type:type}))
+            .catch(err=>console.log('error in finding item list documents'))
+            .then(cursor=>{
+                if(cursor==null){
+                    return false
+                }
+                else{
+                    return true
+                }
+            })
+            .catch(err=>console.log('error in fetching '))
+    if(v){        
+        let k = await get_db()
+        .then(db=>db.collection('itemTypeCollection'))
+        .catch(err=>console.log('error in accessing in collection list ',err))
+        .then(collection=>collection.deleteOne({type:type }))
+        .then(ha=>{console.log('doc deleted :',ha.result);return true})
+        .catch(err=>console.log('error in deleting in collection itemList ',err))
 
+    }
+    else{return false}
+}
+    
 module.exports={
     insert_itemInList,
     get_allItemList,

@@ -99,7 +99,9 @@ app.post('/admin/deleteType',(req,res)=>{
     const {type}=req.body
     delete_itemType()
     .then(s=>{
-        res.send(type+' type is deleted')
+        if(s)
+            res.send(type+' type is deleted')
+        else res.send('failed to deleted type as item with type already exists')     
     })
 })
 
