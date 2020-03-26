@@ -26,15 +26,18 @@ app.use(function (req,res,next){
 })
 
 app.get('/',(req,res)=>{
+    console.log(' accessing home page')
     res.sendFile(path.join(__dirname,'public/htmlPages/index.html'))
 })
 
 app.get('/login',(req,res)=>{
+    console.log(' accessing login page')
     res.sendFile(path.join(__dirname,'public/htmlPages/login.html'))
 })
 
 
 app.get('/admin',(req,res)=>{
+    console.log(' accessing admin page')
     let itemList;
     get_allItemList()
     .then(docs=>{
@@ -49,6 +52,7 @@ app.get('/admin',(req,res)=>{
 })
 
 app.post('/admin/addItem',(req,res)=>{
+    console.log('adding item from admin page')
     // let char = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
     // let length = 32
     // var result = '';
@@ -66,6 +70,7 @@ app.post('/admin/addItem',(req,res)=>{
 
 
 app.post('/admin/updateItem',(req,res)=>{
+    console.log('updating item from admin page')
     console.log(req.body)
     update_itemInList(req.body)
     .then(s=>{
@@ -76,7 +81,7 @@ app.post('/admin/updateItem',(req,res)=>{
 })
 
 app.post('/admin/deleteItem',(req,res)=>{
-    console.log('delete item',req.body)
+    console.log('deleting item from admin page')
     delete_itemInList(req.body.id)
     .then(s=>{
         res.send('item is deleted')
@@ -85,7 +90,7 @@ app.post('/admin/deleteItem',(req,res)=>{
 
 
 app.post('/admin/addType',(req,res)=>{
-    console.log('add item',req.body)
+    console.log('add type',req.body)
     insert_itemType(req.body.type)
     .then(s=>{
         res.send('item type added')
