@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const hbs=require('hbs')
 const path = require('path')
-
+const {add_itemToUserCart, delete_itemFromUserCart}=require('./database/userCartCollection')
 const checkAuth=(req,res,next)=>{
     if(!req.user){
         //user not logged in
@@ -30,6 +30,26 @@ app.get('/logout',checkAuth,(req,res)=>{
     console.log('logging out user')
     req.logout()
     res.redirect('/')
+})
+
+
+app.post('/addToCart',checkAuth,(req,res)=>{
+    console.log('adding to cart ',req.body)
+    add_itemToUserCart(req.body.itemId,req.body.userId)
+    .then(as=>{
+        console.log('added item to cart')
+    })
+    res.send('added to cart')
+})
+
+
+app.post('/deleteFromCart',checkAuth,(req,res)=>{
+    console.log('deleting from cart ',req.body)
+    delete_itemFromUserCart(req.body.itemId,req.body.userId)
+    .then(as=>{
+        console.log('deleted item from cart')
+    })
+    res.send('deleted from cart')
 })
 
 

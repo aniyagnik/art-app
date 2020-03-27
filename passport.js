@@ -36,7 +36,7 @@ passport.use(
         clientSecret:  keys.google.clientSecret
     },async (acesssToken,refreshToken,profile,done)=>{
         //passport callback function
-        const userInfo=profile._json
+        const userInfo={...profile._json,cart:[]}
         let user=await check_userLogin(userInfo.sub)
         if(user){
             //user exist

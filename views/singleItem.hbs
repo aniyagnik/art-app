@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="../singleItemStyle.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    
-    <input type="hidden" id='username' value="{{username}}">
+    <input type="hidden" id='username' value="{{userId}}">
     <!-- navigation bar -->
     <div class="navbar">
         <a href="./#home" title='HOME'>
@@ -107,9 +107,15 @@
                 status - {{item.status}} <br>
             </div>
         </div>
+        <input type="hidden" value="{{item._id}}" id='itemId'>
         <div class="flex-itemI" id="booking">
-            <div id="addToCart" onclick='addToCart("{{item._id}}")'>Add To Cart</div>
-            <div id="buyNow" onclick='buyNow("{{item._id}}")'>Buy Now</div>
+            {{#if status}}
+                <div id="addToCart">Delete From Cart</div>
+            {{else}}
+                <div id="addToCart">Add To Cart</div>
+            {{/if}}
+            
+            <div id="buyNow">Buy Now</div>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>     

@@ -27,14 +27,31 @@ mp.addEventListener("mousemove", (e) => {
 });
 
 
-function addToCart(itemId){
-    let username=$('#username').val()
-    console.log(username)
-    if(username){
-        //logged in
-        axios.post('/user/addToCart',{ id:itemId })
+$('#addToCart').click(e=>{
+    e.preventDefault()
+    const itemId=$('#itemId').val()
+    let userId=$('#username').val()
+    const addBtn=$('#addToCart')
+    const value=addBtn.text()
+    console.log(value,userId)
+    const loader = $(`<i class="fa fa-spinner fa-spin" style="color:white"></i>`)
+    if(userId.length>1 && userId && value=='Add To Cart'){
+        //logged in to add
+        addBtn.html(loader);  
+        axios.post('/user/addToCart',{ itemId:itemId, userId:userId })
         .then(response=>{
-          console.log(`type deleted : `, response.data);
+          console.log(`added to cart`);
+          addBtn.html('Delete From Cart')
+        })
+        .catch(error => console.error(error));
+    }
+    else if(userId.length>1 && userId && value=='Delete From Cart'){
+        //logged in to delete
+        addBtn.html(loader);  
+        axios.post('/user/deleteFromCart',{ itemId:itemId, userId:userId })
+        .then(response=>{
+          console.log(`added to cart : `, response.data);
+            addBtn.html('Add To Cart')
         })
         .catch(error => console.error(error));
     }
@@ -43,25 +60,5 @@ function addToCart(itemId){
             window.location='/login'
         }
     }
-}
+})
 
-
-
-
-function buyNow(itemId){
-    let username=$('#username').val()
-    console.log(username)
-    if(username){
-        //logged in
-        axios.post('/user/buyItem',{ id:itemId })
-        .then(response=>{
-          console.log(`type deleted : `, response.data);
-        })
-        .catch(error => console.error(error));
-    }
-    else{
-        if(confirm("you haven't logged in to art-app.Log-in first?")){
-            window.location='/login'
-        }
-    }
-}

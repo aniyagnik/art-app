@@ -91,7 +91,7 @@ const get_itemInfo=(id)=>
     }))
     .catch(err=>console.log('error in finding req document'))
     .then(doc=>{
-        console.log('document recieved is ',doc)
+        console.log('document recived get_itemInfo')
         return doc
     })
     .catch(err=>console.log('error in fetching '))

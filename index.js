@@ -37,20 +37,20 @@ app.use(passport.session())     //tells express to user sessions with passport
 
 app.get('/',(req,res)=>{
     console.log('accessing home page')
-    let username=null
+    let userId=null
     if(req.user){
-        username=req.user.name
+        userId=req.user._id
     }
-    res.render('index',{username})
+    res.render('index',{userId})
 })
 
 app.get('/login',(req,res)=>{
     console.log(' accessing login page')
-    let username=null
+    let userId=null
     if(req.user){
-        username=req.user.name
+        userId=req.user._id
     }
-    res.render('login',{username})
+    res.render('login',{userId})
 })
 
 app.get('/admin',(req,res)=>{
@@ -130,15 +130,16 @@ app.post('/admin/deleteType',(req,res)=>{
 app.get('/item',(req,res)=>{
     console.log('accessing one item ')
     const {id}=req.query
-    let username=null
+    let userId=null,status=null
     if(req.user){
-        username=req.user.name
+        userId=req.user._id
+        status=req.user.cart.includes(id)
     }
     console.log('id of element ',id)
     //get all items
     get_itemInfo(id)
     .then(item=>{
-        res.render('singleItem',{item,username})
+        res.render('singleItem',{item,userId,status})
     })
 })
 
@@ -146,16 +147,16 @@ app.get('/item',(req,res)=>{
 app.get('/itemsList',(req,res)=>{
     console.log('accessing item list ')
     const {type}=req.query
-    let username=null
+    let userId=null
     if(req.user){
-        username=req.user.name
+        userId=req.user._id
     }
     console.log('type is ',type)
     if(type=='all'){
         //get all items
         get_allItemList()
         .then(itemList=>{
-            res.render('itemsList',{itemList, username})
+            res.render('itemsList',{itemList, userId})
         })
     }
     else{
