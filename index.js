@@ -4,7 +4,6 @@ const hbs=require('hbs')
 const http = require('http') 
 const path = require('path')
 const cookieSession=require('cookie-session')
-const passportGoogle=require('./passport')
 const passport=require('passport')
 const keys=require('./keys')
 
@@ -36,8 +35,6 @@ app.use(cookieSession({
 app.use(passport.initialize())   //tells express app to use/initialize passport
 app.use(passport.session())     //tells express to user sessions with passport
 
-app.use('/auth',passportGoogle)
-
 app.get('/',(req,res)=>{
     console.log(' accessing home page')
     res.sendFile(path.join(__dirname,'public/htmlPages/index.html'))
@@ -47,13 +44,6 @@ app.get('/login',(req,res)=>{
     console.log(' accessing login page')
     res.sendFile(path.join(__dirname,'public/htmlPages/login.html'))
 })
-
-
-app.get('/dashboard',(req,res)=>{
-    console.log(' accessing dashboard page')
-    res.sendFile(path.join(__dirname,'views/dashboard.html'))
-})
-
 
 app.get('/admin',(req,res)=>{
     console.log(' accessing admin page')
@@ -162,6 +152,9 @@ app.get('/itemsList',(req,res)=>{
     }
 })
 
+
+app.use('/auth',require('./passport'))
+app.use('/dashboard',require('./dashboard'))
 
 var port =  process.env.PORT ||8080;
 server.listen(port,()=>{console.log('listening at ',port)})

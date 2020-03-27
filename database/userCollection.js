@@ -19,10 +19,13 @@ const check_userLogin=(id)=>
     })
     .then(collection=>collection.findOne({sub:id}))
     .then(result=>{
-        console.log('login exist ',result)
-        if(result===null)
-        {return false}
-        else{return result}  
+        if(result===null){
+            console.log('login checked, doesn"t exist in collection')
+            return false}
+        else{
+            console.log('login checked, already exist in collection')
+            return result
+        }  
     })
     .catch(err=>{
         console.log('error in collection 2')
@@ -39,7 +42,7 @@ const insert_userLogin=(userInfo)=>
     })
     .then(collection=>collection.insertOne(userInfo))
     .then(result=>{
-        console.log('user saved ',result.ops[0])
+        console.log('user is now saved in collection ',result.ops[0])
         if(result===null)
         {return false}
         else{return true}  
@@ -62,13 +65,12 @@ const  get_userLogin =(id)=>
         return collection.findOne({_id:mongodb.ObjectID(`${id}`)})
     })  
     .then(document=>{
-        console.log('user recieved ',document)
       if(document==null){
         console.log('error in finding userlogin ')
         return null
       }  
       else{      
-      console.log('username matched')
+      console.log('user matched while finding userId')
             return document
       }
     })    

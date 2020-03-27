@@ -6,6 +6,7 @@ const {check_userLogin, insert_userLogin, get_userLogin}=require('./database/use
 
 
 passport.serializeUser(function (user, done) {
+    console.log('in serializeUser',user)
     console.log('in serializeUser',user._id)
     done(null, user._id)
 })
@@ -16,10 +17,10 @@ passport.deserializeUser(function (userId, done) {
     .then(user=>{
         if(user){ 
             console.log('user found')
-            return done(null,false,{message:'no such user'})}
+            return done(null,user)}
         else{
             console.log('user not found')
-            return done(null,user)}
+            return done(null,false,{message:'user not found'})}
     })
     .catch(err=>{
         console.log('error in finding the account')
@@ -36,7 +37,6 @@ passport.use(
     },async (acesssToken,refreshToken,profile,done)=>{
         //passport callback function
         const userInfo=profile._json
-        console.log(userInfo)
         let user=await check_userLogin(userInfo.sub)
         if(user){
             //user exist
