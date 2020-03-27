@@ -37,7 +37,7 @@ app.use(passport.session())     //tells express to user sessions with passport
 
 app.get('/',(req,res)=>{
     console.log(' accessing home page')
-    res.sendFile(path.join(__dirname,'public/htmlPages/index.html'))
+    res.render('index',{user:req.user})
 })
 
 app.get('/login',(req,res)=>{

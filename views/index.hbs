@@ -6,7 +6,7 @@
     <title>ART-APP | OFFICIAL WEBSITE</title>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="indexStyle.css">
+    <link rel="stylesheet" href="../indexStyle.css">
 </head>
 <body>
     <!-- main content -->
@@ -62,9 +62,20 @@
             </a>
 
             
-            <a title='LOGIN/SIGN-UP' href="/login">
+            <a title='LOGIN/SIGN-UP'
+            {{#if user}}
+                        href="/dashboard/logout"
+                    {{else}} 
+                        href="/login"
+                     {{/if}}      
+             >
                 <div class="contactMenu  menu">
-                    <i class='fas fa-user' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;login
+                    <i class='fas fa-user' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{#if user}}
+                        logout
+                    {{else}} 
+                        login
+                     {{/if}}      
                 </div>
             </a>
         </div>
@@ -203,7 +214,7 @@
         </div>
     </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
-<script src='indexScript.js'></script>
+<script src='../indexScript.js'></script>
 
 </body>
 </html>
