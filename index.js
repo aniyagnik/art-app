@@ -3,6 +3,10 @@ const app = express()
 const hbs=require('hbs')
 const http = require('http') 
 const path = require('path')
+const cookieSession=require('cookie-session')
+const passportGoogle=require('./passport')
+const passport=require('passport')
+const keys=require('./keys')
 
 const {insert_itemInList, get_allItemList, update_itemInList, delete_itemInList, get_specificItemList, get_itemInfo, insert_itemType, get_allItemType, delete_itemType}=require('./database/itemCollection')
 
@@ -16,14 +20,23 @@ app.set('views', path.join(__dirname, '/views'));
 
 app.use('/',express.static(path.join(__dirname,'public')))
 app.use('/pictures',express.static(path.join(__dirname,'public/pictures')))
-app.use('/item',express.static(path.join(__dirname,'public/oneItem')))
-app.use('/itemsList',express.static(path.join(__dirname,'public/itemList')))
 app.use('/database',express.static(path.join(__dirname,'database')))
 
 app.use(function (req,res,next){
     console.log('handling request : ',req.url+" with method "+req.method);
     next();
 })
+
+app.use(cookieSession({
+    maxAge:24*60*60*1000,
+    keys: [keys.session.cookieKey],
+  })
+)
+
+app.use(passport.initialize())   //tells express app to use/initialize passport
+app.use(passport.session())     //tells express to user sessions with passport
+
+app.use('/auth',passportGoogle)
 
 app.get('/',(req,res)=>{
     console.log(' accessing home page')
@@ -33,6 +46,12 @@ app.get('/',(req,res)=>{
 app.get('/login',(req,res)=>{
     console.log(' accessing login page')
     res.sendFile(path.join(__dirname,'public/htmlPages/login.html'))
+})
+
+
+app.get('/dashboard',(req,res)=>{
+    console.log(' accessing dashboard page')
+    res.sendFile(path.join(__dirname,'views/dashboard.html'))
 })
 
 
