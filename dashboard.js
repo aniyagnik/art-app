@@ -21,7 +21,7 @@ hbs.registerPartials(path.join(__dirname,'/partials'))
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, '/views'));
 
-app.get('/',checkAuth,(req,res)=>{
+app.get('/dashboard',checkAuth,(req,res)=>{
     console.log(' accessing dashboard page')
     res.render('dashboard',{user: req.user})
 })

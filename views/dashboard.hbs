@@ -10,7 +10,7 @@
 <body>
     <!-- navabar -->
     <div id="navbar">
-        <div class='flex-nav' id="home">Back to home</div>
+        <div class='flex-nav' id="home" onclick="window.location='/'">Back to home</div>
         <div id="userName" class='flex-nav'>hi! {{user.name}}</div>
         <div class='flex-nav' id="logout" onclick="window.location='/dashboard/logout'">☺</div>
     </div>
@@ -21,7 +21,7 @@
             <div class="flex-summary" id='summary-content'>
                 <div id="userImage" style="background-image:url('{{user.picture}}')">
                     <div id='editProfile' onclick="document.getElementById('id02').style.display='block';">
-                        <i class='fas fa-user-edit' style='font-size:30px'></i>
+                        <i class="material-icons">edit</i>
                         edit profile
                     </div>
                 </div>
@@ -306,7 +306,8 @@
             </div>
         </div>
     </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>      
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>   
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>   
 <script src="../dashboardScript.js"></script>
 </body>
 </html>

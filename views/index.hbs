@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="../indexStyle.css">
 </head>
 <body>
+
+    <input type="hidden" id='username' value="{{username}}">
+    
     <!-- main content -->
     <div class="content">
         
@@ -39,6 +42,7 @@
                     <i class='fab fa-empire' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;about
                 </div>
             </a>
+
             <a title=CONTACT class='dropBtn'>
                 <div class="contactMenu  menu">
                     <i class="material-icons" style="font-size:26px">contact_phone</i>&nbsp;&nbsp;&nbsp;&nbsp;contact
@@ -46,38 +50,46 @@
                 
                 <!-- dropdown menu -->
                 <div class="dropdownContent">
-                    <div class="mail ts">
-                        <span><i class="material-icons" style='font-size:30px'>mail</i></span>
+                    <div class="mail ts" style="padding: 10px 20px;">
+                        <span><i class="fas fa-mail-bulk"></i></span>
                         <span>pragyaagnik@gmail.com</span>
                     </div>
-                    <div class="phone ts">
-                        <span><i class='fab fa-whatsapp' style='font-size:30px'></i></i></span>
+                    <div class="phone ts" style="padding: 10px 20px;">
+                        <span><i class='fab fa-whatsapp'></i></i></span>
                         <span>+91-9889238731</span>
                     </div>
-                    <div class="social ts">
-                        <span><i class='fab fa-instagram' style='font-size:30px'></i> </span>
+                    <div class="social ts" style="padding: 10px 20px;">
+                        <span><i class='fab fa-instagram'></i> </span>
                         <span>pranyaDesign</span>
                     </div>
                 </div>
             </a>
 
-            
-            <a title='LOGIN/SIGN-UP'
-            {{#if user}}
-                        href="/dashboard/logout"
-                    {{else}} 
-                        href="/login"
-                     {{/if}}      
-             >
-                <div class="contactMenu  menu">
-                    <i class='fas fa-user' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;
-                    {{#if user}}
-                        logout
-                    {{else}} 
-                        login
-                     {{/if}}      
-                </div>
-            </a>
+            {{#if username}}
+                <a title='user' class='dropBtn'>
+                    <div class="contactMenu  menu">
+                        <i class='fas fa-user' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;logout
+                    </div>
+                    
+                    <!-- dropdown menu -->
+                    <div class="dropdownContent">
+                        <div class="mail ts"  style='padding:10px 50px'onclick="window.location='/user/dashboard'">
+                            <span><i class="fab fa-dashcube" ></i></span>
+                            <span>dashboard</span>
+                        </div>
+                        <div class="phone ts"  style='padding:10px 50px' onclick="window.location='/user/logout'">
+                            <span><i class="fas fa-sign-out-alt" ></i></span>
+                            <span>logout</span>
+                        </div>
+                    </div>
+                </a>
+            {{else}}                    
+                <a title='LOGIN/SIGN-UP' href="/login">
+                    <div class="contactMenu  menu">
+                        <i class='fas fa-user' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;login
+                    </div>
+                </a>
+            {{/if}}
         </div>
 
         <!-- main content -->
@@ -90,7 +102,7 @@
                     <span>
                         <img class='logoPic' src="https://picsum.photos/200/300?random=1" alt='image'>
                     </span>
-                    <span class=logo>pranya Design </span>
+                    <span class=logo>pranya Design</span>
                 </div>
                 <div class="flex-itemH marquee">
                     <marquee width = "100%" id='marqueeContiner'></marquee>

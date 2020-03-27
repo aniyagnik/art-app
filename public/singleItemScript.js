@@ -8,10 +8,6 @@ $('#pic1').hover(e=>{
     $(`#mainPicture`).css('background-image',image)
 })
 
-$('#addToCart').click(()=>{
-    alert('added to cart')
-})
-
 const mp = document.querySelector("#mainPicture");
 const content = document.querySelector("#content");
 
@@ -29,3 +25,43 @@ mp.addEventListener("mousemove", (e) => {
     content.style.setProperty('--x', -e.offsetX + "px");
     content.style.setProperty('--y', -e.offsetY + "px");
 });
+
+
+function addToCart(itemId){
+    let username=$('#username').val()
+    console.log(username)
+    if(username){
+        //logged in
+        axios.post('/user/addToCart',{ id:itemId })
+        .then(response=>{
+          console.log(`type deleted : `, response.data);
+        })
+        .catch(error => console.error(error));
+    }
+    else{
+        if(confirm("you haven't logged in to art-app.Log-in first?")){
+            window.location='/login'
+        }
+    }
+}
+
+
+
+
+function buyNow(itemId){
+    let username=$('#username').val()
+    console.log(username)
+    if(username){
+        //logged in
+        axios.post('/user/buyItem',{ id:itemId })
+        .then(response=>{
+          console.log(`type deleted : `, response.data);
+        })
+        .catch(error => console.error(error));
+    }
+    else{
+        if(confirm("you haven't logged in to art-app.Log-in first?")){
+            window.location='/login'
+        }
+    }
+}

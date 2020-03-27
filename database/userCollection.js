@@ -45,7 +45,7 @@ const insert_userLogin=(userInfo)=>
         console.log('user is now saved in collection ',result.ops[0])
         if(result===null)
         {return false}
-        else{return true}  
+        else{return result.ops[0]}  
     })
     .catch(err=>{
         console.log('error in collection 2')

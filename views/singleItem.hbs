@@ -10,11 +10,12 @@
 </head>
 <body>
     
+    <input type="hidden" id='username' value="{{username}}">
     <!-- navigation bar -->
     <div class="navbar">
         <a href="./#home" title='HOME'>
             <div class="homeMenu menu">
-                <i class='fab fa-gripfire' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;pranya Design
+                <i class='fas fa-home' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;Home
             </div> 
         </a>
         <a href="./#images" title='ITEMS'>
@@ -44,20 +45,46 @@
             
             <!-- dropdown menu -->
             <div class="dropdownContent">
-                <div class="mail ts">
-                    <span><i class="material-icons" style='font-size:30px'>mail</i></span>
+                <div class="mail ts" style="padding: 10px 20px;">
+                    <span><i class="fas fa-mail-bulk"></i></span>
                     <span>pragyaagnik@gmail.com</span>
                 </div>
-                <div class="phone ts">
-                    <span><i class='fab fa-whatsapp' style='font-size:30px'></i></i></span>
+                <div class="phone ts" style="padding: 10px 20px;">
+                    <span><i class='fab fa-whatsapp'></i></i></span>
                     <span>+91-9889238731</span>
                 </div>
-                <div class="social ts">
-                    <span><i class='fab fa-instagram' style='font-size:30px'></i> </span>
+                <div class="social ts" style="padding: 10px 20px;">
+                    <span><i class='fab fa-instagram'></i> </span>
                     <span>pranyaDesign</span>
                 </div>
             </div>
         </a>
+
+        {{#if username}}
+            <a title='user' class='dropBtn'>
+                <div class="contactMenu  menu">
+                    <i class='fas fa-user' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;logout
+                </div>
+                
+                <!-- dropdown menu -->
+                <div class="dropdownContent">
+                    <div class="mail ts"  style='padding:10px 50px'onclick="window.location='/user/dashboard'">
+                        <span><i class="fab fa-dashcube" ></i></span>
+                        <span>dashboard</span>
+                    </div>
+                    <div class="phone ts"  style='padding:10px 50px' onclick="window.location='/user/logout'">
+                        <span><i class="fas fa-sign-out-alt" ></i></span>
+                        <span>logout</span>
+                    </div>
+                </div>
+            </a>
+        {{else}}                    
+            <a title='LOGIN/SIGN-UP' href="/login">
+                <div class="contactMenu  menu">
+                    <i class='fas fa-user' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;login
+                </div>
+            </a>
+        {{/if}}
     </div>
 
     <!-- item list -->
@@ -81,11 +108,12 @@
             </div>
         </div>
         <div class="flex-itemI" id="booking">
-            <div id="addToCart" >Add To Cart</div>
-            <div id="buyNow" >Buy Now</div>
+            <div id="addToCart" onclick='addToCart("{{item._id}}")'>Add To Cart</div>
+            <div id="buyNow" onclick='buyNow("{{item._id}}")'>Buy Now</div>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>     
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>   
     <script src="../singleItemScript.js"></script>
 </body>
 </html>

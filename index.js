@@ -36,13 +36,21 @@ app.use(passport.initialize())   //tells express app to use/initialize passport
 app.use(passport.session())     //tells express to user sessions with passport
 
 app.get('/',(req,res)=>{
-    console.log(' accessing home page')
-    res.render('index',{user:req.user})
+    console.log('accessing home page')
+    let username=null
+    if(req.user){
+        username=req.user.name
+    }
+    res.render('index',{username})
 })
 
 app.get('/login',(req,res)=>{
     console.log(' accessing login page')
-    res.sendFile(path.join(__dirname,'public/htmlPages/login.html'))
+    let username=null
+    if(req.user){
+        username=req.user.name
+    }
+    res.render('login',{username})
 })
 
 app.get('/admin',(req,res)=>{
@@ -122,11 +130,15 @@ app.post('/admin/deleteType',(req,res)=>{
 app.get('/item',(req,res)=>{
     console.log('accessing one item ')
     const {id}=req.query
+    let username=null
+    if(req.user){
+        username=req.user.name
+    }
     console.log('id of element ',id)
     //get all items
     get_itemInfo(id)
     .then(item=>{
-        res.render('singleItem',{item})
+        res.render('singleItem',{item,username})
     })
 })
 
@@ -134,12 +146,16 @@ app.get('/item',(req,res)=>{
 app.get('/itemsList',(req,res)=>{
     console.log('accessing item list ')
     const {type}=req.query
+    let username=null
+    if(req.user){
+        username=req.user.name
+    }
     console.log('type is ',type)
     if(type=='all'){
         //get all items
         get_allItemList()
         .then(itemList=>{
-            res.render('itemsList',{itemList})
+            res.render('itemsList',{itemList, username})
         })
     }
     else{
@@ -154,7 +170,7 @@ app.get('/itemsList',(req,res)=>{
 
 
 app.use('/auth',require('./passport'))
-app.use('/dashboard',require('./dashboard'))
+app.use('/user',require('./dashboard'))
 
 var port =  process.env.PORT ||8080;
 server.listen(port,()=>{console.log('listening at ',port)})

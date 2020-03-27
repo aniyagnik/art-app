@@ -44,7 +44,7 @@ passport.use(
         }
         else{
             //new user
-            let user=await insert_userLogin(userInfo)
+            user=await insert_userLogin(userInfo)
             done(null,user)
         }
     })
@@ -56,7 +56,7 @@ app.get('/google',passport.authenticate('google',{
 
 
 app.get('/google/redirect',passport.authenticate('google'),(req,res)=>{
-    res.redirect('/dashboard')
+    res.redirect('/user/dashboard')
 })
 
 module.exports=app;
