@@ -1,7 +1,6 @@
 html {
     scroll-behavior: smooth;
-    height: 100vh;
-    width: 98vw;
+    width: 100vw;
 
 }
 
@@ -12,10 +11,6 @@ html {
 body{
     margin:0em;
     padding: 0em;
-    background-image: url('../pictures/gradient.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 
@@ -134,4 +129,167 @@ body{
     font-size: 1.2em;
     font-weight:900;
     font-style: italic;
+}
+
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {    
+    .navbar .menu{
+        font-size: 1em;
+    }
+    .menuVal{
+        display: none;
+    }
+
+    .logo{
+        font-size: 3em;
+        margin: 0vw 2vw;
+        text-shadow: 3px 3px crimson;
+    }
+    .topic {
+        margin: 0vw 10vw;
+        text-shadow: 4px 3px lightsalmon;
+        font-size: 1.5em;
+    }
+    .flex-itemV {
+        padding: 1vh 2vw;
+        border: 2px solid white;
+        font-size: 1.4em;
+    }
+    
+    .active{
+        color: darkblue;
+        border-bottom:2px solid darkblue;
+        transition: all 1s;
+    }
+
+    #itemsList {
+        margin: 1vh;
+    }
+    .itemCard {
+        max-width: 38vw;
+        min-width: 38vw;
+        max-height: 40vw;
+        min-height: 40vw;
+        margin: 1vh;
+    }
+    
+    .itemDiscription {
+        max-width: 37vw;
+        min-width: 37vw;
+        min-height: 6.3vw;
+        max-height: 6.3vw;
+        font-size: 0.8em;
+    }
+
+} 
+
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 620px) and (max-device-width : 768px) {
+    .navbar .menu{
+        font-size: 1em;
+    }
+    .menuVal{
+        display: none;
+    }
+
+    .logo{
+        font-size: 4em;
+        margin: 0vw 2vw;
+        text-shadow: 3px 3px crimson;
+    }
+    .topic {
+        margin: 0vw 10vw;
+        text-shadow: 4px 3px lightsalmon;
+        font-size: 1.9em;
+    }
+    .flex-itemV {
+        padding: 1vh 2vw;
+        border: 2px solid white;
+        font-size: 1.6em;
+    }
+    
+    .active{
+        color: darkblue;
+        border-bottom:2px solid darkblue;
+        transition: all 1s;
+    }
+
+    #itemsList {
+        margin: 1vh;
+    }
+
+    .itemCard {
+        max-width: 30vw;
+        min-width: 30vw;
+        max-height: 32vw;
+        min-height: 32vw;
+        margin: 0.5vh;
+    }
+    
+    .itemDiscription {
+        max-width: 29vw;
+        min-width: 29vw;
+        min-height: 5vw;
+        max-height: 5vw;
+        font-size: 0.8em;
+    }
+
+
+}
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    .navbar .menu{
+        font-size: 1em;
+    }
+
+    .logo{
+        font-size: 5em;
+        margin: 0vw 2vw;
+        text-shadow: 3px 3px crimson;
+    }
+    .topic {
+        margin: 0vw 10vw;
+        text-shadow: 4px 3px lightsalmon;
+        font-size: 2.2em;
+    }
+
+    #itemsList {
+        margin: 1vh;
+    }
+    
+    .flex-itemV{
+        font-size: 2.1em;
+    }
+
+    .itemCard {
+        max-width: 30vw;
+        min-width: 30vw;
+        max-height: 32vw;
+        min-height: 32vw;
+        margin: 1vh;
+    }
+    
+    .itemDiscription {
+        max-width: 29vw;
+        min-width: 29vw;
+        min-height: 4vw;
+        max-height: 4vw;
+        font-size: 1.2em;
+    }
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (max-width : 1224px) {
+
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
 }
