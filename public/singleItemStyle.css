@@ -5,81 +5,16 @@ html {
     background-color: rgb(255, 255, 255);
 }
 
+body{
+    margin:0px;
+}
+
 .content{
     background-color: black;
 }
 
-body{
-    margin:0em;
-    padding: 0em;
-}
-
-.navbar > a{
-    color:whitesmoke;
-    text-decoration: none;
-}
-
-
-.navbar{
-    width: 100vw;
-    color:whitesmoke;
-    display: inline-block;
-    opacity: 0.9;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction:row;
-    background-color: black;
-}
-
-.navbar .menu{
-    padding:15px 40px;
-    text-align: center;
-    opacity: 0.7;
-    font-size: 1.5em;
-    font-weight: 600;
-    font-family: serif;
-}
-
-
-.navbar .menu:hover{
-    background-image: url('./pictures/rev.jpg');
-    color: rgb(146, 219, 29);
-    opacity: 1;
-    border-radius: 10px;
-    box-shadow: 10px 10px 2px rgb(113, 119, 113);
-    box-shadow: inset 0 0 0 2px #53a7ea;
-    transition:  all 0.3s;
-}
-
-.dropdownContent{
-    display: none;
-    position: absolute;
-}
-
-.dropBtn:hover .dropdownContent{
-    font-size: 0.9em ;
-    display: block ;
-    color:black;
-}
-
-.ts{
-    background-color: honeydew ;
-    border-radius: 10px;
-    padding:20px 30px;
-    border-radius: 10px;
-}
-
-.ts:hover{
-    background-color: lightslategray ;
-    border:none ;
-    transition: all 0.3s;
-}
-
 #itemInfo{
     margin: 0vh;
-    margin-top: 3vh;
     display: flex;
     justify-content: space-around;
     align-items: center;

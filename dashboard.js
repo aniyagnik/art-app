@@ -53,4 +53,9 @@ app.post('/deleteFromCart',checkAuth,(req,res)=>{
 })
 
 
+app.post('/buyNow',checkAuth,(req,res)=>{
+    console.log('buy items ',req.body)
+    res.send('item bought')
+})
+
 module.exports=app

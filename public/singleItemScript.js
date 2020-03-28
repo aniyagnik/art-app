@@ -62,3 +62,30 @@ $('#addToCart').click(e=>{
     }
 })
 
+
+
+$('#buyNow').click(e=>{
+    e.preventDefault()
+    const itemId=$('#itemId').val()
+    let userId=$('#username').val()
+    const buyBtn=$('#buyNow')
+    const value=addBtn.text()
+    console.log(value,userId)
+    const loader = $(`<i class="fa fa-spinner fa-spin" style="color:white"></i>`)
+    if(userId.length>1 && userId && value=='Add To Cart'){
+        //logged in to add
+        addBtn.html(loader);  
+        axios.post('/user/buyNow',{ itemId:itemId, userId:userId })
+        .then(response=>{
+          console.log('item bought');
+          addBtn.html('Buy Now')
+        })
+        .catch(error => console.error(error));
+    }
+    else{
+        if(confirm("you haven't logged in to art-app.Log-in first?")){
+            window.location='/login'
+        }
+    }
+})
+

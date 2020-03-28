@@ -40,6 +40,7 @@ app.get('/',(req,res)=>{
     let userId=null
     if(req.user){
         userId=req.user._id
+        console.log('user id is ',userId)
     }
     res.render('index',{userId})
 })

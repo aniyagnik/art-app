@@ -1,7 +1,6 @@
 html {
     scroll-behavior: smooth;
-    height: 99vh;
-    width: 98.9vw;
+    width: 100vw;
     margin: 0vw;
   }
 
@@ -14,71 +13,6 @@ body{
     padding: 0em;
 }
 
-.navbar > a{
-    color:whitesmoke;
-    text-decoration: none;
-}
-
-
-.navbar{
-    width: 98.9vw;
-    color:whitesmoke;
-    display: inline-block;
-    opacity: 0.9;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction:row;
-    position: fixed;
-
-}
-
-.navbar .menu{
-    padding:15px 40px;
-    text-align: center;
-    opacity: 0.7;
-    font-size: 1.5em;
-    font-weight: 600;
-    font-family: serif;
-}
-
-
-.navbar .menu:hover{
-    background-image: url('./pictures/rev.jpg');
-    background-size: cover;
-    color: rgb(146, 219, 29);
-    opacity: 1;
-    border-radius: 10px;
-    box-shadow: 10px 10px 2px rgb(113, 119, 113);
-    box-shadow: inset 0 0 0 2px #53a7ea;
-    transition:  all 0.3s;
-}
-
-.dropdownContent{
-    display: none;
-    position: absolute;
-}
-
-.dropBtn:hover .dropdownContent{
-    font-size: 0.9em ;
-    display: block ;
-    color:black;
-}
-
-.ts{
-    background-color: #f0fff0 ;
-    border-radius: 10px;
-    padding:10px 30px;
-    border-radius: 10px;
-}
-
-.ts:hover{
-    background-color: lightslategray ;
-    border:none ;
-    transition: all 0.3s;
-}
-
 .mainContent{
     display: flex;
     justify-content: flex-start;
@@ -87,7 +21,7 @@ body{
 }
 
 .home{
-    width:98.9vw;
+    width:100vw;
     height: 100vh;
     background-image: url('./pictures/back.jpg');
     background-attachment: fixed;
@@ -131,6 +65,7 @@ body{
     filter: hue-rotate(900deg);
     transition: all 3.5s;
 }
+
 .logoPic{
     width: 25vh;
     height: 25vh;
@@ -157,7 +92,7 @@ body{
 }
 
 .images{
-    width:98.9vw;
+    width:100vw;
     height: 100vh;
     background-image: url('./pictures/img.jpg');
     background-attachment: fixed;
@@ -176,7 +111,6 @@ body{
     color: darkmagenta;
     font-size: 5.5em;
     margin:0px;
-    padding: 10px 80px; 
 }
 
 .infoText{
@@ -294,7 +228,7 @@ body{
 
 
 .testimonials{
-    width:98.9vw;
+    width:100vw;
     height: 100vh;
     background-image: url('./pictures/img.jpg');
     background-attachment: fixed;
@@ -336,7 +270,7 @@ body{
     max-height: 18vw;
     border-radius: 400px;
     border: 9px solid darkred;
-    box-shadow: 0px 0px 40px 10px darkorchid;
+    box-shadow: 0px 0px 3vw 10px darkorchid;
     cursor: pointer;
 }
 
@@ -382,7 +316,7 @@ input[type=radio]{
 }
 
 .gallary{
-    width:98.9vw;
+    width:100vw;
     height: 100vh;
     background-image: url('./pictures/img.jpg');
     background-attachment: fixed;
@@ -477,7 +411,7 @@ input[type=radio]{
     text-align: center;
 }
 .about{
-    min-width: 98.9vw;
+    min-width: 100vw;
     min-height: 100vh;
     background-image: url('./pictures/img.jpg');
     background-attachment: fixed;
@@ -538,4 +472,273 @@ input[type=radio]{
 .avatar:hover{
     box-shadow: 0px 0px 5px 10px gold;
     transition:all 0.3s
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {    
+    .navbar .menu{
+        font-size: 1em;
+    }
+    .menuVal{
+        display: none;
+    }
+
+    .logo{
+        font-size: 2.4em;
+        margin: 0vw 2vw;
+    }
+
+    .logoPic{
+        width: 35vw;
+        height: 35vw;
+        border: 6px solid black;
+        box-shadow: 2px 2px 2px 2px rgb(194, 186, 186);
+    }
+    
+    .testImg{    
+        min-width: 33vw;
+        min-height: 33vw;
+        max-width: 33vw;
+        max-height: 33vw;
+        border: 3px solid darkred;
+        box-shadow: 0px 0px 1vw 3px darkorchid;
+    }
+    .itemTestimonial{
+        min-height: 75vh;
+    }
+    .currTestimonial{
+        flex-direction: column;   
+    }
+    
+    .testimonialText{
+        margin-top: 2vh;
+        margin-left:0vw;
+        width: 100%;
+        font-size: 1.1em;
+    }
+        
+    .infoHead{
+        font-size: 2.5em;
+    }
+    
+    .infoText{
+        font-size: 1.2em;
+    }
+    
+    .aboutHead{
+        font-size: 2em;
+    }
+
+    .aboutName{
+        font-size: 1.4em;
+    }
+        
+    .textInfo{
+        max-width: 100vw;
+        font-size: 1.1em;
+    }
+} 
+
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 620px) and (max-device-width : 768px) {
+    .navbar .menu{
+        font-size: 1.1em;
+    }
+
+    .logo{
+        font-size: 3em;
+        margin: 0vw 4vw;
+    }
+
+    .logoPic{
+        width: 25vw;
+        height: 25vw;
+        border: 6px solid black;
+        box-shadow: 2px 2px 2px 2px rgb(194, 186, 186);
+    }
+    
+    .testImg{    
+        min-width: 19vw;
+        min-height: 19vw;
+        max-width: 19vw;
+        max-height: 19vw;
+        border: 3px solid darkred;
+        box-shadow: 0px 0px 1vw 4px darkorchid;
+    }
+    .itemTestimonial{
+        min-height: 75vh;
+    }
+    .currTestimonial{
+        flex-direction: column;   
+    }
+    
+    .testimonialText{
+        margin-top: 2vh;
+        margin-left:0vw;
+        width: 100%;
+        font-size: 1.1em;
+    }
+        
+    .infoHead{
+        font-size: 2.5em;
+    }
+    
+    .infoText{
+        font-size: 1.2em;
+    }
+    
+    .aboutHead{
+        font-size: 2.5em;
+    }
+
+    .aboutName{
+        font-size: 1.8em;
+    }
+        
+    .textInfo{
+        max-width: 70vw;
+        font-size: 1.2em;
+        padding: 1em;
+    }
+}
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    .navbar .menu{
+        font-size: 1.1em;
+    }
+
+    .icon{
+        display: none;
+    }
+    .logo{
+        font-size: 3.2em;
+        margin: 0vw 4vw;
+    }
+
+    .logoPic{
+        width: 20vw;
+        height: 20vw;
+        border: 6px solid black;
+        box-shadow: 2px 2px 2px 2px rgb(194, 186, 186);
+    }
+    
+    .testImg{    
+        min-width: 19vw;
+        min-height: 19vw;
+        max-width: 19vw;
+        max-height: 19vw;
+        border: 3px solid darkred;
+        box-shadow: 0px 0px 1vw 4px darkorchid;
+    }
+    .itemTestimonial{
+        min-height: 75vh;
+    }
+    .currTestimonial{
+        flex-direction: row;   
+        justify-content: space-around;
+    }
+    
+    .testimonialText{
+        margin-top: 2vh;
+        margin-left:0vw;
+        width: 60%;
+        font-size: 1.1em;
+    }
+        
+    .infoHead{
+        font-size: 2.5em;
+    }
+    
+    .infoText{
+        font-size: 1.2em;
+    }
+    
+    .aboutHead{
+        font-size: 2.5em;
+    }
+
+    .aboutName{
+        font-size: 1.8em;
+    }
+        
+    .textInfo{
+        max-width: 70vw;
+        font-size: 1.2em;
+        padding: 1em;
+    }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (max-width : 1224px) {
+    .navbar .menu{
+        font-size: 1.5em;
+    }
+
+    .icon{
+        display: none;
+    }
+    .logo{
+        font-size: 3.2em;
+        margin: 0vw 4vw;
+    }
+
+    .logoPic{
+        width: 20vw;
+        height: 20vw;
+        border: 6px solid black;
+        box-shadow: 2px 2px 2px 2px rgb(194, 186, 186);
+    }
+    
+    .testImg{    
+        min-width: 19vw;
+        min-height: 19vw;
+        max-width: 19vw;
+        max-height: 19vw;
+        border: 3px solid darkred;
+        box-shadow: 0px 0px 1vw 4px darkorchid;
+    }
+    .itemTestimonial{
+        min-height: 75vh;
+    }
+    .currTestimonial{
+        flex-direction: row;   
+        justify-content: space-around;
+    }
+    
+    .testimonialText{
+        margin-top: 2vh;
+        margin-left:0vw;
+        width: 60%;
+        font-size: 1.1em;
+    }
+        
+    .infoHead{
+        font-size: 2.5em;
+    }
+    
+    .infoText{
+        font-size: 1.2em;
+    }
+    
+    .aboutHead{
+        font-size: 2.5em;
+    }
+
+    .aboutName{
+        font-size: 1.8em;
+    }
+        
+    .textInfo{
+        max-width: 70vw;
+        font-size: 1.2em;
+        padding: 1em;
+    }
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
 }

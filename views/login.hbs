@@ -5,74 +5,15 @@
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../navbar.css">
         <style>
-            body {font-family: Arial, Helvetica, sans-serif;}
-                        
-            .navbar > a{
-                color:maroon;
-                text-decoration: none;
-            }
-
-            .navbar{
-                width: 100vw;
-                color: maroon;
-                display: inline-block;
-                opacity: 0.9;
-                cursor: pointer;
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                flex-direction:row;
-                border-bottom: 1px solid black;
-
-            }
-
-            .navbar .menu{
-                padding:15px 40px;
-                text-align: center;
-                opacity: 0.7;
-                font-size: 1.5em;
-                font-weight: 600;
-                font-family: serif;
-            }
-
-
-            .navbar .menu:hover{
-                background-image: url('./pictures/rev.jpg');
-                background-size: cover;
-                color: rgb(146, 219, 29);
-                opacity: 1;
-                border-radius: 10px;
-                box-shadow: 10px 10px 2px rgb(113, 119, 113);
-                box-shadow: inset 0 0 0 2px #53a7ea;
-                transition:  all 0.3s;
-            }
-
-            .dropdownContent{
-                display: none;
-                position: absolute;
-            }
-
-            .dropBtn:hover .dropdownContent{
-                font-size: 0.9em ;
-                display: block ;
-                color:black;
-            }
-
-            .ts{
-                background-color: honeydew ;
-                border-radius: 10px;
-                padding:20px 30px;
-                border-radius: 10px;
-            }
-
-            .ts:hover{
-                background-color: lightslategray ;
-                border:none ;
-                transition: all 0.3s;
-            }
-            body{
+            body {
+                font-family: Arial, Helvetica, sans-serif;
                 margin:0px;
+                background-image: url('../pictures/backlogin.jpg');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
             }
 
             .appName{
@@ -142,69 +83,71 @@
             </style>
     </head>
 <body>
+    <input type="hidden" id='username' value="{{userId}}">
+    
     <!-- navigation bar -->
     <div class="navbar">
-        <a href="#home" title='HOME'>
+        <a href="./#home" title='HOME'>
             <div class="homeMenu menu">
-                <i class='fas fa-home' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;home
+                <i class='fas fa-home icon'></i><span class="menuVal">Home</span>
             </div> 
         </a>
-        <a href="#images" title='ITEMS'>
+        <a href="./#images" title='ITEMS'>
             <div class="itemsMenu  menu">
-                <i class='fas fa-image' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;items
+                <i class='fas fa-image icon'></i><span class="menuVal">Items</span>
             </div>
         </a>
-        <a href="#testimonials" title="testimonials">
+        <a href="./#testimonials" title="testimonials">
             <div class="testimonialsMenu  menu">
-                <i class='far fa-comment-alt' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;testimonials
+                <i class='far fa-comment-alt icon'></i><span class="menuVal">Testimonials</span>
                 </div>
         </a>
-        <a href="#gallary" title="GALLARY"> 
+        <a href="./#gallary" title="GALLARY"> 
             <div class="GALLARYMenu  menu">
-                <i class='far fa-images' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;gallary
+                <i class='far fa-images icon'></i><span class="menuVal">Gallary</span>
             </div>
         </a>
-        <a href="#about" title="ABOUT"> 
+        <a href="./#about" title="ABOUT"> 
             <div class="aboutMenu  menu">
-                <i class='fab fa-empire' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;about
+                <i class='fab fa-empire icon'></i><span class="menuVal">About</span>
             </div>
         </a>
 
         <a title=CONTACT class='dropBtn'>
             <div class="contactMenu  menu">
-                <i class="material-icons" style="font-size:26px">contact_phone</i>&nbsp;&nbsp;&nbsp;&nbsp;contact
+                <i class='fas fa-phone-square-alt icon'></i><span class="menuVal">Contact</span>
             </div>
             
             <!-- dropdown menu -->
             <div class="dropdownContent">
-                <div class="mail ts" style="padding: 10px 20px;">
-                    <span><i class="fas fa-mail-bulk"></i></span>
-                    <span>pragyaagnik@gmail.com</span>
+                <div class="mail ts">
+                    <span><i class="fab fa-google-plus"></i></span>
+                    <span>pragyaagnik</span>
                 </div>
-                <div class="phone ts" style="padding: 10px 20px;">
+                <div class="phone ts">
                     <span><i class='fab fa-whatsapp'></i></i></span>
                     <span>+91-9889238731</span>
                 </div>
-                <div class="social ts" style="padding: 10px 20px;">
+                <div class="social ts">
                     <span><i class='fab fa-instagram'></i> </span>
                     <span>pranyaDesign</span>
                 </div>
             </div>
         </a>
 
-        {{#if username}}
+        {{#if userId}}
             <a title='user' class='dropBtn'>
                 <div class="contactMenu  menu">
-                    <i class='fas fa-user' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;logout
+                    <i class='fas fa-user icon'></i><span class="menuVal">Logout</span>
                 </div>
                 
                 <!-- dropdown menu -->
                 <div class="dropdownContent">
-                    <div class="mail ts"  style='padding:10px 50px'onclick="window.location='/user/dashboard'">
+                    <div class="mail ts" onclick="window.location='/user/dashboard'">
                         <span><i class="fab fa-dashcube" ></i></span>
                         <span>dashboard</span>
                     </div>
-                    <div class="phone ts"  style='padding:10px 50px' onclick="window.location='/user/logout'">
+                    <div class="phone ts" onclick="window.location='/user/logout'">
                         <span><i class="fas fa-sign-out-alt" ></i></span>
                         <span>logout</span>
                     </div>
@@ -213,32 +156,32 @@
         {{else}}                    
             <a title='LOGIN/SIGN-UP' href="/login">
                 <div class="contactMenu  menu">
-                    <i class='fas fa-user' style='font-size:26px'></i>&nbsp;&nbsp;&nbsp;&nbsp;login
+                    <i class='fas fa-user'></i>&nbsp;&nbsp;&nbsp;&nbsp;<span class="menuVal">Login</span>
                 </div>
             </a>
         {{/if}}
+
     </div>
 
-</div>
-
-<div class="heading">login</div>
-<div class="flex">
-    <div class="flex-box">
-        <div class='button'  onclick="window.location='/auth/google'">
-            <div id='gIcon'>
-                <i class='fab fa-google' ></i>
-            </div><div id='gBtn'>
-                login with google
+<br><br>
+    <div class="heading">login</div>
+    <div class="flex">
+        <div class="flex-box">
+            <div class='button'  onclick="window.location='/auth/google'">
+                <div id='gIcon'>
+                    <i class='fab fa-google' ></i>
+                </div><div id='gBtn'>
+                    login with google
+                </div>
             </div>
-        </div>
-        <div class='button' onclick="window.location='/auth/facebook'">
-            <div id='gIcon' style="background-color: midnightblue;">
-                <i class='fab fa-facebook-square' ></i>
-            </div><div id='gBtn' style="background-color: rgb(8, 8, 151);">
-                login with facebook
+            <div class='button' onclick="window.location='/auth/facebook'">
+                <div id='gIcon' style="background-color: midnightblue;">
+                    <i class='fab fa-facebook-square' ></i>
+                </div><div id='gBtn' style="background-color: rgb(8, 8, 151);">
+                    login with facebook
+                </div>
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>
