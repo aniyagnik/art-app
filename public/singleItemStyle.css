@@ -39,8 +39,8 @@ body{
 
 #picture{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: start;
     flex-direction:row;
     flex-wrap: wrap;
 }
@@ -51,10 +51,10 @@ body{
     align-items: center;
     flex-direction:column;
     flex-wrap: wrap;
-    max-width: 4vw;
-    min-width: 4vw;
-    max-height: 83vh;
-    min-height: 80vh;
+    max-width: 12%;
+    min-width: 12%;
+    max-height: 90%;
+    min-height: 90%;
     margin-top: 3vh;
     border: 1px soild black;
 }
@@ -68,10 +68,10 @@ body{
 }
 
 .thumbnail{
-    max-width: 3vw;
-    min-width: 3vw;
-    max-height: 5vw;
-    min-height: 5vw;
+    max-width: 85%;
+    min-width: 85%;
+    max-height: 10vh;
+    min-height: 10vh;
     margin-bottom: 2vh;
     border: 1px double black;
     background-size: cover;
@@ -79,10 +79,10 @@ body{
 
 
 .imgBox{
-    max-width: 26vw;
-    min-width: 26vw;
-    max-height: 83vh;
-    min-height: 83vh;
+    max-width: 87%;
+    min-width: 87%;
+    max-height: 100%;
+    min-height: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -91,9 +91,9 @@ body{
 }
 
 #mainPicture{
-    max-width: 26vw;
-    min-width: 26vw;
-    min-height: 30vh;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 93vh;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -114,7 +114,7 @@ body{
     box-shadow: none;
     border-top-left-radius: 100px;
     border-bottom-right-radius: 100px;
-    position: relative;
+    position: static;
     font-size: 1.2em;
     font-weight:900;
     font-style: italic;
@@ -127,8 +127,8 @@ body{
     padding: 0.5vw ;
     max-width: 96.5%;
     min-width: 96.5%;
-    min-height: 3vw;
-    max-height: 3vw;
+    min-height: 30%;
+    max-height: 30%;
     background-color: rgb(205, 248, 12);
     color: rgb(61, 66, 15);
     opacity: 0.7;
@@ -158,7 +158,7 @@ body{
     background-image: none;
     flex-wrap: wrap;
     min-width: 15vw;
-    max-width: 15vw;
+    max-width: 50%;
     border: 0;
     background-color: transparent;
 }
@@ -243,6 +243,31 @@ body{
 } 
 
 
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 20px) and (max-device-width : 480px) {    
+    .menuVal{
+        display: none;
+    }
+    .icon{
+        margin-right: 0vh !important;
+    }
+    #itemInfo {
+        flex-direction: column;
+    }
+    .flex-itemI {
+        margin: 1vh;
+        max-width: 95vw;
+        min-width: 95vw;
+        max-height: 93vh;
+        min-height: 93vh;
+    }
+    #booking{
+        min-height: 30vh;
+        max-height: 30vh;
+    }
+
+} 
+
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 620px) and (max-device-width : 768px) {
     .navbar .menu{
@@ -251,8 +276,9 @@ body{
     .menuVal{
         display: none;
     }
-
-    
+    .icon{
+        margin-right: 0vh;
+    }
 
 }
 /* iPads (portrait and landscape) ----------- */

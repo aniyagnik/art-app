@@ -134,7 +134,7 @@ body{
 
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {    
+@media only screen and (min-device-width : 20px) and (max-device-width : 480px) {    
     .navbar .menu{
         font-size: 1em;
     }

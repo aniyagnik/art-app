@@ -180,7 +180,6 @@ body{
 }
 
 #viewCurrItem:hover{
-    padding: 2vh 2vw;
     color: lightcyan;
     background-color: rgb(236, 155, 3);
 }
@@ -357,7 +356,7 @@ input[type=radio]{
 }
 
 .eventImg{
-    border: 10px solid black;
+    border: 1vh solid black;
     cursor: pointer;
     box-shadow: 4px 4px 20px crimson;
     width:23vw;
@@ -371,7 +370,7 @@ input[type=radio]{
 
 .eventImg:hover{
     opacity: 1;
-    border: 12px solid rgb(14, 33, 202);
+    border: 1.2vh solid rgb(14, 33, 202);
     box-shadow: 4px 4px 60px crimson;
     transition: box-shadow 0.3s;
 }
@@ -475,14 +474,13 @@ input[type=radio]{
 }
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {    
+@media only screen and (min-device-width : 20px) and (max-device-width : 480px) {    
     .navbar .menu{
         font-size: 1em;
     }
     .menuVal{
         display: none;
     }
-
     .logo{
         font-size: 2.4em;
         margin: 0vw 2vw;
@@ -494,7 +492,50 @@ input[type=radio]{
         border: 6px solid black;
         box-shadow: 2px 2px 2px 2px rgb(194, 186, 186);
     }
+    .icon {
+        margin-right: 0vh !important;
+    }
     
+    .itemImg {
+        min-height: 41vh;
+        min-width: 100vw;
+        flex-direction: column;
+    }
+
+    #currImg {
+        min-height: 49.5vh;
+        max-height: 49.5vh;
+        min-width: 100%;
+        max-width: 100%;
+    }
+    #viewCurrItem {
+        padding: 2vh 3vw;
+        border-bottom-right-radius: 30px 100%;
+        border-bottom-left-radius: 30px 100%;
+    }
+    #mainImg {
+        min-height: 50vh;
+        max-height: 50vh;
+        min-width: 90%;
+        max-width: 90%;
+    }
+    .thumbnailImgs {
+        overflow: -moz-scrollbars-none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        min-width: 90%;
+        max-width: 90%;
+        min-height: 20%;
+        max-height: 20%;
+        -ms-overflow-style: none;
+    }
+    .thumbnail {
+        min-width: 90%;
+        max-width: 90%;
+        margin: 1.5vh auto;
+    }
     .testImg{    
         min-width: 33vw;
         min-height: 33vw;
@@ -534,8 +575,9 @@ input[type=radio]{
     }
         
     .textInfo{
-        max-width: 100vw;
+        max-width: 90vw;
         font-size: 1.1em;
+        padding: 1em;
     }
 } 
 
@@ -557,7 +599,43 @@ input[type=radio]{
         border: 6px solid black;
         box-shadow: 2px 2px 2px 2px rgb(194, 186, 186);
     }
-    
+    .itemImg {
+        flex-direction: column;
+    }
+    #currImg {
+        min-height: 49.5vh;
+        max-height: 49.5vh;
+        min-width: 100%;
+        max-width: 100%;
+    }
+    #viewCurrItem {
+        padding: 2vh 3vw;
+        border-bottom-right-radius: 30px 100%;
+        border-bottom-left-radius: 30px 100%;
+    }
+    #mainImg {
+        min-height: 50vh;
+        max-height: 50vh;
+        min-width: 90%;
+        max-width: 90%;
+    }
+    .thumbnailImgs {
+        overflow: -moz-scrollbars-none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        min-width: 90%;
+        max-width: 90%;
+        min-height: 20%;
+        max-height: 20%;
+        -ms-overflow-style: none;
+    }
+    .thumbnail {
+        min-width: 90%;
+        max-width: 90%;
+        margin: 1.5vh auto;
+    }
     .testImg{    
         min-width: 19vw;
         min-height: 19vw;
@@ -670,7 +748,7 @@ input[type=radio]{
 }
 
 /* Desktops and laptops ----------- */
-@media only screen and (max-width : 1224px) {
+@media only screen and (min-device-width : 1024px)  and (max-width : 1224px) {
     .navbar .menu{
         font-size: 1.5em;
     }

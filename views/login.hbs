@@ -6,81 +6,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../navbar.css">
-        <style>
-            body {
-                font-family: Arial, Helvetica, sans-serif;
-                margin:0px;
-                background-image: url('../pictures/backlogin.jpg');
-                background-size: cover;
-                background-position: center;
-                background-attachment: fixed;
-            }
-
-            .appName{
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                flex-direction: row;
-                background-color: indigo;
-            }
-            
-            .flex-app{
-                margin:2vh auto;
-                padding: 2vh 3vw;
-                background-color: gold;
-            }
-
-            .heading{
-                font-size: 10em;
-                font-weight: 900;
-                font-style: italic;
-                font-family: monospace;
-                font-variant: small-caps;
-                width: 100vw;
-                text-align: center;
-            }
-
-            .flex{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: row;
-                height: 70vh;
-            }
-
-            .flex-box{
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                flex-direction: column;
-                padding: 10vh 20vw;
-                background-color: moccasin;
-                border: 10px solid maroon;
-            }
-
-            #gBtn{
-                display: inline;
-                padding:7px;
-                background-color: rgb(170, 5, 5);
-                color: white;
-                cursor: pointer;
-                line-height: 3em;
-            }
-            
-            #gIcon{
-                line-height: 3em;
-                display: inline;
-                padding:7px;
-                background-color: maroon;
-                color: white;
-                cursor: pointer;
-            }
-            
-            .button:active{
-                transform: translateX(0.5px) translateY(0.5px);
-            }
-
-            </style>
+        <link rel="stylesheet" href="../loginStyle.css">
     </head>
 <body>
     <input type="hidden" id='username' value="{{userId}}">
@@ -113,28 +39,6 @@
             </div>
         </a>
 
-        <a title=CONTACT class='dropBtn'>
-            <div class="contactMenu  menu">
-                <i class='fas fa-phone-square-alt icon'></i><span class="menuVal">Contact</span>
-            </div>
-            
-            <!-- dropdown menu -->
-            <div class="dropdownContent">
-                <div class="mail ts">
-                    <span><i class="fab fa-google-plus"></i></span>
-                    <span>pragyaagnik</span>
-                </div>
-                <div class="phone ts">
-                    <span><i class='fab fa-whatsapp'></i></i></span>
-                    <span>+91-9889238731</span>
-                </div>
-                <div class="social ts">
-                    <span><i class='fab fa-instagram'></i> </span>
-                    <span>pranyaDesign</span>
-                </div>
-            </div>
-        </a>
-
         {{#if userId}}
             <a title='user' class='dropBtn'>
                 <div class="contactMenu  menu">
@@ -156,7 +60,7 @@
         {{else}}                    
             <a title='LOGIN/SIGN-UP' href="/login">
                 <div class="contactMenu  menu">
-                    <i class='fas fa-user'></i>&nbsp;&nbsp;&nbsp;&nbsp;<span class="menuVal">Login</span>
+                    <i class='fas fa-user'></i><span class="menuVal">Login</span>
                 </div>
             </a>
         {{/if}}

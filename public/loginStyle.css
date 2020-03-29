@@ -1,0 +1,168 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0px;
+    background-image: url('../pictures/backlogin.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.appName{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    background-color: indigo;
+}
+
+.flex-app{
+    margin:2vh auto;
+    padding: 2vh 3vw;
+    background-color: gold;
+}
+
+.heading{
+    font-size: 10em;
+    font-weight: 900;
+    font-style: italic;
+    font-family: monospace;
+    font-variant: small-caps;
+    width: 100vw;
+    text-align: center;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 70vh;
+}
+
+.flex-box{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    padding: 10vh 20vw;
+    background-color: moccasin;
+    border: 10px solid maroon;
+}
+
+#gBtn{
+    display: inline;
+    padding:7px;
+    background-color: rgb(170, 5, 5);
+    color: white;
+    cursor: pointer;
+    line-height: 3em;
+}
+
+#gIcon{
+    line-height: 3em;
+    display: inline;
+    padding:7px;
+    background-color: maroon;
+    color: white;
+    cursor: pointer;
+}
+
+.button:active{
+    transform: translateX(0.5px) translateY(0.5px);
+}
+
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 20px) and (max-device-width : 480px) {    
+    .menuVal{
+        display: none;
+    }
+    .icon{
+        margin-right: 0vh;
+    }
+    .logo{
+        font-size: 2.4em;
+        margin: 0vw 2vw;
+    }
+
+    .logoPic{
+        width: 35vw;
+        height: 35vw;
+        border: 6px solid black;
+        box-shadow: 2px 2px 2px 2px rgb(194, 186, 186);
+    }
+    .icon {
+        margin-right: 0vh;
+    }
+    .flex-box {
+        padding: 10vh 2vw;
+        border: 5px solid maroon;
+    }
+} 
+
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 620px) and (max-device-width : 768px) {
+    .navbar .menu{
+        font-size: 1.1em;
+    }
+
+    .logo{
+        font-size: 3em;
+        margin: 0vw 4vw;
+    }
+
+    .logoPic{
+        width: 25vw;
+        height: 25vw;
+        border: 6px solid black;
+        box-shadow: 2px 2px 2px 2px rgb(194, 186, 186);
+    }
+
+}
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    .navbar .menu{
+        font-size: 1.1em;
+    }
+
+    .logo{
+        font-size: 3.2em;
+        margin: 0vw 4vw;
+    }
+
+    .logoPic{
+        width: 20vw;
+        height: 20vw;
+        border: 6px solid black;
+        box-shadow: 2px 2px 2px 2px rgb(194, 186, 186);
+    }
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-device-width : 1024px)  and (max-width : 1224px) {
+    .navbar .menu{
+        font-size: 1.5em;
+    }
+    .logo{
+        font-size: 3.2em;
+        margin: 0vw 4vw;
+    }
+
+    .logoPic{
+        width: 20vw;
+        height: 20vw;
+        border: 6px solid black;
+        box-shadow: 2px 2px 2px 2px rgb(194, 186, 186);
+    }
+
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}
