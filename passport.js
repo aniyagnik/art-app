@@ -16,7 +16,7 @@ passport.deserializeUser(function (userId, done) {
     get_userLogin(userId)
     .then(user=>{
         if(user){ 
-            console.log('user found')
+            //console.log('user found')
             return done(null,user)}
         else{
             console.log('user not found')

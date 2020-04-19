@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ART-APP | OFFICIAL WEBSITE</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="../indexStyle.css">
+    <link rel="stylesheet" href="../navbar.css">
 </head>
 <body>
 
@@ -12,7 +14,82 @@
     
     <!-- main content -->
     <div class="content">
-        {{>navbar userId}}
+         <div class="navbar" style="background-color: black;">
+            <a href="#home" title='HOME'>
+                <div class="homeMenu menu">
+                    <i class='fas fa-home icon'></i><span class="menuVal">Home</span>
+                </div> 
+            </a>
+            <a href="#images" title='ITEMS'>
+                <div class="itemsMenu  menu">
+                    <i class='fas fa-image icon'></i><span class="menuVal">Items</span>
+                </div>
+            </a>
+            <a href="#testimonials" title="testimonials">
+                <div class="testimonialsMenu  menu">
+                    <i class='far fa-comment-alt icon'></i><span class="menuVal">Testimonials</span>
+                    </div>
+            </a>
+            <a href="#gallary" title="GALLARY"> 
+                <div class="GALLARYMenu  menu">
+                    <i class='far fa-images icon'></i><span class="menuVal">Gallary</span>
+                </div>
+            </a>
+            <a href="#about" title="ABOUT"> 
+                <div class="aboutMenu  menu">
+                    <i class='fab fa-empire icon'></i><span class="menuVal">About</span>
+                </div>
+            </a>
+
+            <a title=CONTACT class='dropBtn'>
+                <div class="contactMenu  menu">
+                    <i class='fas fa-phone-square-alt icon'></i><span class="menuVal">Contact</span>
+                </div>
+                
+                <!-- dropdown menu -->
+                <div class="dropdownContent">
+                    <div class="mail ts">
+                        <span><i class="fab fa-google-plus"></i></span>
+                        <span>pragyaagnik</span>
+                    </div>
+                    <div class="phone ts">
+                        <span><i class='fab fa-whatsapp'></i></i></span>
+                        <span>+91-9889238731</span>
+                    </div>
+                    <div class="social ts">
+                        <span><i class='fab fa-instagram'></i> </span>
+                        <span>pranyaDesign</span>
+                    </div>
+                </div>
+            </a>
+
+            {{#if userId}}
+                <a title='user' class='dropBtn'>
+                    <div class="contactMenu  menu">
+                        <i class='fas fa-user icon'></i><span class="menuVal">Logout</span>
+                    </div>
+                    
+                    <!-- dropdown menu -->
+                    <div class="dropdownContent">
+                        <div class="mail ts" onclick="window.location='/user/dashboard'">
+                            <span><i class="fab fa-dashcube" ></i></span>
+                            <span>dashboard</span>
+                        </div>
+                        <div class="phone ts" onclick="window.location='/user/logout'">
+                            <span><i class="fas fa-sign-out-alt" ></i></span>
+                            <span>logout</span>
+                        </div>
+                    </div>
+                </a>
+            {{else}}                    
+                <a title='LOGIN/SIGN-UP' href="/login">
+                    <div class="contactMenu  menu">
+                        <i class='fas fa-user'></i>&nbsp;&nbsp;&nbsp;&nbsp;<span class="menuVal">Login</span>
+                    </div>
+                </a>
+            {{/if}}
+
+        </div>
         <!-- main content -->
         <div class="mainContent">
             

@@ -1,14 +1,4 @@
 
-let userValue=document.getElementById('userValue')
-let inputUsername=document.getElementById('inputUsername')
-let editName=document.getElementById('editName')
-let saveUsername=document.getElementById('saveUsername')
-
-let passwardValue=document.getElementById('passwardValue')
-let inputPassward=document.getElementById('inputPassward')
-let editPassward=document.getElementById('editPassward')
-let savePassward=document.getElementById('savePassward')
-
 let addressValue=document.getElementById('addressValue')
 let inputAddress=document.getElementById('inputAddress')
 let editAddress=document.getElementById('editAddress')
@@ -19,8 +9,6 @@ let inputValue=document.getElementById('inputPhone')
 let editPhone=document.getElementById('editPhone')
 let savePhone=document.getElementById('savePhone')
 
-inputUsername.value=userValue.innerHTML
-inputPassward.value=''
 inputAddress.value=addressValue.innerHTML
 inputValue.value=phoneValue.innerHTML
 
@@ -36,38 +24,6 @@ document.getElementById('deleteCart').addEventListener('click',(e)=>{
     document.getElementById('tableCart').innerHTML='<br><br>NO ITEM IN CART<br><br>'
     alert('cart emptied...')
 })
-
-editName.addEventListener('click',(e)=>{
-    userValue.style.display='none'
-    inputUsername.style.display='block'
-    editName.style.display='none'
-    saveUsername.style.display='inline-block'    
-})
-
-saveUsername.addEventListener('click',(e)=>{    
-    userValue.innerHTML=inputUsername.value
-    userValue.style.display='block'
-    inputUsername.style.display='none'
-    editName.style.display='inline'
-    saveUsername.style.display='none'
-})
-
-
-editPassward.addEventListener('click',(e)=>{
-    passwardValue.style.display='none'
-    inputPassward.style.display='block'
-    editPassward.style.display='none'
-    savePassward.style.display='inline-block'    
-})
-
-savePassward.addEventListener('click',(e)=>{    
-    alert('passward changed')
-    passwardValue.style.display='block'
-    inputPassward.style.display='none'
-    editPassward.style.display='inline'
-    savePassward.style.display='none'
-})
-
 
 editAddress.addEventListener('click',(e)=>{
     addressValue.style.display='none'
@@ -86,6 +42,18 @@ saveAddress.addEventListener('click',(e)=>{
 })
 
 
+function allnumeric(inputtxt){
+    var numbers = /^[0-9]+$/;
+    if(inputtxt.match(numbers)){
+        alert('Your Registration number has accepted....');
+        return true;
+    }
+    else{
+        alert('Please input numeric characters only');
+        return false;
+    }
+} 
+
 editPhone.addEventListener('click',(e)=>{
     phoneValue.style.display='none'
     inputValue.style.display='block'
@@ -95,7 +63,9 @@ editPhone.addEventListener('click',(e)=>{
 
 
 savePhone.addEventListener('click',(e)=>{
-    phoneValue.innerHTML=inputValue.value
+    if(allnumeric(inputValue.value)){
+        phoneValue.innerHTML=inputValue.value
+    }
     phoneValue.style.display='block'
     inputValue.style.display='none'
     editPhone.style.display='inline'

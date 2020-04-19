@@ -13,7 +13,6 @@ var server = http.createServer(app);
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
-hbs.registerPartials(path.join(__dirname,'/partials'))
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, '/views'));
 
