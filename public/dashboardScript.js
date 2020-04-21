@@ -34,6 +34,13 @@ editAddress.addEventListener('click',(e)=>{
 
 
 saveAddress.addEventListener('click',(e)=>{
+    console.log("true")
+    axios.post('/user/dashboard/editUserAddress', {address: inputAddress.value})
+    .then(res=>{
+        alert('address updated...');
+    })
+    .catch(error => console.error(error));
+
     addressValue.innerHTML=inputAddress.value
     addressValue.style.display='block'
     inputAddress.style.display='none'
@@ -41,18 +48,6 @@ saveAddress.addEventListener('click',(e)=>{
     saveAddress.style.display='none'
 })
 
-
-function allnumeric(inputtxt){
-    var numbers = /^[0-9]+$/;
-    if(inputtxt.match(numbers)){
-        alert('Your Registration number has accepted....');
-        return true;
-    }
-    else{
-        alert('Please input numeric characters only');
-        return false;
-    }
-} 
 
 editPhone.addEventListener('click',(e)=>{
     phoneValue.style.display='none'
@@ -63,9 +58,21 @@ editPhone.addEventListener('click',(e)=>{
 
 
 savePhone.addEventListener('click',(e)=>{
-    if(allnumeric(inputValue.value)){
-        phoneValue.innerHTML=inputValue.value
+    let number=+inputValue.value
+    if( !isNaN(number) ) {
+        console.log("true")
+        axios.post('/user/dashboard/editUserPhoneNo', {number: number})
+        .then(res=>{
+            alert('phone number updated...');
+        })
+        .catch(error => console.error(error));
     }
+    else{
+        alert("input your mobile number..")
+        console.log('false')
+    }
+
+    phoneValue.innerHTML=inputValue.value;
     phoneValue.style.display='block'
     inputValue.style.display='none'
     editPhone.style.display='inline'

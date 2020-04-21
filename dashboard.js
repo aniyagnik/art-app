@@ -3,6 +3,7 @@ const app = express()
 const hbs=require('hbs')
 const path = require('path')
 const {add_itemToUserCart, delete_itemFromUserCart}=require('./database/userCartCollection')
+const {edit_userPhoneNo, edit_userAddress}=require('./database/userCollection')
 const checkAuth=(req,res,next)=>{
     if(!req.user){
         //user not logged in
@@ -24,6 +25,25 @@ app.set('views', path.join(__dirname, '/views'));
 app.get('/dashboard',checkAuth,(req,res)=>{
     console.log(' accessing dashboard page')
     res.render('dashboard',{user: req.user})
+})
+
+app.post('/dashboard/editUserPhoneNo',checkAuth,(req,res)=>{
+    console.log('edit phone number of user ',req.body)
+    edit_userPhoneNo(req.user.sub,req.body.number)
+    .then(as=>{
+        console.log('phone number updated...')
+    })
+    res.sendStatus(200);
+})
+
+
+app.post('/dashboard/editUserAddress',checkAuth,(req,res)=>{
+    console.log('edit Address of user ',req.body)
+    edit_userAddress(req.user.sub,req.body.address)
+    .then(as=>{
+        console.log('address updated...')
+    })
+    res.sendStatus(200);
 })
 
 app.get('/logout',checkAuth,(req,res)=>{

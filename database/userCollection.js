@@ -74,8 +74,65 @@ const  get_userLogin =(id)=>
             return document
       }
     })    
+
+
+const edit_userPhoneNo=(userId,value)=>
+    get_db()
+    .then(db=>db.collection('userLoginCollection'))
+    .catch(err=>{
+        console.log('error in collection')
+        res.send('error1')    
+    })
+    .then(collection=>{
+        return collection.findOneAndUpdate(
+            { sub:userId },
+            {
+            $set: { phoneNo: value },
+            },
+            {returnNewDocument: true}
+        )
+    })  
+    .then(document=>{
+        console.log('phone number changed : ',document.value)
+        return document
+    })
+    .catch(err=>{
+        console.log('error in finding the account')
+        return err
+    })
+   
+
+    
+const edit_userAddress=(userId,value)=>
+    get_db()
+    .then(db=>db.collection('userLoginCollection'))
+    .catch(err=>{
+        console.log('error in collection')
+        res.send('error1')    
+    })
+    .then(collection=>{
+        return collection.findOneAndUpdate(
+            { sub :userId },
+            {
+            $set: { address: value },
+            
+            }
+        )
+    })  
+    .then(document=>{
+        console.log("address changed : ",document.value)
+        return document.value
+    })
+    .catch(err=>{
+        console.log('error in finding the account')
+        return err
+    })
+   
+
 module.exports={
     check_userLogin,
     insert_userLogin,
-    get_userLogin
+    get_userLogin,
+    edit_userPhoneNo,
+    edit_userAddress
 }

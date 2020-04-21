@@ -127,6 +127,7 @@ app.post('/admin/deleteType',(req,res)=>{
     })
 })
 
+
 app.get('/item',(req,res)=>{
     console.log('accessing one item ')
     const {id}=req.query
