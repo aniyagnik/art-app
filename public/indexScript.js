@@ -14,7 +14,7 @@ fetch('https://picsum.photos/v2/list?page=2&limit=10')
 $.getJSON( "../../database/showItems.json", function( data ) {
   $('#mainImg').css('background-image',`url(${data[0].image})`)
   data.forEach((obj,index)=>{
-    let thumbnail=$(`<div class="thumbnail" style='background-image:url(${obj.image})' id='thumb${index}'></div>`)
+    let thumbnail=$(`<div class="thumbnail" style='background-image:url(${obj.image})' id='thumb${index}'><input type='hidden' id='objId' value='${obj._id}'></div>`)
     thumbnail.appendTo('.thumbnailImgs')
   })
 });
@@ -86,4 +86,9 @@ $('#testiBullets').click((e)=>{
     $('#testiName').text(data[eventId].name)
     $('#testiDesignation').text(data[eventId].designation)
   });
+})
+
+$('#viewCurrItem').click(()=>{
+  let id=document.getElementById("objId").value
+  window.location=window.location='/item?id='+id
 })

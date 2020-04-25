@@ -6,6 +6,7 @@ window.addEventListener('load', function () {
 // Get the modal
 var modal = document.getElementById("myModal");
 var addItemModal = document.getElementById("add");
+var thumbImgModal = document.getElementById("thumb");
 var editTypeModal = document.getElementById("editTypes");
 
 window.onclick = function(event) {
@@ -20,6 +21,9 @@ window.onclick = function(event) {
   }
   else if (event.target == editTypeModal) {
     editTypeModal.style.display = "none";
+  }
+  else if (event.target == thumbImgModal) {
+    thumbImgModal.style.display = "none";
   }
 }
 
@@ -123,4 +127,10 @@ function check(){
 
 function uncheck(){
   document.getElementsByName("Uavailable")[0].checked=false
+}
+
+function removeThumbnailItem(id){
+  let d = document.getElementById("thumbnailItems");
+  let d_nested = document.getElementById(`${id}`);
+  d.removeChild(d_nested);
 }

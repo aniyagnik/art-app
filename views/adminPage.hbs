@@ -40,7 +40,9 @@
             <input type="radio" checked="checked" value='available' name="status" style="margin-bottom:15px">available
             <input type="radio" name="status"  value='soldout' style="margin-bottom:15px">sold out
             </label>
-    
+
+            <input type="hidden" name="thumbnail"  value='false'>
+
             <div class="clearfix">
             <button type="button" onclick="document.getElementById('add').style.display='none'" class="cancelbtn">Cancel</button>
             <button type="submit" class="signupbtn" style="width: 50%;">add item</button>
@@ -76,6 +78,52 @@
             </div>
         </div>
     </div>
+  
+  
+        {{!-- thumbnail images --}}
+    <div id="thumb" class="modal" style='padding-top: 5px;'>
+        <span onclick="document.getElementById('thumb').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content" action="/admin/addItem" method="POST" onsubmit="return saveDate();">
+        <div class="container" >
+            <h1>thumbnail Images</h1>
+            <p>items to be showed in thumbnails</p>
+            <hr id='hr1'>
+            <div style="style='display: flex;justify-content: space-around;align-items: center;flex-direction:column'">
+                <table width='90%' border="1" id='thumbnailItems'>
+                    <tr>
+                        <th style="background-color: crimson;">name</th>
+                        <th style="background-color: rgb(6, 6, 161)">type</th>
+                        <th style="background-color: crimson">price</th>
+                        <th style="background-color: rgb(6, 6, 161);">status</th>
+                        <th style="background-color: crimson">delete</th>
+                    </tr>
+                    {{#if itemList}}
+                    {{#each itemList}}
+                    {{#if this.thumbnail}}
+                    <tr align="center" id='{{@index}}'>
+                        <td>{{this.name}}</td>
+                        <td>{{this.type}}</td>
+                        <td>&#8377;{{this.price}}</td>
+                        <td>{{this.status}}</td>
+                        <td>
+                            <button  onclick="deleteThumbnail('{{this._id}}')" style="background-color: cyan;color:darkgoldenrod;padding:0.5vh 1vh">delete</button>
+                        </td>
+                    </tr>
+                    {{/if}}
+                    {{/each}}
+                    {{/if}}
+                </table>
+            <div style='padding:2vh'>
+                <button type="submit" class="signupbtn" style="width: 50%;">add item</button>
+                <button type="button" onclick="document.getElementById('thumb').style.display='none'" style='background-color:lightblue;float:none' class="cancelbtn" >OK</button>
+            </div>
+            </div>
+            
+        </div>
+        </form>
+    </div>
+  
+
   
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -141,11 +189,14 @@
         <div class="flex-content" id="viewItems">
             <div class="addOptions flex-view">
                 <div id="addItemBtn" onclick="document.getElementById('add').style.display='block'" style="width:auto;">add items</div>
+                <div id="addItemBtn" style='background-color:blue' onclick="document.getElementById('thumb').style.display='block'" style="width:auto;">thumbnail Images</div>
                 <div id="addItemBtn" onclick="document.getElementById('editTypes').style.display='block'" style="width:auto;">add item's types</div>
+                <div id="addItemBtn" style='background-color:blue' onclick="document.getElementById('thumb').style.display='block'" style="width:auto;">delete selected</div>
             </div>
             <div id="allItemList" class='flex-view'>
                 <div style="font-size: 2em;font-weight: 800;color: darkred;text-shadow: 3px 3px darkblue;padding:2vh;">ALL ITEMS ON WEBSITE</div>
                 <div class="item" style='margin-bottom:3vh'>
+                    <div class="item-thumb flex-item" style=''></div>
                     <div class="item-name flex-item" style='background-color: lightskyblue;border-left: 15px solid gold;'>item</div>
                     <div class="item-type flex-item" style='background-color: lightgreen;'>type</div>
                     <div class="item-date flex-item" style='background-color: lightskyblue;'>added on</div>
@@ -157,6 +208,9 @@
                     {{#each itemList}}
                     <div id='{{this._id}}' style="width: 90%;">
                         <div class="item">
+                            <div class="item-thumb flex-item">
+                                <input type="checkbox" name="thumbnail" id="{{@index}}">
+                            </div>
                             <div class="item-name flex-item">{{this.name}}</div>
                             <div class="item-type flex-item">{{this.type}}</div>
                             <div style="display: none;">{{this.summary}}</div>
