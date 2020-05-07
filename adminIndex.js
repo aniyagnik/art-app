@@ -14,17 +14,46 @@ app.set('views', path.join(__dirname, '/views'));
 
 app.get('/',(req,res)=>{
     console.log(' accessing admin page')
-    let itemList;
-    get_allItemList()
-    .then(docs=>{
-        itemList=docs
-        return get_allItemType()
-    })
-    .then(itemType=>{
-        console.log('itemList ',itemList)
-        console.log('itemType ',itemType)
+    let itemList,itemType,thumbId; 
+    const thumbi=[]
+    const promises = []  // Empty array 
+    
+
+    const tOut = (t) => { 
+        return new Promise((resolve, reject) => { 
+            resolve(get_itemInfo(t)) 
+        }) 
+    }
+
+    async function findValues(){
+        let k= await get_savedThumbnails()
+        .then(result=>{
+            thumbId=result.thumbnails
+            thumbId.map((id) => { 
+                promises.push(tOut(id))  
+            }) 
+            return get_allItemList()
+        })
+        .then(docs=>{
+            itemList=docs
+            return get_allItemType()
+        })
+        .then(itemType=>{
+            console.log('itemList ',itemList)
+            itemType=itemType
+            console.log('itemType ',itemType)
+        })
+
+
+        
+        let f= await Promise.all(promises)
+        .then(result => {
+            console.log("result  ",result)
+            thumbi=result
+        })
         res.render('adminPage',{itemList,itemType})
-    })
+    }
+    findValues()
 })
 
 app.post('/addItem',(req,res)=>{
@@ -91,22 +120,10 @@ app.post('/deleteType',(req,res)=>{
 
 app.post('/saveThumbnails',(req,res)=>{
     console.log('save thumbnails',req.body)
-    const thumbId=req.body.ids
-    const tOut = (t) => { 
-        return new Promise((resolve, reject) => { 
-            resolve(get_specificItemList(t)) 
-        }) 
-    } 
-    const promises = []  // Empty array 
-    
-    thumbId.map((id) => { 
-        promises.push(tOut(id))  
-    }) 
-    Promise.all(promises)
-    .then(result => {
-        let k={id:"456",thumbnails:result}
-        save_thumbnails(k)
+    const thumbId=req.body.ids.map(id=>{
+        return id.substring(2)
     })
+    save_thumbnails(thumbId)
     .then(s=>{
         if(s)
             res.send("saved")

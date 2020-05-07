@@ -137,8 +137,11 @@ function removeThumbnailItem(id){
   let d_nested = document.getElementById(`${id}`);
   d.removeChild(d_nested);
 }
+
+
 let thumbIds=[]
 let total=0;
+
 function addThumbnail(id){
   let button=document.getElementById(id)
   if(thumbIds.includes(id)){

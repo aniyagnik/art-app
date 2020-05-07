@@ -252,6 +252,20 @@ input[type=text]:focus, input[type=password]:focus,input[type=number]:focus, tex
 }
 
 
+
+#allItemListAdd{
+    font-size: 1.5em;
+    height: 81vh;
+    width: 95%;
+    overflow-y: scroll;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+
 .item{
     min-width: 90%;
     margin:1vh auto; 

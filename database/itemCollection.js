@@ -154,15 +154,19 @@ const save_thumbnails=(obj)=>
     get_db()
     .then(db=>db.collection('itemThumbnailsCollection'))
     .catch(err=>console.log('error in accessing in collection list ',err))
-    .then(collection=>collection.insertOne(obj))
-    .then(ha=>{console.log('thumbnails added :',ha.ops[0]);return true})
-    .catch(err=>console.log('error in saving in collection itemThumbnailCollection ',err))
+    .then(collection=>collection.updateOne(
+        { _id:mongodb.ObjectID("5ea4321f93a9107730976362") },
+        { $push: { thumbnails: { $each: obj } } }
+     ))
+     .catch(err=>console.log('error in saving in collection itemThumbnailCollection ',err))
+    .then(ha=>{console.log('thumbnails added :',ha.opts);return true})
+    .catch(err=>console.log('error in shoeing details for collection itemThumbnailCollection ',err))
 
 const get_savedThumbnails=()=>
     get_db()
     .then(db=>db.collection('itemThumbnailsCollection'))
     .catch(err=>console.log('error in collection itemList'))
-    .then(collection=>collection.findOne({ id:"456"}))
+    .then(collection=>collection.findOne({ _id:mongodb.ObjectID("5ea4321f93a9107730976362") }))
     .catch(err=>console.log('error in finding item list documents'))
     .then(cursor=>{
         console.log('document recived get_savedThumbnails ',cursor)
