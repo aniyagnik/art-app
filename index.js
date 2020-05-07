@@ -7,7 +7,7 @@ const cookieSession=require('cookie-session')
 const passport=require('passport')
 const keys=require('./keys')
 
-const {insert_itemInList, get_allItemList, update_itemInList, delete_itemInList, get_specificItemList, get_itemInfo, insert_itemType, get_allItemType, delete_itemType}=require('./database/itemCollection')
+const {get_allItemList,get_specificItemList, get_itemInfo,get_savedThumbnails}=require('./database/itemCollection')
 
 var server = http.createServer(app);
 
@@ -41,7 +41,11 @@ app.get('/',(req,res)=>{
         userId=req.user._id
         console.log('user id is ',userId)
     }
-    res.render('index',{userId})
+    get_savedThumbnails()
+    .then(thumbnails=>{
+        res.render('index',{userId,thumbnails})
+    })
+    
 })
 
 app.get('/login',(req,res)=>{
@@ -51,80 +55,6 @@ app.get('/login',(req,res)=>{
         userId=req.user._id
     }
     res.render('login',{userId})
-})
-
-app.get('/admin',(req,res)=>{
-    console.log(' accessing admin page')
-    let itemList;
-    get_allItemList()
-    .then(docs=>{
-        itemList=docs
-        return get_allItemType()
-    })
-    .then(itemType=>{
-        console.log('itemList ',itemList)
-        console.log('itemType ',itemType)
-        res.render('adminPage',{itemList,itemType})
-    })
-})
-
-app.post('/admin/addItem',(req,res)=>{
-    console.log('adding item from admin page')
-    // let char = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    // let length = 32
-    // var result = '';
-    // for (var i = length; i > 0; --i){
-    //     result += chars[Math.round(Math.random() * (chars.length - 1))];
-    // }
-    // let item={...req.body,eventId:result }
-    insert_itemInList(req.body)
-    .then(s=>{
-        console.log('sc ',s)
-        res.redirect('/admin')
-    })
-    
-})
-
-
-app.post('/admin/updateItem',(req,res)=>{
-    console.log('updating item from admin page')
-    console.log(req.body)
-    update_itemInList(req.body)
-    .then(s=>{
-        console.log('sc ',s)
-        res.redirect('/admin')
-    })
-    
-})
-
-app.post('/admin/deleteItem',(req,res)=>{
-    console.log('deleting item from admin page')
-    delete_itemInList(req.body.id)
-    .then(s=>{
-        res.send('item is deleted')
-    })
-})
-
-
-app.post('/admin/addType',(req,res)=>{
-    console.log('add type',req.body)
-    insert_itemType(req.body.type)
-    .then(s=>{
-        res.send('item type added')
-    })
-    
-})
-
-
-app.post('/admin/deleteType',(req,res)=>{
-    console.log('delete type',req.body)
-    const {type}=req.body
-    delete_itemType()
-    .then(s=>{
-        if(s)
-            res.send(type+' type is deleted')
-        else res.send('failed to deleted type as item with type already exists')     
-    })
 })
 
 
@@ -173,6 +103,7 @@ app.get('/itemsList',(req,res)=>{
 
 app.use('/auth',require('./passport'))
 app.use('/user',require('./dashboard'))
+app.use('/admin',require('./adminIndex'))
 
 var port =  process.env.PORT ||8080;
 server.listen(port,()=>{console.log('listening at ',port)})

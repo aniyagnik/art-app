@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page | Art-app</title>
     <link rel="stylesheet" href="../adminStyle.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>   
+
 </head>
 <body>
 
@@ -51,6 +53,95 @@
         </form>
     </div>
   
+  
+        {{!-- thumbnail images --}}
+    <div id="thumb" class="modal" style='padding-top: 5px;'>
+        <span onclick="document.getElementById('thumb').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content" action="/admin/addItem" method="POST" onsubmit="return saveDate();">
+        <div class="container" >
+            <h1>thumbnail Images</h1>
+            <p>items to be showed in thumbnails</p>
+            <hr id='hr1'>
+            <div style="style='display: flex;justify-content: space-around;align-items: center;flex-direction:column'">
+                <table width='90%' border="1" id='thumbnailItems'>
+                    <tr>
+                        <th style="background-color: crimson;">name</th>
+                        <th style="background-color: rgb(6, 6, 161)">type</th>
+                        <th style="background-color: crimson">price</th>
+                        <th style="background-color: rgb(6, 6, 161);">status</th>
+                        <th style="background-color: crimson">delete</th>
+                    </tr>
+                    {{#if thumbnailList}}
+                    {{#each thumbnailList}}
+                    <tr align="center" id='{{@index}}'>
+                        <td>{{this.name}}</td>
+                        <td>{{this.type}}</td>
+                        <td>&#8377;{{this.price}}</td>
+                        <td>{{this.status}}</td>
+                        <td>
+                            <button  onclick="deleteThumbnail('{{this._id}}')" style="background-color: cyan;color:darkgoldenrod;padding:0.5vh 1vh">delete</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                    {{/if}}
+                </table>
+            <div style='padding:2vh'>
+                <button type="button" onclick="document.getElementById('thumb').style.display='none';document.getElementById('addThumbnails').style.display='block'" class="signupbtn" style="width: 50%;">add item</button>
+                <button type="button" onclick="document.getElementById('thumb').style.display='none'" style='background-color:lightblue;float:none' class="cancelbtn" >OK</button>
+            </div>
+            </div>
+            
+        </div>
+        </form>
+    </div>
+  
+
+ {{!-- add thumbnails --}}
+    <div id="addThumbnails" class="modal" style='padding-top: 5px;'>
+        <span onclick="document.getElementById('addThumbnails').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <div class="modal-content">
+        <div class="container">
+            <h1>Add Thumbnails</h1>
+            <p>Please fill in this form to add an item.</p>
+            <p id="selectedThumbnail">{{thumbnailsLength}}</p>
+            <hr id='hr1'>
+                    
+            <div id="content" style='width:auto'> 
+                <div class="flex-content" id="viewItems" style='height:auto'>
+                    <div id="allItemList" class='flex-view'  style='height:auto'>
+                        <div class="item" style='margin-bottom:3vh'>
+                            <div class="item-name flex-item" style='min-width: 40%;max-width: 40%;background-color: lightskyblue;border-left: 15px solid gold;'>item</div>
+                            <div class="item-type flex-item" style='min-width: 15%;max-width: 15%;background-color: lightgreen;'>type</div>
+                            <div class="item-price flex-item" style='min-width: 20%;max-width: 20%;background-color:lightskyblue;'>price</div>
+                            <div class="item-delete flex-item" style='min-width: 20%;max-width: 20%;background-color: lightgreen;border-right: 15px solid gold;'>add</div>
+                        </div>
+                        {{#if itemList}}
+                            {{#each itemList}}
+                            <div  style="width: 90%;">
+                                <div class="item">
+                                    <div class="item-name flex-item" style='min-width: 40%;max-width: 40%;'>{{this.name}}</div>
+                                    <div class="item-type flex-item" style='min-width: 15%;max-width: 15%;'>{{this.type}}</div>
+                                    <div class="item-price flex-item" style='min-width: 20%;max-width: 20%;'>&#8377;{{this.price}}</div>
+                                    <div class="item-delete flex-item"  style='min-width: 20%;max-width: 20%;padding: 0px;'>
+                                        <button  onclick="addThumbnail('{{this._id}}')" class='delBtn' id={{this._id}}>select</button>
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                            {{/each}}
+                        {{/if}}        
+                    </div>
+                </div>        
+            </div>            
+
+            <div class="clearfix">
+            <button type="button" onclick="document.getElementById('add').style.display='none'" class="cancelbtn">Cancel</button>
+            <button type="button" class="signupbtn" onclick="saveThumbnails()" style="width: 50%;">save thumbnails</button>
+            </div>
+        </div>
+        </div>
+    </div>
+  
 
   
     {{!-- add types --}}
@@ -78,53 +169,7 @@
             </div>
         </div>
     </div>
-  
-  
-        {{!-- thumbnail images --}}
-    <div id="thumb" class="modal" style='padding-top: 5px;'>
-        <span onclick="document.getElementById('thumb').style.display='none'" class="close" title="Close Modal">&times;</span>
-        <form class="modal-content" action="/admin/addItem" method="POST" onsubmit="return saveDate();">
-        <div class="container" >
-            <h1>thumbnail Images</h1>
-            <p>items to be showed in thumbnails</p>
-            <hr id='hr1'>
-            <div style="style='display: flex;justify-content: space-around;align-items: center;flex-direction:column'">
-                <table width='90%' border="1" id='thumbnailItems'>
-                    <tr>
-                        <th style="background-color: crimson;">name</th>
-                        <th style="background-color: rgb(6, 6, 161)">type</th>
-                        <th style="background-color: crimson">price</th>
-                        <th style="background-color: rgb(6, 6, 161);">status</th>
-                        <th style="background-color: crimson">delete</th>
-                    </tr>
-                    {{#if itemList}}
-                    {{#each itemList}}
-                    {{#if this.thumbnail}}
-                    <tr align="center" id='{{@index}}'>
-                        <td>{{this.name}}</td>
-                        <td>{{this.type}}</td>
-                        <td>&#8377;{{this.price}}</td>
-                        <td>{{this.status}}</td>
-                        <td>
-                            <button  onclick="deleteThumbnail('{{this._id}}')" style="background-color: cyan;color:darkgoldenrod;padding:0.5vh 1vh">delete</button>
-                        </td>
-                    </tr>
-                    {{/if}}
-                    {{/each}}
-                    {{/if}}
-                </table>
-            <div style='padding:2vh'>
-                <button type="submit" class="signupbtn" style="width: 50%;">add item</button>
-                <button type="button" onclick="document.getElementById('thumb').style.display='none'" style='background-color:lightblue;float:none' class="cancelbtn" >OK</button>
-            </div>
-            </div>
-            
-        </div>
-        </form>
-    </div>
-  
-
-  
+    
     <!-- The Modal -->
     <div id="myModal" class="modal">
         <!-- Modal content -->

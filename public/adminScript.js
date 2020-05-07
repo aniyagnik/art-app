@@ -134,3 +134,44 @@ function removeThumbnailItem(id){
   let d_nested = document.getElementById(`${id}`);
   d.removeChild(d_nested);
 }
+let thumbIds=[]
+let total=0;
+function addThumbnail(id){
+  let button=document.getElementById(id)
+  if(thumbIds.includes(id)){
+    //item exist already
+    console.log('item exist already')
+    total--;
+    let temp=[]
+    thumbIds.forEach(ele=>{
+      if(ele!==id){
+        temp.push(ele)
+      }
+    })
+    thumbIds=temp;
+    button.innerHTML='select'
+    button.style.backgroundColor="darkred";
+    button.style.color='lightseagreen';
+  }
+  else{
+    //item doesn't exist 
+    console.log('item doesn"t exist')
+    total++;
+    thumbIds.push(id)
+    button.innerHTML='deselect'
+    button.style.backgroundColor="lightseagreen";
+    button.style.color='darkred';
+  }
+  console.log(total)
+  document.getElementById("selectedThumbnail").innerHTML=(total)
+}
+
+function saveThumbnails(){
+  console.log("saving thumbnails")
+  axios.post('/admin/saveThumbnails',{ ids:thumbIds })
+  .then(response=>{
+    console.log(`save thumbnails`);
+    alert("saved to server")
+  })
+  .catch(error => console.error(error));
+}

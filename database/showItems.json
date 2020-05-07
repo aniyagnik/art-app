@@ -5,6 +5,7 @@
         "price": "$23",
         "type": "type1",
         "typeNo":"1",
+        "date":"23/12/2012",
         "summary": "sdv sdv gds dsf sdf sfd",
         "status": "sold out"
     },
@@ -14,6 +15,7 @@
         "price": "$23",
         "type": "type1",
         "typeNo":"1",
+        "date":"23/12/2012",
         "summary": "fds dsfdsdsf sdf sfd",
         "status": "available"
     },
@@ -23,6 +25,7 @@
         "price": "$23",
         "type": "type2",
         "typeNo":"2",
+        "date":"23/12/2012",
         "summary": "dsf sdf ssdffd",
         "status": "sold out"
     },
@@ -32,6 +35,7 @@
         "price": "$23",
         "type": "type3",
         "typeNo":"3",
+        "date":"23/12/2012",
         "summary": "qweweq dsf sdf sfd",
         "status": "available"
     },
@@ -41,6 +45,7 @@
         "price": "$23",
         "type": "type4",
         "typeNo":"4",
+        "date":"23/12/2012",
         "summary": "qew  dsf sdf sfd",
         "status": "available"
     },
@@ -50,6 +55,7 @@
         "price": "$23",
         "type": "type2",
         "typeNo":"2",
+        "date":"23/12/2012",
         "summary": "qwe ewqe dsf sdf sfd",
         "status": "available"
     },
@@ -59,6 +65,7 @@
         "price": "$23",
         "type": "type1",
         "typeNo":"1",
+        "date":"23/12/2012",
         "summary": "qwe ewqe dsf sdf sfd",
         "status": "sold out"
     },
@@ -68,6 +75,7 @@
         "price": "$23",
         "type": "type4",
         "typeNo":"4",
+        "date":"23/12/2012",
         "summary": "qwe ewqe dsf sdf sfd",
         "status": "available"
     },
@@ -77,6 +85,7 @@
         "price": "$23",
         "type": "type3",
         "typeNo":"3",
+        "date":"23/12/2012",
         "summary": "qwe ewqe dsf sdf sfd",
         "status": "sold out"
     },
@@ -86,6 +95,7 @@
         "price": "$23",
         "type": "type4",
         "typeNo":"4",
+        "date":"23/12/2012",
         "summary": "qwe ewqe dsf sdf sfd",
         "status": "sold out"
     },
@@ -95,6 +105,7 @@
         "price": "$23",
         "type": "type1",
         "typeNo":"1",
+        "date":"23/12/2012",
         "summary": "qwe ewqe dsf sdf sfd",
         "status": "sold out"
     },
@@ -104,6 +115,7 @@
         "price": "$23",
         "type": "type2",
         "typeNo":"2",
+        "date":"23/12/2012",
         "summary": "qwe ewqe dsf sdf sfd",
         "status": "sold out"
     }
