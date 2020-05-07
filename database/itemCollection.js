@@ -128,11 +128,12 @@ async function delete_itemType (type){
             .then(collection=>collection.findOne({ type:type}))
             .catch(err=>console.log('error in finding item list documents'))
             .then(cursor=>{
+                console.log("finding type existence ",cursor)
                 if(cursor==null){
-                    return false
+                    return true
                 }
                 else{
-                    return true
+                    return false
                 }
             })
             .catch(err=>console.log('error in fetching '))
@@ -140,10 +141,10 @@ async function delete_itemType (type){
         let k = await get_db()
         .then(db=>db.collection('itemTypeCollection'))
         .catch(err=>console.log('error in accessing in collection list ',err))
-        .then(collection=>collection.deleteOne({type:type }))
+        .then(collection=>collection.deleteOne({type:type}))
         .then(ha=>{console.log('doc deleted :',ha.result);return true})
         .catch(err=>console.log('error in deleting in collection itemList ',err))
-
+        return k
     }
     else{return false}
 }

@@ -109,11 +109,14 @@ function addNewType(){
       var tableChild = children[i];
       tableChild=tableChild.children[0]
       if (tableChild.checked){
-        document.getElementById(tableChild.value).remove()
-        x.options.remove(i);  
         axios.post('/admin/deleteType',{ type:tableChild.value })
         .then(response=>{
-          console.log(`type deleted : `, response.data);
+          if(response.status==200){
+            console.log(tableChild.value+' type is deleted');    
+            document.getElementById(tableChild.value).remove()
+            x.options.remove(i);  
+          }
+          else{ console.log('failed to deleted type as item with type already exists')}
         })
         .catch(error => console.error(error));
        }

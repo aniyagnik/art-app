@@ -39,7 +39,7 @@ app.post('/addItem',(req,res)=>{
     insert_itemInList(req.body)
     .then(s=>{
         console.log('sc ',s)
-        res.redirect('/')
+        res.redirect('/admin')
     })
     
 })
@@ -78,11 +78,12 @@ app.post('/addType',(req,res)=>{
 app.post('/deleteType',(req,res)=>{
     console.log('delete type',req.body)
     const {type}=req.body
-    delete_itemType()
+    delete_itemType(type)
     .then(s=>{
+        console.log("dfgh ",s)
         if(s)
-            res.send(type+' type is deleted')
-        else res.send('failed to deleted type as item with type already exists')     
+            res.sendStatus(200)
+        else res.sendStatus(201)
     })
 })
 
