@@ -32,7 +32,6 @@ setInterval(()=>{
 },5000)
 
 function changeTestimonials(i){
-  console.log("value of i ",i)
   $.getJSON( "../../database/testimonials.json", function( data ) {
     $('#testiPic').attr('src',data[i].image)
     $('#testiText').text(data[i].testimonials)

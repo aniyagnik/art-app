@@ -194,27 +194,27 @@
             <p>Please update the required fields.</p>
             <hr id='hr1'>
             <label for="name"><b>item-name</b></label>
-            <input type="text" value='' placeholder="enter item name..." name="Uname" required>
+            <input type="text" value='' placeholder="enter item name..." id="Uname" required>
             
             <label for="summary"><b>discription</b></label>
-            <textarea value='' placeholder="Enter discription..." name="Usummary" required></textarea>
-                <input type="hidden" name='Uid' value=''>
+            <textarea value='' placeholder="Enter discription..." id="Usummary" required></textarea>
+                <input type="hidden" id='Uid' value=''>
             <label for="type"><b>type</b></label><br>
-            <select id="typesOpt" value='' name="Utype" required>
+            <select id="typesOpt" value='' id="Utype" required>
                 {{#each itemType}}
                     <option value="{{this.type}}">{{this.type}}</option>
                 {{/each}}
             </select>
             
             <label for="price"><b>price(in INR)</b></label>
-            <input type="number" value='' placeholder="enter price..." name="Uprice" required>
+            <input type="number" value='' placeholder="enter price..." id="Uprice" required>
             
             <label for="name"><b>select images</b></label>
             <input type="file" id="myFile" name="Uimage" multiple><br><br>
 
             <label><b>status</b>
-            <input type="radio" onclick="check()" value='available' name="Uavailable" style="margin-bottom:15px">available
-            <input type="radio" name="Usoldout"  onclick="uncheck()" value='soldout' style="margin-bottom:15px">sold out
+            <input type="radio" onclick="check()" value='available' id="Uavailable" style="margin-bottom:15px">available
+            <input type="radio" id="Usoldout"  onclick="uncheck()" value='soldout' style="margin-bottom:15px">sold out
             </label>
     
             <div class="clearfix">
@@ -251,19 +251,19 @@
                 </div>
                 {{#if itemList}}
                     {{#each itemList}}
-                    <div id='{{this._id}}' style="width: 90%;">
-                        <div class="item">
+                    <div style="width: 90%;">
+                        <div class="item" id='{{this._id}}'>
                             <div class="item-thumb flex-item">
                                 <input type="checkbox" name="thumbnail" id="{{@index}}">
                             </div>
-                            <div class="item-name flex-item">{{this.name}}</div>
-                            <div class="item-type flex-item">{{this.type}}</div>
-                            <div style="display: none;">{{this.summary}}</div>
-                            <div class="item-date flex-item">{{this.date}}</div>
-                            <div class="item-price flex-item">&#8377;{{this.price}}</div>
-                            <div style="display: none;">{{this.price}}</div>
-                            <div style="display: none;">{{this.image}}</div>
-                            <div style="display: none;">{{this.status}}</div>
+                            <div class="item-name flex-item" id='name{{this._id}}'>{{this.name}}</div>
+                            <div class="item-type flex-item" id='type{{this._id}}'>{{this.type}}</div>
+                            <div style="display: none;" id='summary{{this._id}}'>{{this.summary}}</div>
+                            <div class="item-date flex-item" id='date{{this._id}}'>{{this.date}}</div>
+                            <div class="item-price flex-item" >&#8377;{{this.price}}</div>
+                            <div style="display: none;" id='price{{this._id}}'>{{this.price}}</div>
+                            <div style="display: none;" id='image{{this._id}}'>{{this.image}}</div>
+                            <div style="display: none;" id='status{{this._id}}'>{{this.status}}</div>
                             <div class="item-edit flex-item" style='padding: 0px;'>
                                 <button onclick="editItem('{{this._id}}')" class='editBtn'>edit</button>
                             </div>

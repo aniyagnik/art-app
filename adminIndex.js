@@ -38,9 +38,9 @@ app.get('/',(req,res)=>{
             itemList=docs
             return get_allItemType()
         })
-        .then(itemType=>{
+        .then(type=>{
             console.log('itemList ',itemList)
-            itemType=itemType
+            itemType=type
             console.log('itemType ',itemType)
         })
 

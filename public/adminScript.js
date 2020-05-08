@@ -37,20 +37,22 @@ function saveDate(){
 
 
 function editItem(id){
-  let edit = document.getElementById(id)
-  let divList=edit.children[0].children
-  document.getElementsByName('Uname')[0].value=divList[0].innerHTML
-  document.getElementsByName('Utype')[0].value=divList[1].innerHTML
-  document.getElementsByName('Usummary')[0].value=divList[2].innerHTML
-  document.getElementsByName('Uid')[0].value=id
-  document.getElementsByName('Uprice')[0].value=divList[5].innerHTML
-  if(divList[7].innerHTML==='available'){
-    document.getElementsByName('Uavailable')[0].checked=true
-    document.getElementsByName('Usoldout')[0].checked=false
+  let edit = $(`#${id}`)
+  let divList=edit[0].children
+  console.log("d ",divList)
+  console.log("s ",$(`#name${id}`).html())
+  $('#Uname').val($(`#name${id}`).html())
+  $('#Utype').val($(`#type${id}`).html())
+  $('#Usummary').val($(`#summary${id}`).html())
+  $('#Uid').val(id)
+  $('#Uprice').val($(`#price${id}`).html())
+  if($(`#status${id}`).html()==='available'){
+    $('#Uavailable').prop("checked",true)
+    $('#Usoldout').prop("checked",false)
   }
   else{
-    document.getElementsByName('Usoldout')[0].checked=true
-    document.getElementsByName('Uavailable')[0].checked=false
+    $('#Uavailable').prop("checked",false)
+    $('#Usoldout').prop("checked",true)
   }
   document.getElementById('update').style.display='block'
 }
@@ -62,7 +64,7 @@ function deleteItem(id){
   d.removeChild(d_nested);
   axios.post('/admin/deleteItem', itemId)
   .then(response=>{
-    console.log(`item removed`, response.data);
+    alert(response.data);
   })
   .catch(error => console.error(error));
 }
@@ -96,7 +98,7 @@ function addNewType(){
 
     axios.post('/admin/addType',{ type:newType.value })
     .then(response=>{
-      console.log(`type added : `, response.data);
+      alert(response.data);
     })
     .catch(error => console.error(error));
     newType.value=''
@@ -112,11 +114,11 @@ function addNewType(){
         axios.post('/admin/deleteType',{ type:tableChild.value })
         .then(response=>{
           if(response.status==200){
-            console.log(tableChild.value+' type is deleted');    
+            alert(tableChild.value+' type is deleted');    
             document.getElementById(tableChild.value).remove()
             x.options.remove(i);  
           }
-          else{ console.log('failed to deleted type as item with type already exists')}
+          else{ alert('failed to deleted type as item with type already exists')}
         })
         .catch(error => console.error(error));
        }
