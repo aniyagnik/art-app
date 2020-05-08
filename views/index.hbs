@@ -7,6 +7,7 @@
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="../indexStyle.css">
     <link rel="stylesheet" href="../navbar.css">
+    
 </head>
 <body>
 
@@ -121,7 +122,7 @@
                 <div class="flex-itemI itemImg">
                     <!-- current Image -->
                     <div id="currImg">
-                        <div id='mainImg'>
+                        <div id='mainImg' style="background-image: url('');">        
                             <div id="viewCurrItem">
                                 <input type="hidden" id='index'>
                                 View Current Item</div>
@@ -136,7 +137,17 @@
                         </div>
                     </div>
                     <!-- image thumbnails -->
-                    <div class="thumbnailImgs"></div>
+                    <div class="thumbnailImgs">
+                        {{#each thumbnails}}
+                        <div
+                         class="thumbnail" 
+                         style='background-image:url("{{this.image}}")' 
+                         id='thumb{{@index}}'
+                        >
+                          <input type='hidden' id='objId' value='{{this._id}}'>
+                        </div>
+                        {{/each}}
+                    </div>
                 </div>
             </div>
             
@@ -225,8 +236,7 @@
             </div>
         </div>
     </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
-<script src='../indexScript.js'></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
+    <script src='../indexScript.js'></script>
 </body>
 </html>

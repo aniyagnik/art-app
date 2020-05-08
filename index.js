@@ -41,11 +41,36 @@ app.get('/',(req,res)=>{
         userId=req.user._id
         console.log('user id is ',userId)
     }
-    get_savedThumbnails()
-    .then(thumbnails=>{
-        res.render('index',{userId,thumbnails})
-    })
+
+    let thumbnails=[]
+    const promises = []  // Empty array 
     
+
+    const tOut = (t) => { 
+        return new Promise((resolve, reject) => { 
+            resolve(get_itemInfo(t)) 
+        }) 
+    }
+
+    async function findValues(){
+        let k= await get_savedThumbnails()
+        .then(result=>{
+            thumbId=result.thumbnails
+            thumbId.map((id) => { 
+                promises.push(tOut(id))  
+            }) 
+            return true
+        })
+        
+        let f= await Promise.all(promises)
+        .then(result => {
+            console.log("result  ",result)
+            thumbnails=result
+        })
+        res.render('index',{userId,thumbnails})
+    }
+    findValues()
+
 })
 
 app.get('/login',(req,res)=>{
@@ -105,5 +130,5 @@ app.use('/auth',require('./passport'))
 app.use('/user',require('./dashboard'))
 app.use('/admin',require('./adminIndex'))
 
-var port =  process.env.PORT ||8080;
+var port =  process.env.PORT ||8000;
 server.listen(port,()=>{console.log('listening at ',port)})

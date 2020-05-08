@@ -15,7 +15,7 @@ app.set('views', path.join(__dirname, '/views'));
 app.get('/',(req,res)=>{
     console.log(' accessing admin page')
     let itemList,itemType,thumbId; 
-    const thumbi=[]
+    let thumbi=[]
     const promises = []  // Empty array 
     
 

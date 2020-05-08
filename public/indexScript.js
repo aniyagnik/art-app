@@ -9,8 +9,11 @@ fetch('https://picsum.photos/v2/list?page=2&limit=10')
         img.appendTo('#marqueeContiner');  
     })  
   });
+/*
+Handlebars.registerHelper('json', function(context) {
+  return JSON.stringify(context);
+});
 
-  
 $.getJSON( "../../database/showItems.json", function( data ) {
   $('#mainImg').css('background-image',`url(${data[0].image})`)
   data.forEach((obj,index)=>{
@@ -18,6 +21,7 @@ $.getJSON( "../../database/showItems.json", function( data ) {
     thumbnail.appendTo('.thumbnailImgs')
   })
 });
+*/
 
 let i=0;
 setInterval(()=>{
@@ -28,6 +32,7 @@ setInterval(()=>{
 },5000)
 
 function changeTestimonials(i){
+  console.log("value of i ",i)
   $.getJSON( "../../database/testimonials.json", function( data ) {
     $('#testiPic').attr('src',data[i].image)
     $('#testiText').text(data[i].testimonials)
