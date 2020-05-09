@@ -1,4 +1,3 @@
-
 let addressValue=document.getElementById('addressValue')
 let inputAddress=document.getElementById('inputAddress')
 let editAddress=document.getElementById('editAddress')
@@ -11,14 +10,6 @@ let savePhone=document.getElementById('savePhone')
 
 inputAddress.value=addressValue.innerHTML
 inputValue.value=phoneValue.innerHTML
-
-document.getElementById('cartList').addEventListener('click',(e)=>{
-    console.log('ds')
-    let eventId=e.target.id
-    if(eventId=='0' || eventId=='1' || eventId=='2'){
-
-    }
-})
 
 document.getElementById('deleteCart').addEventListener('click',(e)=>{
     document.getElementById('tableCart').innerHTML='<br><br>NO ITEM IN CART<br><br>'
@@ -47,6 +38,20 @@ saveAddress.addEventListener('click',(e)=>{
     editAddress.style.display='inline'
     saveAddress.style.display='none'
 })
+
+function deleteItemFromCart(itemId){
+    const userId=$('#userId').val()
+    console.log("sdf sdg s",userId)
+    const loader = $(`<i class="fa fa-spinner fa-spin" style="color:white"></i>`)
+    const itemElement=$(`#${itemId}`)
+    itemElement.html(loader)
+    axios.post('/user/deleteFromCart', { itemId:itemId, userId:userId })
+    .then(res=>{
+        itemElement.remove()
+        alert('removed from cart');
+    })
+    .catch(error => console.error(error));
+}
 
 
 editPhone.addEventListener('click',(e)=>{

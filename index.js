@@ -64,7 +64,6 @@ app.get('/',(req,res)=>{
         
         let f= await Promise.all(promises)
         .then(result => {
-            console.log("result  ",result)
             thumbnails=result
         })
         res.render('index',{userId,thumbnails})
@@ -113,7 +112,6 @@ app.get('/itemsList',(req,res)=>{
         get_allItemType()
         .then(itemType=>{
             types=itemType
-            console.log("item types : ",types)
             return get_allItemList()
         })
         .then(itemList=>{
@@ -122,7 +120,11 @@ app.get('/itemsList',(req,res)=>{
     }
     else{
         //get specific items
-        get_specificItemList(type)
+        get_allItemType()
+        .then(itemType=>{
+            types=itemType
+            return get_specificItemList(type)
+        })
         .then(doc=>{
             console.log('specific item list ' + type+' : ',doc)
             return doc
@@ -135,5 +137,5 @@ app.use('/auth',require('./passport'))
 app.use('/user',require('./dashboard'))
 app.use('/admin',require('./adminIndex'))
 
-var port =  process.env.PORT ||8000;
+var port =  process.env.PORT ||8080;
 server.listen(port,()=>{console.log('listening at ',port)})

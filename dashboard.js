@@ -2,8 +2,11 @@ const express = require('express')
 const app = express()
 const hbs=require('hbs')
 const path = require('path')
+
 const {add_itemToUserCart, delete_itemFromUserCart}=require('./database/userCartCollection')
 const {edit_userPhoneNo, edit_userAddress}=require('./database/userCollection')
+const {get_itemInfo}=require('./database/itemCollection')
+
 const checkAuth=(req,res,next)=>{
     if(!req.user){
         //user not logged in
@@ -24,7 +27,35 @@ app.set('views', path.join(__dirname, '/views'));
 
 app.get('/dashboard',checkAuth,(req,res)=>{
     console.log(' accessing dashboard page')
-    res.render('dashboard',{user: req.user})
+    console.log("re.user is  ",req.user)
+    
+    let cartItems=[]
+    const promises = []  // Empty array 
+    
+
+    const tOut = (t) => { 
+        return new Promise((resolve, reject) => { 
+            resolve(get_itemInfo(t)) 
+        }) 
+    }
+
+    async function findValues(){
+        let c = await req.user.cart.map((id) => { 
+                promises.push(tOut(id))  
+            }) 
+        
+        let f= await Promise.all(promises)
+        .then(result => {
+            cartItems=result
+            console.log("cart items : ",cartItems)
+        })
+        res.render('dashboard',{user: req.user,cartItems})
+    }
+    findValues()
+
+
+
+    
 })
 
 app.post('/dashboard/editUserPhoneNo',checkAuth,(req,res)=>{

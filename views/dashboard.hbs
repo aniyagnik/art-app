@@ -13,6 +13,7 @@
     <div id="navbar">
         <div class='flex-nav' id="home" onclick="window.location='/'">Back to home</div>
         <div id="userName" class='flex-nav'>hi! {{user.name}}</div>
+        <input type="hidden" id='userId' value="{{user._id}}">
         <div class='flex-nav' id="logout" onclick="window.location='/dashboard/logout'">☺</div>
     </div>
 
@@ -88,60 +89,50 @@
         </div>
         </div>
         <div id="id01" class="modal">    
-            <div class="modal-content animate" method="post">
+            <div class="modal-content animate" method="post" style="min-width:max-content;">
                 <div class="imgcontainer">
                     <!-- <img src="./public/pictures/sas.jpg" alt="Avatar" class="avatar"> -->
                     <div id="cartList">
                         <div
                           style='padding:1vh 2vw;font-weight: 600;text-align: center;font-size:2.5em;background-color: gold;'
                         >CART LIST</div>
-                        <table id='tableCart' width='100%'>
+                        {{#if cartItems}}
+                        <table id='tableCart' width='100%' border=1>
                             <tr>
                                 <th>item-name</th>
                                 <th>status</th>
                                 <th>price</th>
-                                <th>action</th>
+                                <th colspan="2">action</th>
                             </tr>
-                            <tr>
-                                <td>item-name</td>
-                                <td>available</td>
-                                <td>$34</td>
+                            {{#each cartItems}}
+                            <tr id="{{this._id}}">
+                                <td>{{this.name}}</td>
+                                <td>{{this.status}}</td>
+                                <td>{{this.price}}</td>
+                                <td>
+                                    <div 
+                                      class='cartBtn deleteItem'
+                                      style='margin:0px 2vw;font-weight: 600;font-size: 1em;' 
+                                      onclick="deleteItemFromCart('{{this._id}}')"  
+                                    >
+                                    delete
+                                    </div>
+                                </td>
                                 <td>
                                     <div 
                                       class='cartBtn deleteItem' id='0' 
                                       style='margin:0px 2vw;font-weight: 600;font-size: 1em;' 
+                                      onclick="window.location='/item?id={{this._id}}'"  
                                     >
-                                    delete
+                                    View
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>item-name</td>
-                                <td>available</td>
-                                <td>$34</td>
-                                <td>
-                                    <div 
-                                      class='cartBtn deleteItem' id='1' 
-                                      style='margin:0px 2vw;font-weight: 600;font-size: 1em'
-                                    >
-                                    delete
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>item-name</td>
-                                <td>available</td>
-                                <td>$34</td>
-                                <td>
-                                    <div 
-                                      class='cartBtn deleteItem' id='2' 
-                                      style='margin:0px 2vw;font-weight: 600;font-size: 1em;'
-                                    >
-                                    delete
-                                    </div>
-                                </td>
-                            </tr>
+                            {{/each}}
                         </table>
+                        {{else}}
+                        <br><br>NO ITEM IN CART<br><br>
+                        {{/if}}
                     </div>
                 </div>
             </div>
