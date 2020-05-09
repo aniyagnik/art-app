@@ -80,10 +80,9 @@
     <!-- varities -->
     <div id="varities">
         <div class="flex-itemV active" id='all'>all</div>
-        <div class="flex-itemV" id='type1'>type 1</div>
-        <div class="flex-itemV" id='type2'>type 2</div>
-        <div class="flex-itemV" id='type3'>type 3</div>
-        <div class="flex-itemV" id='type4'>type 4</div>
+        {{#each types}}
+        <div class="flex-itemV" id='type1'>{{this.type}}</div>
+        {{/each}}
     </div>
 
     <!-- item list -->

@@ -7,7 +7,7 @@ const cookieSession=require('cookie-session')
 const passport=require('passport')
 const keys=require('./keys')
 
-const {get_allItemList,get_specificItemList, get_itemInfo,get_savedThumbnails}=require('./database/itemCollection')
+const {get_allItemList,get_specificItemList, get_itemInfo,get_savedThumbnails, get_allItemType}=require('./database/itemCollection')
 
 var server = http.createServer(app);
 
@@ -103,16 +103,21 @@ app.get('/item',(req,res)=>{
 app.get('/itemsList',(req,res)=>{
     console.log('accessing item list ')
     const {type}=req.query
-    let userId=null
+    let userId=null,types
     if(req.user){
         userId=req.user._id
     }
     console.log('type is ',type)
     if(type=='all'){
         //get all items
-        get_allItemList()
+        get_allItemType()
+        .then(itemType=>{
+            types=itemType
+            console.log("item types : ",types)
+            return get_allItemList()
+        })
         .then(itemList=>{
-            res.render('itemsList',{itemList, userId})
+            res.render('itemsList',{itemList, types, userId})
         })
     }
     else{
