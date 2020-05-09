@@ -183,3 +183,42 @@ function saveThumbnails(){
   })
   .catch(error => console.error(error));
 }
+
+Array.prototype.remove = function() {
+  var what, a = arguments, L = a.length, ax;
+  while (L && this.length) {
+      what = a[--L];
+      while ((ax = this.indexOf(what)) !== -1) {
+          this.splice(ax, 1);
+      }
+  }
+  return this;
+};
+
+let selectedItems=[]
+function saveId(id){
+  if(selectedItems.includes(id)){
+    selectedItems.remove(id)
+  }
+  else{
+    selectedItems.push(id)
+  }
+}
+
+function deleteSelected(){
+  const loader = $(`<i class="fa fa-spinner fa-spin" style="color:white"></i>`)
+  selectedItems.map(ele=>{
+    $(`#${ele}`).html(loader)
+  })
+  axios.post('/admin/deleteSelected', {selectedItems:selectedItems})
+  .then(response=>{
+    alert("item Deleted....");
+    selectedItems.map(ele=>{
+      $(`#${ele}`).remove()
+    })
+    while(selectedItems.length>0){
+      selectedItems.pop()
+    }
+  })
+  .catch(error => console.error(error));
+}

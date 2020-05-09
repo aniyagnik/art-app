@@ -5,7 +5,7 @@ const path = require('path')
 
 const {add_itemToUserCart, delete_itemFromUserCart}=require('./database/userCartCollection')
 const {edit_userPhoneNo, edit_userAddress}=require('./database/userCollection')
-const {get_itemInfo}=require('./database/itemCollection')
+const {get_itemInfo,delete_itemInList}=require('./database/itemCollection')
 
 const checkAuth=(req,res,next)=>{
     if(!req.user){
@@ -82,6 +82,7 @@ app.get('/logout',checkAuth,(req,res)=>{
     req.logout()
     res.redirect('/')
 })
+
 
 
 app.post('/addToCart',checkAuth,(req,res)=>{

@@ -39,16 +39,13 @@ app.get('/',(req,res)=>{
             return get_allItemType()
         })
         .then(type=>{
-            console.log('itemList ',itemList)
             itemType=type
-            console.log('itemType ',itemType)
         })
 
 
         
         let f= await Promise.all(promises)
         .then(result => {
-            console.log("result  ",result)
             thumbi=result
         })
         res.render('adminPage',{itemList,itemType})
@@ -132,4 +129,28 @@ app.post('/saveThumbnails',(req,res)=>{
 })
 
 
+
+app.post('/deleteSelected',(req,res)=>{
+    console.log('delete select ',req.body)
+    let promises=[]
+    const tOut = (t) => { 
+        return new Promise((resolve, reject) => { 
+            resolve(delete_itemInList(t)) 
+        }) 
+    }
+
+    async function findValues(){
+        let c = await req.body.selectedItems.map((id) => { 
+            promises.push(tOut(id))  
+        }) 
+
+        let f= await Promise.all(promises)
+        .then(result => {
+            cartItems=result
+            console.log("result of deletion : ",result)
+        })
+        res.sendStatus(200)
+    }
+    findValues()
+})
 module.exports=app

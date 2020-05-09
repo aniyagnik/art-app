@@ -236,7 +236,7 @@
                 <div id="addItemBtn" onclick="document.getElementById('add').style.display='block'" style="width:auto;">add items</div>
                 <div id="addItemBtn" style='background-color:blue' onclick="document.getElementById('thumb').style.display='block'" style="width:auto;">thumbnail Images</div>
                 <div id="addItemBtn" onclick="document.getElementById('editTypes').style.display='block'" style="width:auto;">add item's types</div>
-                <div id="addItemBtn" style='background-color:blue' onclick="document.getElementById('thumb').style.display='block'" style="width:auto;">delete selected</div>
+                <div id="addItemBtn" style='background-color:blue' onclick="deleteSelected()" style="width:auto;">delete selected</div>
             </div>
             <div id="allItemList" class='flex-view'>
                 <div style="font-size: 2em;font-weight: 800;color: darkred;text-shadow: 3px 3px darkblue;padding:2vh;">ALL ITEMS ON WEBSITE</div>
@@ -251,10 +251,10 @@
                 </div>
                 {{#if itemList}}
                     {{#each itemList}}
-                    <div style="width: 90%;">
-                        <div class="item" id='{{this._id}}'>
+                    <div style="width: 90%;" id='{{this._id}}'>
+                        <div class="item">
                             <div class="item-thumb flex-item">
-                                <input type="checkbox" name="thumbnail" id="{{@index}}">
+                                <input type="checkbox" name="thumbnail" id="{{@index}}" onclick="saveId('{{this._id}}')">
                             </div>
                             <div class="item-name flex-item" id='name{{this._id}}'>{{this.name}}</div>
                             <div class="item-type flex-item" id='type{{this._id}}'>{{this.type}}</div>
