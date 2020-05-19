@@ -68,18 +68,11 @@ $(window).scroll(function(){
         }
 });
 
-$('.thumbnailImgs').click((e)=>{
-  let eventId=e.target.id
-  eventId=eventId.split('')
-  eventId.splice(0,5)
-  eventId=eventId.join('')
-  $.getJSON( "../../database/showItems.json", function( data ) {
-    let obj=data[eventId]
-    $('#summaryText').html(obj.summary)
-    $('#itemStatus').html(`<b>Status</b> : ${obj.status}`)
-    $('#mainImg').css('background-image',`url(${obj.image})`)   
-  });
-})
+function thumbanilSelect(image,status,summary){
+  $('#summaryText').html(summary)
+  $('#itemStatus').html(`<b>Status</b> : ${status}`)
+  $('#mainImg').css('background-image',`url(${image})`)   
+}
 
 $('#testiBullets').click((e)=>{
   let eventId=e.target.id

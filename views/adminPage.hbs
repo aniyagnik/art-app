@@ -71,8 +71,8 @@
                         <th style="background-color: rgb(6, 6, 161);">status</th>
                         <th style="background-color: crimson">delete</th>
                     </tr>
-                    {{#if thumbnailList}}
-                    {{#each thumbnailList}}
+                    {{#if thumbi}}
+                    {{#each thumbi}}
                     <tr align="center" id='{{@index}}'>
                         <td>{{this.name}}</td>
                         <td>{{this.type}}</td>
@@ -135,7 +135,7 @@
             </div>            
 
             <div class="clearfix">
-            <button type="button" onclick="document.getElementById('add').style.display='none'" class="cancelbtn">Cancel</button>
+            <button type="button" onclick="document.getElementById('addThumbnails').style.display='none'" class="cancelbtn">Cancel</button>
             <button type="button" class="signupbtn" onclick="saveThumbnails()" style="width: 50%;">save thumbnails</button>
             </div>
         </div>

@@ -143,6 +143,7 @@
                          class="thumbnail" 
                          style='background-image:url("{{this.image}}")' 
                          id='thumb{{@index}}'
+                         onclick="thumbanilSelect('{{this.image}}','{{this.status}}','{{this.summary}}')"
                         >
                           <input type='hidden' id='objId' value='{{this._id}}'>
                         </div>

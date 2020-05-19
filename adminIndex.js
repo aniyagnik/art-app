@@ -47,8 +47,9 @@ app.get('/',(req,res)=>{
         let f= await Promise.all(promises)
         .then(result => {
             thumbi=result
+            console.log("as : ",result )
         })
-        res.render('adminPage',{itemList,itemType})
+        res.render('adminPage',{itemList,itemType,thumbi})
     }
     findValues()
 })
