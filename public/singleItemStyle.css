@@ -93,12 +93,17 @@ body{
 #mainPicture{
     max-width: 100%;
     min-width: 100%;
-    min-height: 93vh;
-    background-position: center;
-    background-size: contain;
+    min-height: 83vh;
+    max-height: 83vh;
+    background-size: cover;
     background-repeat: no-repeat;
+    transform: scale(1);
+    transition: background-position 0.25s;
 }
 
+.jamf-mover.no-more-slidey {
+    transition: none;
+  }
 #content{
     max-width: 45vw;
     display: flex;
@@ -157,7 +162,7 @@ body{
     flex-direction:column;
     background-image: none;
     flex-wrap: wrap;
-    min-width: 15vw;
+    min-width: 10vw;
     max-width: 50%;
     border: 0;
     background-color: transparent;

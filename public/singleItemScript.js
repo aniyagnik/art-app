@@ -1,31 +1,40 @@
+const mainPicture = document.querySelector("#mainPicture");
+
 $('#pic0').hover(e=>{
         let image=$(`#pic0`).css('background-image')
-        $(`#mainPicture`).css('background-image',image)
+        mainPicture.css('background-image',image)
 })
 
 $('#pic1').hover(e=>{
     let image=$(`#pic1`).css('background-image')
-    $(`#mainPicture`).css('background-image',image)
+    mainPicture.css('background-image',image)
 })
 
-const mp = document.querySelector("#mainPicture");
-const content = document.querySelector("#content");
+const content = $('#content')
 
-mp.addEventListener("mousemove", (e) => {
+const container = document.querySelector(".imgBox");
+
+container.addEventListener("mousemove", function(e) {
     let image=$(`#mainPicture`).css('background-image')
-    $('#content').css('background-image',image)
-    let h=parseInt(e.offsetY),w=parseInt(e.offsetX)
-    setTimeout(()=>{
-        $('#hover').remove()
-    },10)
-    let thumbnail=$(`<div style='opacity:0.5;background-color:rgb(68, 0, 253);--x:${-e.offsetX}px;--y:${-e.offsetY}px;min-width:20px;min-height:20px;max-width:20px;max-height:20px;position:relative' id='hover'></div>`)
-    thumbnail.appendTo('#mainPicture')
-    const hover = document.querySelector("#hover");
-    console.log(e.offsetX," "+e.offsetY)
-    content.style.setProperty('--x', -e.offsetX + "px");
-    content.style.setProperty('--y', -e.offsetY + "px");
+    content.css({
+        'background-image':image,
+        'background-position-x':-e.offsetX * 1.8 + "px",
+        'background-position-y':-e.offsetY + 80 + "px"
+    })
 });
 
+container.addEventListener("mouseout",function(e){
+    console.log("sdfsd sd")
+    content.css({"background-color":"lightsteelblue","background-image":""});
+  });
+// container.addEventListener("mouseenter", function() {
+  
+//   setTimeout(function() {
+//     mover.classList.add("no-more-slidey");
+//     container.removeEventListener("mouseenter");
+//   }, 250);
+  
+// });
 
 $('#addToCart').click(e=>{
     e.preventDefault()
