@@ -18,11 +18,18 @@ container.addEventListener("mousemove", function(e) {
     let image=$(`#mainPicture`).css('background-image')
     content.css({
         'background-image':image,
-        'background-position-x':-e.offsetX * 1.8 + "px",
-        'background-position-y':-e.offsetY + 80 + "px"
+        'background-position-x':-e.offsetX + "px",
+        'background-position-y':-e.offsetY  + "px"
     })
 });
 
+container.addEventListener("mouseenter", function() {  
+    setTimeout(function() {
+      content.addClass("no-more-slidey");
+      container.removeEventListener("mouseenter");
+    }, 250);
+    
+  });
 container.addEventListener("mouseout",function(e){
     console.log("sdfsd sd")
     content.css({"background-color":"lightsteelblue","background-image":""});

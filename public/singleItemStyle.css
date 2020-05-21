@@ -123,8 +123,7 @@ body{
     font-size: 1.2em;
     font-weight:900;
     font-style: italic;
-    background-size: 90vw;
-    background-position: var(--x) var(--y);
+    background-size: 54vw;
 }
 
 #itemName{
