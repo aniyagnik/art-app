@@ -1,14 +1,204 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>single Item | ART-APP</title>
-    <link rel="stylesheet" href="../singleItemStyle.css">
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="designer" content="imgix">
+	<meta name="developer" content="imgix">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,maximum-scale=1">
+	<meta http-equiv="Accept-CH" content="DPR, Width, Viewport-Width">
+
+	<title>Drift Playground</title>
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="../navbar.css">
+    <link rel="stylesheet" media="screen, projection" href="../drift-basic.css">
+    
+	<style type="text/css">
+		body {
+			font-family: Helvetica Neue, Arial, sans;
+			background: #FAFAFA;
+            margin:0em;
+		}
+
+		.wrapper {
+			margin: 0 auto;
+			width: 95vw;
+		}
+
+        #picture{
+            display: flex;
+            justify-content: flex-start;
+            align-items: start;
+            flex-direction:row;
+            flex-wrap: wrap;
+        }
+
+        #imgThumbnail{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction:column;
+            flex-wrap: wrap;
+            max-width: 12%;
+            min-width: 12%;
+            max-height: 90%;
+            min-height: 90%;
+            margin-top: 3vh;
+            border: 1px soild black;
+        }
+
+        #pic0:hover{
+            box-shadow: 0px 0px 0px 1px whitesmoke;
+        }
+
+        #pic1:hover{
+            box-shadow: 0px 0px 0px 1px whitesmoke;
+        }
+
+        .thumbnail{
+            max-width: 85%;
+            min-width: 85%;
+            max-height: 10vh;
+            min-height: 10vh;
+            margin-bottom: 2vh;
+            border: 1px double black;
+            background-size: cover;
+        }
+
+
+
+		.drift-demo-trigger {
+			width: 30%;
+			float: left;
+		}
+
+		.detail {
+			position: relative;
+			margin-left: 5%;
+			float: left;
+		}
+
+		h1 {
+			color: #013C4A;
+			margin-top: 1em;
+			margin-bottom: 1em;
+		}
+
+		p {
+			max-width: 32em;
+			margin-bottom: 1em;
+			color: #23637f;
+			line-height: 1.6em;
+		}
+
+        #booking{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+            float: left;
+            margin-left: 3%;
+            border: none;
+            box-shadow: none;
+            background-image: none;
+            flex-wrap: wrap;
+            min-width: 10vw;
+            border: 0;
+            background-color: transparent;
+        }
+        
+        #itemContent{
+            padding: 1vh 2vw;
+            color: rgb(88, 2, 2);
+            font-family:arial-black;
+            text-align: justify;
+            font-size: 1.2em;
+            font-weight:900;
+            font-style: italic;
+        }
+		
+                
+        #addToCart{
+            margin: 2vh 0vw;
+            margin-left: 2vw;
+            padding:2vh 2vw;
+            font-weight: 900;
+            color: whitesmoke;
+            background-color: rgb(32, 178, 51);
+            cursor: pointer;
+        }
+
+        #addToCart:hover{
+            background-color: rgb(2, 104, 7);
+        }
+
+        #buyNow{
+            margin-left: 2vw;
+            padding:2vh 2vw;
+            font-weight: 900;
+            color: whitesmoke;
+            background-color: lightseagreen;
+            cursor: pointer;
+        }
+
+        #buyNow:hover{
+            background-color: darkcyan;
+        }
+
+
+        p:last-of-type {
+			margin-bottom: 2em;
+		}
+
+		a {
+			color: #00C0FA;
+		}
+
+		.ix-link {
+			display: block;
+			margin-bottom: 3em;
+		}
+
+		@media (max-width: 900px) {
+			.wrapper {
+				text-align: center;
+				width: auto;
+			}
+
+			.detail,
+			.drift-demo-trigger {
+				float: none;
+			}
+
+			.drift-demo-trigger {
+				max-width: 80%;
+				width: auto;
+				margin: 0 auto;
+			}
+
+			.detail {
+				margin: 0;
+				width: auto;
+			}
+
+			p {
+				margin: 0 auto 1em;
+			}
+
+			.responsive-hint {
+				display: none;
+			}
+
+			.drift-bounding-box {
+				display: none;
+			}
+		}
+	</style>
 </head>
+
 <body>
+    
     <input type="hidden" id='username' value="{{userId}}">
     
     <!-- navigation bar -->
@@ -89,39 +279,51 @@
 
     </div>
     <br><br><br><br>
-    <!-- item list -->
-    <div id="itemInfo">
-        <div class="flex-itemI" id='picture'>
+
+	<div class="wrapper">
+        <div id='picture'>
             <div id="imgThumbnail">
                 <div class="thumbnail" id='pic0' style='background-image:url("{{item.image}}")'></div>
                 <div class="thumbnail" id='pic1' style='background-image:url("{{item.image}}")'></div>
             </div>
-            <div class="imgBox">
-                <div id="mainPicture" style="background-image: url('{{item.image}}');"></div>
+            <img class="drift-demo-trigger" data-zoom="{{item.image}}" src="{{item.image}}">
+            
+
+            <div class="detail">
+                <section>
+                    <h1>{{item.name}}</h1>
+                    <p id="itemContent">
+                        M.R.P - {{item.price}} <br><br>
+                        {{item.summary}}
+                        type - {{item.type}}<br><br>
+                        status - {{item.status}} <br>
+                    </p>
+                </section>
             </div>
         </div>
-        <div class="flex-itemI" id='content'>
-            <div id="itemName">{{item.name}}</div>
-            <div id="itemContent">
-                M.R.P - {{item.price}} <br><br>
-                {{item.summary}}
-                type - {{item.type}}<br><br>
-                status - {{item.status}} <br>
-            </div>
-        </div>
-        <input type="hidden" value="{{item._id}}" id='itemId'>
-        <div class="flex-itemI" id="booking">
+
+        
+        <div class="" id="booking">
             {{#if status}}
                 <div id="addToCart">Delete From Cart</div>
             {{else}}
                 <div id="addToCart">Add To Cart</div>
             {{/if}}
-            
+            <input type="hidden" value="" id='itemId'>            
             <div id="buyNow">Buy Now</div>
         </div>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>     
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>   
-    <script src="../singleItemScript.js"></script>
+	</div>
+
+	<script src="../Drift.js"></script>
+	<script>
+		new Drift(document.querySelector('.drift-demo-trigger'), {
+			paneContainer: document.querySelector('.detail'),
+			inlinePane: 900,
+			inlineOffsetY: -85,
+			containInline: true,
+			hoverBoundingBox: true
+		});
+	</script>
 </body>
+
 </html>
