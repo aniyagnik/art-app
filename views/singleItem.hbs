@@ -293,27 +293,30 @@
                 <section>
                     <h1>{{item.name}}</h1>
                     <p id="itemContent">
-                        M.R.P - {{item.price}} <br><br>
+                        M.R.P - &#8377;{{item.price}} <br><br>
                         {{item.summary}}
                         type - {{item.type}}<br><br>
                         status - {{item.status}} <br>
                     </p>
                 </section>
+                        
+                <div class="" id="booking">
+                    {{#if status}}
+                        <div id="addToCart">Delete From Cart</div>
+                    {{else}}
+                        <div id="addToCart">Add To Cart</div>
+                    {{/if}}
+                    <input type="hidden" value="" id='itemId'>            
+                    <div id="buyNow">Buy Now</div>
+                </div>
             </div>
         </div>
 
         
-        <div class="" id="booking">
-            {{#if status}}
-                <div id="addToCart">Delete From Cart</div>
-            {{else}}
-                <div id="addToCart">Add To Cart</div>
-            {{/if}}
-            <input type="hidden" value="" id='itemId'>            
-            <div id="buyNow">Buy Now</div>
-        </div>
 	</div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>     
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>   
+    <script src="../singleItemScript.js"></script>
 	<script src="../Drift.js"></script>
 	<script>
 		new Drift(document.querySelector('.drift-demo-trigger'), {

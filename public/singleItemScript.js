@@ -1,47 +1,14 @@
-const mainPicture = document.querySelector("#mainPicture");
+// const mainPicture = document.querySelector("#mainPicture");
 
-$('#pic0').hover(e=>{
-        let image=$(`#pic0`).css('background-image')
-        mainPicture.css('background-image',image)
-})
+// $('#pic0').hover(e=>{
+//         let image=$(`#pic0`).css('background-image')
+//         mainPicture.css('background-image',image)
+// })
 
-$('#pic1').hover(e=>{
-    let image=$(`#pic1`).css('background-image')
-    mainPicture.css('background-image',image)
-})
-
-const content = $('#content')
-
-const container = document.querySelector(".imgBox");
-
-container.addEventListener("mousemove", function(e) {
-    let image=$(`#mainPicture`).css('background-image')
-    content.css({
-        'background-image':image,
-        'background-position-x':-e.offsetX + "px",
-        'background-position-y':-e.offsetY  + "px"
-    })
-});
-
-container.addEventListener("mouseenter", function() {  
-    setTimeout(function() {
-      content.addClass("no-more-slidey");
-      container.removeEventListener("mouseenter");
-    }, 250);
-    
-  });
-container.addEventListener("mouseout",function(e){
-    console.log("sdfsd sd")
-    content.css({"background-color":"lightsteelblue","background-image":""});
-  });
-// container.addEventListener("mouseenter", function() {
-  
-//   setTimeout(function() {
-//     mover.classList.add("no-more-slidey");
-//     container.removeEventListener("mouseenter");
-//   }, 250);
-  
-// });
+// $('#pic1').hover(e=>{
+//     let image=$(`#pic1`).css('background-image')
+//     mainPicture.css('background-image',image)
+// })
 
 $('#addToCart').click(e=>{
     e.preventDefault()
