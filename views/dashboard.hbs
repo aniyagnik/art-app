@@ -36,11 +36,11 @@
                         </div>
                         <div class="flex-info">
                             <div class="prop">address</div>
-                            <div class="pval">H - 1 / 2 C KRISHNA NAGAR, DELHI</div>
+                            <div class="pval">{{user.address}}</div>
                         </div>
                         <div class="flex-info">
                             <div class="prop">mobile</div>
-                            <div class="pval">91+980982132</div>
+                            <div class="pval">{{user.phoneNo}}</div>
                         </div>
                     </div>
                     <div style='display:flex;flex-direction:column;align-items: center;justify-content: center;'>    
@@ -65,7 +65,7 @@
                     <tr>
                         <th class='head'>address</th>
                         <td class='value' id='cellAddress'>
-                            <span id="addressValue">H - 1 / 2 C KRISHNA NAGAR, DELHI</span>
+                            <span id="addressValue">{{user.address}}</span>
                             <input type="text" id='inputAddress' style='display:none'>
                             <button id="saveAddress" style='display:none'>save</button>
                             <i class="material-icons" style="color:black;cursor: pointer;" id='editAddress'>edit</i>
@@ -74,7 +74,7 @@
                     <tr>
                         <th class='head'>Mobile Number</th>
                         <td class='value' id='cellphone'>
-                            <span id="phoneValue">+91-8934237812</span>
+                            <span id="phoneValue">{{user.phoneNo}}</span>
                             <input type="text" id='inputPhone' style='display:none'>
                             <button id="savePhone" style='display:none'>save</button>
                             <i class="material-icons" style="color:black;cursor: pointer;" id='editPhone'>edit</i>
