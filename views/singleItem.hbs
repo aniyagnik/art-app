@@ -307,7 +307,13 @@
                         <div id="addToCart">Add To Cart</div>
                     {{/if}}
                     <input type="hidden" value="{{item._id}}" id='itemId'>            
-                    <div id="buyNow">Buy Now</div>
+                    <form action="/user/buyNow" method="post" submit='return checkBuyingItem()'>
+                        <input type="hidden" name="price" value={{item.price}}>
+                        <input type="hidden" name="summary" value={{item.summary}}>
+                        <input type="hidden" name="id" value={{item._id}}>
+                        <input type="hidden" name="userId" value={{userId}}>
+                        <input type='submit' id="buyNow" value='Buy Now'>
+                    </form>
                 </div>
             </div>
         </div>

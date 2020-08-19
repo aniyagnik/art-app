@@ -2,10 +2,19 @@ const express = require('express')
 const app = express()
 const hbs=require('hbs')
 const path = require('path')
+const paypal = require('paypal-rest-sdk');
+
 
 const {add_itemToUserCart, delete_itemFromUserCart}=require('./database/userCartCollection')
 const {edit_userPhoneNo, edit_userAddress}=require('./database/userCollection')
-const {get_itemInfo,delete_itemInList}=require('./database/itemCollection')
+const {get_itemInfo}=require('./database/itemCollection')
+
+paypal.configure({
+  'mode': 'sandbox', //sandbox or live
+  'client_id': 'AQZQB8xhuJwsAKnudvLa9DuhqIBP0axwA-W7dwBv6f0WILOPpuEExrVgaEp8p1uzfJy0EhohUKreP-pn',
+  'client_secret': 'EPsXFUjkiOZ1Zc3_bJw_S0M3Z8BXf1i_86COPvJ_-jYU_OZVIUggzO7BkqmVEwPfmtxgRYfW82KPDuQF'
+});
+
 
 const checkAuth=(req,res,next)=>{
     if(!req.user){
@@ -107,7 +116,75 @@ app.post('/deleteFromCart',checkAuth,(req,res)=>{
 
 app.post('/buyNow',checkAuth,(req,res)=>{
     console.log('buy items ',req.body)
-    res.send('item bought')
+    const create_payment_json = {
+        "intent": "sale",
+        "payer": {
+            "payment_method": "paypal"
+        },
+        "redirect_urls": {
+            "return_url": "http://localhost:3000/success",
+            "cancel_url": "http://localhost:3000/cancel"
+        },
+        "transactions": [{
+            "item_list": {
+                "items": [{
+                    "name": `${req.body.name}`,
+                    "sku": "001",
+                    "price": `${req.body.price}`,
+                    "currency": "INR",
+                    "quantity": 1
+                }]
+            },
+            "amount": {
+                "currency": "INR",
+                "total": `${req.body.price}`
+            },
+            "description": `${req.body.summary}`
+        }]
+        };
+        
+    paypal.payment.create(create_payment_json, function (error, payment) {
+        if (error) {
+            throw error;
+        } else {
+            for(let i = 0;i < payment.links.length;i++){
+                if(payment.links[i].rel === 'approval_url'){
+                res.redirect(payment.links[i].href);
+                }
+            }
+        }
+    });
 })
+
+
+app.get('/success', (req, res) => {
+    const payerId = req.query.PayerID;
+    const paymentId = req.query.paymentId;
+  
+    const execute_payment_json = {
+      "payer_id": payerId,
+      "transactions": [{
+          "amount": {
+              "currency": "INR",
+              "total": "100"
+          }
+      }]
+    };
+  
+    paypal.payment.execute(paymentId, execute_payment_json, function (error, payment) {
+      if (error) {
+          console.log(error.response);
+          throw error;
+      } else {
+          console.log(JSON.stringify(payment));
+          res.send('Success');
+      }
+    });
+});
+  
+
+app.get('/cancel', (req, res) => {
+    res.send('Cancelled')
+});
 
 module.exports=app
