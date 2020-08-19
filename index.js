@@ -38,6 +38,7 @@ app.get('/',(req,res)=>{
     console.log('accessing home page')
     let userId=null
     if(req.user){
+        console.log("user has logged in")
         userId=req.user._id
         console.log('user id is ',userId)
     }
@@ -76,6 +77,7 @@ app.get('/login',(req,res)=>{
     console.log(' accessing login page')
     let userId=null
     if(req.user){
+        console.log("user has logged in")
         userId=req.user._id
     }
     res.render('login',{userId})
@@ -88,12 +90,14 @@ app.get('/item',(req,res)=>{
     let userId=null,status=null
     if(req.user){
         userId=req.user._id
+        console.log("user has logged in",userId)
         status=req.user.cart.includes(id)
     }
     console.log('id of element ',id)
     //get all items
     get_itemInfo(id)
     .then(item=>{
+        //console.log('item recieved is ::=> ',item)
         res.render('singleItem',{item,userId,status})
     })
 })
@@ -104,6 +108,7 @@ app.get('/itemsList',(req,res)=>{
     const {type}=req.query
     let userId=null,types
     if(req.user){
+        console.log("user has logged in")
         userId=req.user._id
     }
     console.log('type is ',type)

@@ -52,8 +52,9 @@ $('#buyNow').click(e=>{
     const itemId=$('#itemId').val()
     let userId=$('#username').val()
     const buyBtn=$('#buyNow')
-    const value=buyBtn.text()
+    const value=$('#addToCart').text()
     console.log(value,userId)
+    console.log(itemId)
     const loader = $(`<i class="fa fa-spinner fa-spin" style="color:white"></i>`)
     if(userId.length>1 && userId && value=='Add To Cart'){
         //logged in to add
@@ -61,7 +62,6 @@ $('#buyNow').click(e=>{
         axios.post('/user/buyNow',{ itemId:itemId, userId:userId })
         .then(response=>{
           console.log('item bought');
-          buyBtn.html('Buy Now')
         })
         .catch(error => console.error(error));
     }

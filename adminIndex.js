@@ -78,7 +78,7 @@ app.post('/updateItem',(req,res)=>{
     update_itemInList(req.body)
     .then(s=>{
         console.log('sc ',s)
-        res.redirect('/')
+        res.redirect('/admin')
     })
     
 })
