@@ -19,7 +19,7 @@
   "homepage": "https://github.com/aniyagnik/art-app#readme",
   "dependencies": {
     "cookie-session": "^1.4.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "hbs": "^4.1.0",
     "http": "0.0.0",
     "mongodb": "^3.5.5",
